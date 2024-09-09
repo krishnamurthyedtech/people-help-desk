@@ -1,9 +1,22 @@
 import React, { useState } from 'react';
+import AxiosInstance from './AxiosInstance';
 // import logo from '../img/pc-logo.png'; // Adjust the path as necessary
 
 const Header = () => {
   const [showLoginForm, setShowLoginForm] = useState(false);
   const [showSignupForm, setShowSignupForm] = useState(false);
+  const [data, setData] = useState();
+
+ 
+
+  const [email, setEmail] = useState();
+
+  const [password, setPassword] = useState();
+
+  const loginObject = {
+    email: email,
+    password: password,
+   }
 
   const openLoginForm = () => setShowLoginForm(true);
   const closeLoginForm = () => setShowLoginForm(false);
@@ -11,9 +24,15 @@ const Header = () => {
   const openSignupForm = () => setShowSignupForm(true);
   const closeSignupForm = () => setShowSignupForm(false);
 
-  const login = () => {
-    // Add your login logic here
-    alert('Login logic goes here');
+  const login = async() => {
+    console.log("Data",loginObject);
+    try{
+      const response = await AxiosInstance.post('/login',loginObject);
+      return response.data; 
+    }catch(error){
+      throw error;
+    }
+  
   };
 
   const signup = () => {
@@ -56,9 +75,9 @@ const Header = () => {
           <h2>Login</h2>
           <form onSubmit={(e) => { e.preventDefault(); login(); }}>
             <label htmlFor="loginEmail">Email:</label>
-            <input type="email" id="loginEmail" name="loginEmail" required />
+            <input type="email" id="loginEmail" name="loginEmail" required value={email} onChange={(e) => setEmail(e.target.value)}/>
             <label htmlFor="loginPassword">Password:</label>
-            <input type="password" id="loginPassword" name="loginPassword" required />
+            <input type="password" id="loginPassword" name="loginPassword" required  value={password} onChange={(e) => setPassword(e.target.value)}/>
             <button type="submit">Login</button>
             <button type="button" onClick={closeLoginForm}>Close</button>
           </form>
