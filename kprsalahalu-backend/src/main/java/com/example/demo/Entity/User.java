@@ -31,9 +31,7 @@ public class User {
 	private String phoneno;
 	@Column(nullable = false)
 	private String password;
-	@OneToMany(mappedBy = "user")
-	@JsonManagedReference
-	private List<Inquiry> inquiry;
+	
 	
 	
 

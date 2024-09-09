@@ -56,10 +56,11 @@ public class InquiryDao {
 		}
 		return list;
 	}
-	public List<Inquiry> fetchInquiryByUserId(int id){
-		User user=userDao.fetchUser(id);
-		return user.getInquiry();
-	}
+
+	/*
+	 * public List<Inquiry> fetchInquiryByUserId(int id){ User
+	 * user=userDao.fetchUser(id); return user.getInquiry(); }
+	 */
 	public Inquiry deleteInquiry(int id)
 	{
 		Inquiry inquiry=fetchInquiry(id);

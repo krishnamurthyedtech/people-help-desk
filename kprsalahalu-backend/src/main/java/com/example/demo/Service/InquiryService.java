@@ -41,12 +41,14 @@ public class InquiryService {
 
 		return new ResponseStructure<List<Inquiry>>(HttpStatus.OK.value(),"Inquiries fetched Sucessfully",list,LocalDateTime.now());
 	}
-    public ResponseStructure<List<Inquiry>> fetchInquiryByUserId(int id)
-    {
-    	List<Inquiry> list=inquiryDao.fetchInquiryByUserId(id);
-    	list.sort((i1, i2) -> i1.getCreationTime().compareTo(i2.getCreationTime()));
-    	return new ResponseStructure<List<Inquiry>>(HttpStatus.OK.value(),"Inquiries by user fetched Sucessfully",list,LocalDateTime.now());
-    }
+
+	/*
+	 * public ResponseStructure<List<Inquiry>> fetchInquiryByUserId(int id) {
+	 * List<Inquiry> list=inquiryDao.fetchInquiryByUserId(id); list.sort((i1, i2) ->
+	 * i1.getCreationTime().compareTo(i2.getCreationTime())); return new
+	 * ResponseStructure<List<Inquiry>>(HttpStatus.OK.value()
+	 * ,"Inquiries by user fetched Sucessfully",list,LocalDateTime.now()); }
+	 */
     public ResponseStructure<Inquiry> deleteInquiry(int id)
     {
     	Inquiry inquiry=inquiryDao.deleteInquiry(id);

@@ -50,12 +50,15 @@ public class InquiryController {
 		ResponseStructure<List<Inquiry>> structure=inquiryService.fetchAllInquiries();
 		return new ResponseEntity<>(structure,HttpStatus.OK);
 	}
-	@GetMapping("/fetchByUser/{id}")
-	public ResponseEntity<ResponseStructure<List<Inquiry>>> fetchInquiryByUserId(@PathVariable("id") int id)
-	{
-		ResponseStructure<List<Inquiry>> structure=inquiryService.fetchInquiryByUserId(id);
-		return new ResponseEntity<ResponseStructure<List<Inquiry>>>(structure,HttpStatus.OK);
-	}
+
+	/*
+	 * @GetMapping("/fetchByUser/{id}") public
+	 * ResponseEntity<ResponseStructure<List<Inquiry>>>
+	 * fetchInquiryByUserId(@PathVariable("id") int id) {
+	 * ResponseStructure<List<Inquiry>>
+	 * structure=inquiryService.fetchInquiryByUserId(id); return new
+	 * ResponseEntity<ResponseStructure<List<Inquiry>>>(structure,HttpStatus.OK); }
+	 */
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<ResponseStructure<Inquiry>> deleteInquiry(@PathVariable("id") int id)
 	{
