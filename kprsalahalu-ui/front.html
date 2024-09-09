@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KPR Salahalu</title>
+    <link rel="stylesheet" href="front.css">
+    <link rel="icon" href="../img/pc-logo.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="contact-info">
+            <span>📱 +91-8123870076 📧 contactus@poincareconsultants.com</span>
+            <div class="login-signup">
+                <button onclick="showLoginForm()">Login</button>
+                <button onclick="showSignupForm()">Sign Up</button>
+                <span class="usa">USA</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="wrapper">
+        <div class="logo-title">
+            <img src="../img/pc-logo.png" alt="Logo" class="logo">
+            <h1>KPR Salahalu</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Law</a></li>
+                <li><a href="#">Finance</a></li>
+                <li><a href="#">Education</a></li>
+                <li><a href="#">Land</a></li>
+                <li><a href="#">Health</a></li>
+            </ul>
+        </nav>
+    </div>
+    <hr class="divider-color"></hr>
+    <main>
+        <section class="videos">
+            <iframe src="https://www.youtube.com/embed/As3qBChB9Oo?si=AUsS48_-LA0WCIfu" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/ft9G5yUM37o?si=hV2RBYPU_rwnYozj" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/T2PZSqXk55Q?si=sHn29ftUYp8ym1VS" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/T2PZSqXk55Q?si=sHn29ftUYp8ym1VS" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/T2PZSqXk55Q?si=sHn29ftUYp8ym1VS" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/T2PZSqXk55Q?si=sHn29ftUYp8ym1VS" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/T2PZSqXk55Q?si=sHn29ftUYp8ym1VS" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/T2PZSqXk55Q?si=sHn29ftUYp8ym1VS" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/sT2PZSqXk55Q?si=sHn29ftUYp8ym1VS" allowfullscreen></iframe>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-bottom">
+            <div class="grid-row clear-fix">
+                <div class="copyright">KPR Salahalu. 2019. All Rights Reserved</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Form -->
+    <div id="loginForm" class="form-container" style="display:none;">
+        <h2>Login</h2>
+        <form>
+            <label for="loginEmail">Email:</label>
+            <input type="email" id="loginEmail" name="loginEmail" required>
+            <label for="loginPassword">Password:</label>
+            <input type="password" id="loginPassword" name="loginPassword" required>
+            <button type="button" onclick="login()">Login</button>
+            <button type="button" onclick="closeLoginForm()">Close</button>
+        </form>
+    </div>
+
+    <!-- Signup Form -->
+    <div id="signupForm" class="form-container" style="display:none;">
+        <h2>Sign Up</h2>
+        <form>
+            <label for="signupName">Name:</label>
+            <input type="text" id="signupName" name="signupName" required>
+            <label for="signupEmail">Email:</label>
+            <input type="email" id="signupEmail" name="signupEmail" required>
+            <label for="signupPassword">Password:</label>
+            <input type="password" id="signupPassword" name="signupPassword" required>
+            <button type="button" onclick="signup()">Sign Up</button>
+            <button type="button" onclick="closeSignupForm()">Close</button>
+        </form>
+    </div>
+
+    <script src="front.js"></script>
+</body>
+</html>
