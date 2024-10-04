@@ -10,10 +10,13 @@ import org.springframework.stereotype.Service;
 import com.example.demo.Dao.InquiryDao;
 import com.example.demo.Entity.Inquiry;
 import com.example.demo.Entity.ResponseStructure;
+import com.example.demo.Repository.InquiryRepository;
 
 @Service
 public class InquiryService {
 	
+	@Autowired
+	private InquiryRepository inquiryRepository;
 	@Autowired
 	private InquiryDao inquiryDao;
 	
@@ -42,13 +45,15 @@ public class InquiryService {
 		return new ResponseStructure<List<Inquiry>>(HttpStatus.OK.value(),"Inquiries fetched Sucessfully",list,LocalDateTime.now());
 	}
 
-	/*
-	 * public ResponseStructure<List<Inquiry>> fetchInquiryByUserId(int id) {
-	 * List<Inquiry> list=inquiryDao.fetchInquiryByUserId(id); list.sort((i1, i2) ->
-	 * i1.getCreationTime().compareTo(i2.getCreationTime())); return new
-	 * ResponseStructure<List<Inquiry>>(HttpStatus.OK.value()
-	 * ,"Inquiries by user fetched Sucessfully",list,LocalDateTime.now()); }
-	 */
+	 public ResponseStructure<List<Inquiry>> fetchInquiriesByUserId(int userId) {
+	        List<Inquiry> inquiries = inquiryRepository.findByUserId(userId);
+	        ResponseStructure<List<Inquiry>> responseStructure = new ResponseStructure<>();
+	        responseStructure.setData(inquiries);
+	        responseStructure.setMessage("Inquiries fetched successfully");
+	        responseStructure.setStatusCode(HttpStatus.OK.value());
+	        return responseStructure;
+	    }
+	
     public ResponseStructure<Inquiry> deleteInquiry(int id)
     {
     	Inquiry inquiry=inquiryDao.deleteInquiry(id);

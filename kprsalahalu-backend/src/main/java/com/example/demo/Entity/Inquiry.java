@@ -4,7 +4,7 @@ package com.example.demo.Entity;
 
 import java.time.LocalDateTime;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -25,15 +25,14 @@ public class Inquiry {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@Column(nullable = false)
+	private String name;
+	@Column(nullable = false)
 	private String subject;
 	@Column(nullable = false)
 	private String description;
-	@Column(nullable = false)
-	private String name;
 	private String phoneno;
 	private LocalDateTime creationTime;
 	@ManyToOne
-	@JsonBackReference
 	private User user;
 	
 

@@ -51,14 +51,11 @@ public class InquiryController {
 		return new ResponseEntity<>(structure,HttpStatus.OK);
 	}
 
-	/*
-	 * @GetMapping("/fetchByUser/{id}") public
-	 * ResponseEntity<ResponseStructure<List<Inquiry>>>
-	 * fetchInquiryByUserId(@PathVariable("id") int id) {
-	 * ResponseStructure<List<Inquiry>>
-	 * structure=inquiryService.fetchInquiryByUserId(id); return new
-	 * ResponseEntity<ResponseStructure<List<Inquiry>>>(structure,HttpStatus.OK); }
-	 */
+	@GetMapping("/fetchByUser/{userId}")
+    public ResponseEntity<ResponseStructure<List<Inquiry>>> fetchInquiriesByUserId(@PathVariable("userId") int userId) {
+        ResponseStructure<List<Inquiry>> structure = inquiryService.fetchInquiriesByUserId(userId);
+        return new ResponseEntity<>(structure, HttpStatus.OK);
+    }
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<ResponseStructure<Inquiry>> deleteInquiry(@PathVariable("id") int id)
 	{

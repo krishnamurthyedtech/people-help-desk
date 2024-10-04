@@ -57,10 +57,16 @@ public class InquiryDao {
 		return list;
 	}
 
-	/*
-	 * public List<Inquiry> fetchInquiryByUserId(int id){ User
-	 * user=userDao.fetchUser(id); return user.getInquiry(); }
-	 */
+	
+	public List<Inquiry> fetchInquiryByUserId(int userId) {
+        User user = userDao.fetchUser(userId);
+        List<Inquiry> inquiries = inquiryRepository.findByUserId(userId);
+        if (inquiries.isEmpty()) {
+            throw new EntityNotFoundException("No inquiries found for user with id " + userId);
+        }
+        return inquiries;
+    }
+	 
 	public Inquiry deleteInquiry(int id)
 	{
 		Inquiry inquiry=fetchInquiry(id);
