@@ -19,7 +19,7 @@ import com.example.demo.Entity.ResponseStructure;
 import com.example.demo.Service.InquiryService;
 
 @RestController
-@RequestMapping("/inquiry")
+@RequestMapping("/api/inquiry")
 
 public class InquiryController {
 

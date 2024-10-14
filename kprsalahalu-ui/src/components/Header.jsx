@@ -65,6 +65,7 @@ const Header = ({ isAuthenticated, onLogin, onLogout }) => {
       alert(errorMessage);
     }
   };
+  
 
   return (
     <>

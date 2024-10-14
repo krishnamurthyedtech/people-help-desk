@@ -20,7 +20,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Inquiry {
+public class Inquiry
+{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -29,8 +30,12 @@ public class Inquiry {
 	@Column(nullable = false)
 	private String subject;
 	@Column(nullable = false)
+	private String  inquiryType;
+	@Column(nullable = false)
 	private String description;
-	private String phoneno;
+	private String phoneNo;
+
+	private String comment;
 	private LocalDateTime creationTime;
 	@ManyToOne
 	private User user;
