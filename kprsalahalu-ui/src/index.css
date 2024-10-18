@@ -9,7 +9,11 @@ body {
   min-height: 100vh;
 }
 
-.wrapper, header, footer, .videos, .logo-title {
+.wrapper,
+header,
+footer,
+.videos,
+.logo-title {
   padding-left: 120px;
   padding-right: 120px;
 }
@@ -176,7 +180,7 @@ footer .footer-bottom {
   padding: 30px;
   border-radius: 12px;
   border: 1px solid #ddd;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   max-width: 400px;
   width: 100%;
   box-sizing: border-box;
@@ -193,23 +197,29 @@ footer .footer-bottom {
   display: flex;
   flex-direction: column;
 }
+
 hr.divider-color {
   border: none;
-  height: 5px; /* Adjust height as needed */
+  height: 5px;
+  /* Adjust height as needed */
   position: relative;
-  background-color: transparent; /* Hide the default hr styling */
-  margin: 0px 0; /* Adjust margins as needed */
+  background-color: transparent;
+  /* Hide the default hr styling */
+  margin: 0px 0;
+  /* Adjust margins as needed */
 }
 
 hr.divider-color::before {
   content: "";
   display: block;
-  height: 3px; /* Match the height of the hr element */
+  height: 3px;
+  /* Match the height of the hr element */
   background-color: rgb(249, 203, 143);
   width: 45px;
   border-left: 45px solid rgb(242, 124, 102);
   border-right: 45px solid rgb(24, 187, 124);
-  margin: 0 auto; /* Center the pseudo-element */
+  margin: 0 auto;
+  /* Center the pseudo-element */
 }
 
 .form-container label {
@@ -218,13 +228,14 @@ hr.divider-color::before {
   color: #555;
 }
 
-.form-container input {
+.form-container input,
+.form-container select {
   margin-bottom: 16px;
   padding: 12px;
   border: 1px solid #ddd;
   border-radius: 8px;
   font-size: 16px;
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .form-container button {
@@ -238,70 +249,71 @@ hr.divider-color::before {
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .form-container button:hover {
   background-color: #45a049;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .form-container button:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(0,0,0,0.2);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
   .wrapper {
-      padding: 10px 20px;
-      flex-direction: column;
-      align-items: flex-start;
+    padding: 10px 20px;
+    flex-direction: column;
+    align-items: flex-start;
   }
-  
+
   .logo-title {
-      flex-direction: column;
-      align-items: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
   }
-  
+
   .logo {
-      height: 50px;
+    height: 50px;
   }
 
   h1 {
-      font-size: 24px;
-      line-height: 36px;
+    font-size: 24px;
+    line-height: 36px;
   }
-  
+
   nav {
-      display: none; /* Hide navigation on smaller screens */
+    display: none;
+    /* Hide navigation on smaller screens */
   }
-  
+
   .contact-info {
-      flex-direction: column;
-      align-items: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
   }
-  
+
   .login-signup {
-      margin-top: 10px;
+    margin-top: 10px;
   }
 }
 
 @media (max-width: 480px) {
   .wrapper {
-      padding: 5px 10px;
+    padding: 5px 10px;
   }
-  
+
   .logo {
-      height: 40px;
+    height: 40px;
   }
-  
+
   h1 {
-      font-size: 20px;
-      line-height: 30px;
+    font-size: 20px;
+    line-height: 30px;
   }
 
   .form-container {
-      padding: 20px;
+    padding: 20px;
   }
 }

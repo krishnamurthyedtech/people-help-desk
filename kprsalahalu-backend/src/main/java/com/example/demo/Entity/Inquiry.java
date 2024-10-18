@@ -3,15 +3,12 @@ package com.example.demo.Entity;
 
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -35,10 +32,17 @@ public class Inquiry
 	private String description;
 	private String phoneNo;
 
-	private String comment;
+	@OneToMany(mappedBy = "inquiry", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Comment> comments = new ArrayList<>();
+
+	//private String comment;
+	//@ElementCollections
+	//private List<String> comments = new ArrayList<>();
+
+	//private String comment;
 	private LocalDateTime creationTime;
 	@ManyToOne
 	private User user;
-	
+
 
 }

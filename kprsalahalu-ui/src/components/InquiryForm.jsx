@@ -5,7 +5,8 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 
 
-const InquiryForm = ({ onSubmit, subject, setSubject, inquiryType, setInquiryType, description, setDescription, createdBy, onClose }) => {
+const InquiryForm = ({ onSubmit, subject, setSubject, inquiryType, setInquiryType, description, setDescription, comment, setComment, createdBy, onClose }) => {
+  
   return (
     <div className="form-overlay">
       <div className="form-overlay-container">
@@ -13,10 +14,12 @@ const InquiryForm = ({ onSubmit, subject, setSubject, inquiryType, setInquiryTyp
         <form onSubmit={onSubmit} className="inquiry-form">
 
           <h2>Add New Inquiry</h2>
-          
 
-          <label>
-            Subject:
+
+          <div className="form-field">
+            <label>
+              Subject:
+            </label>
             <input
               type="text"
               name="subject"
@@ -24,9 +27,11 @@ const InquiryForm = ({ onSubmit, subject, setSubject, inquiryType, setInquiryTyp
               onChange={(e) => setSubject(e.target.value)}
               required
             />
-          </label>
-          <label>
-            Inquiry type:
+          </div>
+          <div className="form-field">
+            <label>
+              Inquiry type:
+            </label>
             <select
               name="inquiry type"
               value={inquiryType}
@@ -40,25 +45,41 @@ const InquiryForm = ({ onSubmit, subject, setSubject, inquiryType, setInquiryTyp
               <option value="LAND">Land</option>
               <option value="HEALTHCARE">Healthcare</option>
             </select>
-          </label>
-          <label>
-            Description:
+          </div>
+          <div className="form-field">
+            <label>
+              Description:
+            </label>
             <textarea
               name="description"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               required
             />
-          </label>
-          <label>
-            Created By:
+          </div>
+          <div className="form field">
+            <label>
+              Comment:
+            </label>
+            <input
+              type="text"
+              name="comment"
+              value={comment}
+              onChange={(e) => setComment(e.target.value)}
+              required
+              />
+         </div>
+          <div className="form-field">
+            <label>
+              Created By:
+            </label>
             <input
               type="text"
               name="createdBy"
               value={createdBy}
               readOnly
             />
-          </label>
+          </div>
           <button className="submit-button" type="submit">Submit</button>
         </form>
       </div>

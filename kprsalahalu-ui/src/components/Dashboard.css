@@ -252,7 +252,7 @@ body {
 }
 
 .add-inquiry-button {
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
 }
 
 .form-overlay {
@@ -261,52 +261,53 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5); 
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; 
+  z-index: 1000;
 }
 
 .form-overlay-container {
-  position: relative; 
+  position: relative;
   background: #ffffff;
   padding: 30px;
   border-radius: 12px;
   border: 1px solid #ddd;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-  max-width: 600px; 
+  max-width: 600px;
   width: 100%;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 
 .close-button {
   position: absolute;
   top: 10px;
   right: 10px;
-  
-  border: none; 
-  color: rgb(9, 9, 9); 
-  font-size: 1.2em; 
+
+  border: none;
+  color: rgb(9, 9, 9);
+  font-size: 1.2em;
   border-radius: 50px;
-  cursor: pointer; 
-  padding: 5px; 
-  margin: 0; 
-  width: 30px; 
-  height: 30px; 
-  display: flex; 
-  justify-content: center; 
-  align-items: center; 
-  transition: background-color 0.3s; 
+  cursor: pointer;
+  padding: 5px;
+  margin: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s;
 }
 
 .close-button:hover {
-  background-color: rgb(243, 38, 38); 
+  background-color: rgb(243, 38, 38);
 }
 
 .form-overlay-container h2 {
-  margin: 0 0 20px; 
+  margin: 0 0 20px;
   font-size: 24px;
   color: #333;
   text-align: center;
@@ -316,46 +317,53 @@ body {
 .form-overlay-container form {
   display: flex;
   flex-direction: column;
-  gap: 20px; 
+  gap: 20px;
 }
 
+
 .form-overlay-container label {
-  margin-bottom: 8px; 
+  margin-bottom: 8px;
   font-size: 16px;
   color: #555;
   font-weight: 500;
+  padding-top: 10px;
 }
 
+
 .form-overlay-container input,
+.form-overlay-container select,
 .form-overlay-container textarea {
   padding: 12px;
   border: 1px solid #ddd;
   border-radius: 8px;
   font-size: 16px;
-  font-family: inherit; 
-  color: #333; 
-  background-color: #fafafa; 
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); 
+  font-family: inherit;
+  color: #333;
+  background-color: #fafafa;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .form-overlay-container textarea {
   resize: vertical;
-  min-height: 25px; 
+  min-height: 25px;
 }
 
+
+
 .form-overlay-container input:focus,
+.form-overlay-container select:focus,
 .form-overlay-container textarea:focus {
-  border-color: #3498db; 
-  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2); 
-  outline: none; 
+  border-color: #3498db;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+  outline: none;
 }
 
 .submit-button {
   padding: 12px;
   border: none;
   border-radius: 8px;
-  background-color: #3498db; 
+  background-color: #3498db;
   color: white;
   font-size: 16px;
   font-weight: bold;
@@ -374,4 +382,10 @@ body {
 .form-overlay-container button:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+.form-field {
+  display: flex;
+  justify-content: center;
+  gap: 5%;
 }

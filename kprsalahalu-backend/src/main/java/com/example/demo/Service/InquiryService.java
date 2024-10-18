@@ -1,8 +1,11 @@
 package com.example.demo.Service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
+import com.example.demo.Dao.UserDao;
+import com.example.demo.Entity.Comment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -19,11 +22,23 @@ public class InquiryService {
 	private InquiryRepository inquiryRepository;
 	@Autowired
 	private InquiryDao inquiryDao;
+	@Autowired
+	private CommentService commentService;
+	@Autowired
+	private UserDao userDao;
 	
 	public ResponseStructure<Inquiry> saveInquiry(Inquiry inquiry,int userId)
 	{
 		inquiry.setCreationTime(LocalDateTime.now());
-		Inquiry inquiry2=inquiryDao.saveInquiry(inquiry, userId); 
+		List<Comment> comments = inquiry.getComments();
+		inquiry.setComments(new ArrayList<>());
+		Inquiry inquiry2=inquiryDao.saveInquiry(inquiry, userId);
+		for (Comment comment : comments) {
+			comment.setInquiry(inquiry2);
+			comment.setCreationTime(LocalDateTime.now());
+			comment.setUser(userDao.fetchUser(userId));
+			Comment savedComment = commentService.addComment( comment);
+		}
 		return new ResponseStructure<Inquiry>(HttpStatus.OK.value(),"Inquiry saved Sucessfully",inquiry2,LocalDateTime.now());
 	}
 	public ResponseStructure<Inquiry> updateInquiry(Inquiry inquiry, int id)
