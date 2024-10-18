@@ -85,8 +85,14 @@ const Dashboard = () => {
   const handleEditSubmit = async (data) => {
     console.log('--------------------------', data);
     try {
-
-      const response = await axios.put(`http://localhost:8080/api/inquiry/update/${data.id}`, data);
+      const comments = [
+        {
+          comment: data.comment
+        }
+      ]
+      const formData = {...data,comments}
+      console.log('Form Data', formData);
+      const response = await axios.put(`http://localhost:8080/api/inquiry/update/${data.id}`, formData);
       console.log('Updated Inquiry Data:', response.data);
       setShowForm(false);
     } catch (error) {

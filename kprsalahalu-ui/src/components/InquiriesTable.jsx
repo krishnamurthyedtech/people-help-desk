@@ -4,18 +4,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilePen, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 
-const InquiriesTable = ({ inquiries, onAddInquiryClick, handleEditSubmit, handleDelete }) => {
 
+const InquiriesTable = ({ inquiries, onAddInquiryClick, handleEditSubmit, handleDelete }) => {
   const [editingInquiry, setEditingInquiry] = useState(null);
   const [showEditForm, setShowEditForm] = useState(false);
   const [comment, setComment] = useState('');
-
+ 
   const handleEditClick = (inquiry) => {
     console.log("Inquiry,", inquiry);
     setEditingInquiry(inquiry);
     setComment('');
     setShowEditForm(true);
   };
+  
+  
 
   return (
     <div className="table-container">
@@ -46,7 +48,7 @@ const InquiriesTable = ({ inquiries, onAddInquiryClick, handleEditSubmit, handle
           </tr>
         </thead>
         <tbody>
-          {inquiries.length > 0 ? inquiries.map(inquiry => (
+          {inquiries?.length > 0 ? inquiries.map(inquiry => (
             <tr key={inquiry.id}>
               <td>{inquiry.subject}</td>
               <td>{inquiry.name}</td>
@@ -72,7 +74,7 @@ const InquiriesTable = ({ inquiries, onAddInquiryClick, handleEditSubmit, handle
               <td>{inquiry.inquiryType}</td>
               <td>
                 {/* Map through the comments and display them */}
-                {inquiry.comments && inquiry.comments.length > 0 ? (
+                {inquiry.comments && inquiry.comments?.length > 0 ? (
                   <ul>
                     {inquiry.comments.map((comment, index) => (
                       <li key={index}>{comment.comment}</li>
@@ -82,7 +84,6 @@ const InquiriesTable = ({ inquiries, onAddInquiryClick, handleEditSubmit, handle
                   <span>No comments</span>
                 )}
               </td>
-
             </tr>
           )) : (
             <tr><td colSpan="5">No inquiries found.</td></tr>
