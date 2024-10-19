@@ -7,7 +7,6 @@ const EditInquiryForm = ({ onSubmit, inquiry, onClose }) => {
   const { register, handleSubmit, setValue } = useForm({
     defaultValues: inquiry, // Pre-fill form with inquiry data
   });
-
   // Pre-fill form when component mounts (if inquiry data is available)
   React.useEffect(() => {
     if (inquiry) {
@@ -21,7 +20,6 @@ const EditInquiryForm = ({ onSubmit, inquiry, onClose }) => {
   const handleFormSubmit = (data) => {
     onSubmit({ ...data, id: inquiry.id }); // Keep id from the original inquiry
   };
-
   return (
     <div className="form-overlay">
       <div className="form-overlay-container">
@@ -52,21 +50,12 @@ const EditInquiryForm = ({ onSubmit, inquiry, onClose }) => {
               <option value="healthcare">Healthcare</option>
             </select>
           </label>
-
           <label>
             Description:
             <textarea
               {...register("description", { required: true })} // Editable description
             />
           </label>
-
-          <label>
-            Comment:
-            <textarea
-              {...register("comment")} // New comment field
-            />
-          </label>
-
           <button className="submit-button" type="submit">Update</button>
         </form>
       </div>

@@ -2,9 +2,6 @@ import React from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
-
-
-
 const InquiryForm = ({ onSubmit, subject, setSubject, inquiryType, setInquiryType, description, setDescription, comment, setComment, createdBy, onClose }) => {
   
   return (
@@ -14,7 +11,6 @@ const InquiryForm = ({ onSubmit, subject, setSubject, inquiryType, setInquiryTyp
         <form onSubmit={onSubmit} className="inquiry-form">
 
           <h2>Add New Inquiry</h2>
-
 
           <div className="form-field">
             <label>

@@ -3,22 +3,16 @@ import EditInquiryForm from './EditInquiryForm';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilePen, faTrash } from '@fortawesome/free-solid-svg-icons';
 
-
-
-const InquiriesTable = ({ inquiries, onAddInquiryClick, handleEditSubmit, handleDelete }) => {
+const InquiriesTable = ({ inquiries, onAddInquiryClick, comment, setComment, handleEditSubmit, handleDelete }) => {
   const [editingInquiry, setEditingInquiry] = useState(null);
   const [showEditForm, setShowEditForm] = useState(false);
-  const [comment, setComment] = useState('');
- 
   const handleEditClick = (inquiry) => {
     console.log("Inquiry,", inquiry);
+    console.log("comment,", comment);
     setEditingInquiry(inquiry);
     setComment('');
     setShowEditForm(true);
   };
-  
-  
-
   return (
     <div className="table-container">
       <button className="add-inquiry-button" onClick={onAddInquiryClick}>
@@ -38,7 +32,6 @@ const InquiriesTable = ({ inquiries, onAddInquiryClick, handleEditSubmit, handle
         <thead>
           <tr>
             <th>Subject</th>
-
             <th>Created By</th>
             <th>Description</th>
             <th>Created At</th>
@@ -53,7 +46,6 @@ const InquiriesTable = ({ inquiries, onAddInquiryClick, handleEditSubmit, handle
               <td>{inquiry.subject}</td>
               <td>{inquiry.name}</td>
               <td>{inquiry.description}</td>
-
               <td>{new Date(inquiry.creationTime).toLocaleDateString()}</td>
               <td>
                 <span
@@ -83,6 +75,22 @@ const InquiriesTable = ({ inquiries, onAddInquiryClick, handleEditSubmit, handle
                 ) : (
                   <span>No comments</span>
                 )}
+                 <div>
+                  <input
+                    type="text"
+                    placeholder="Add new comment"
+                    value={comment[inquiry.id] || ""}
+                    onChange={(e) =>
+                      setComment((prev) => ({
+                        ...prev,
+                        [inquiry.id]: e.target.value,
+                      }))
+                    }
+                  />
+                  <button onClick={() => handleEditSubmit(inquiry)}>
+                    Add More
+                  </button>
+                </div> 
               </td>
             </tr>
           )) : (
