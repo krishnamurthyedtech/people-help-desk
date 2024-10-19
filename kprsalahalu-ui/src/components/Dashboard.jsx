@@ -14,6 +14,8 @@ const Dashboard = () => {
   const [subject, setSubject] = useState('');
   const [inquiryType, setInquiryType] = useState('');
   const [description, setDescription] = useState('');
+  const [comment, setComment] = useState([]);
+  // const [newComment, setNewComment] = useState('');
   const userDetails = JSON.parse(sessionStorage.getItem("userDetails")) || {};
 
   useEffect(() => {
@@ -30,6 +32,13 @@ const Dashboard = () => {
       console.error('Error fetching inquiries:', error);
     }
   };
+  // const handleAddComment = () => {
+  //   if (newComment.trim() !== '') {
+  //     setComments([...comments, newComment]);  // Add comment to comments array
+  //     setNewComment('');  // Clear the input field
+  //   }
+  // };
+
 
   const handleClick = (viewType) => setView(viewType);
 
@@ -43,23 +52,30 @@ const Dashboard = () => {
 
   const handleSubmit = async () => {
     console.log("Submit function triggered");
-    
-  
+
+
     if (!userDetails.id) {
       alert('User ID is not available.');
       return;
     }
     try {
-      const formData = { subject, inquiryType, description, name: userDetails.name };
+      const comments = [
+        {
+          comment: comment
+        }
+      ]
+      const formData = { subject, inquiryType, description, comments, name: userDetails.name };
+      console.log('Form Data', formData);
       const response = await axios.post(`http://localhost:8080/api/inquiry/save/${userDetails.id}`, formData);
       if (response.data && response.data.data) {
 
-      setInquiries(prevInquiries => [...prevInquiries, response.data.data]);
+        setInquiries(prevInquiries => [...prevInquiries, response.data.data]);
       }
       setShowForm(false);
       setSubject('');
       setInquiryType('');
       setDescription('');
+      setComment('');
     } catch (error) {
       console.error('Error saving inquiry:', error);
     }
@@ -70,57 +86,70 @@ const Dashboard = () => {
     console.log('--------------------------', data);
     try {
 
-        const response = await axios.put(`http://localhost:8080/api/inquiry/update/${data.id}`, data);
-        console.log('Updated Inquiry Data:', response.data);
-        setShowForm(false);
-      } catch (error) {
-        console.error('Error updating inquiry:', error);
-      }
-    };
-
-
-    return (
-      <div className="dashboard-container">
-        <aside className="sidebar">
-          <div
-            className={`sidebar-item ${view === 'user' ? 'active' : ''}`}
-            onClick={() => handleClick('user')}
-          >
-            <FontAwesomeIcon icon={faUser} className="sidebar-icon" />
-            <span>Profile</span>
-          </div>
-          <div
-            className={`sidebar-item ${view === 'inquiries' ? 'active' : ''}`}
-            onClick={() => handleClick('inquiries')}
-          >
-            <FontAwesomeIcon icon={faEnvelope} className="sidebar-icon" />
-            <span>My Inquiries</span>
-          </div>
-        </aside>
-        <main className="main-content">
-          {view === '' && <h2>Welcome {userDetails.name || 'User'}</h2>}
-          {view === 'user' && <UserDetails userDetails={userDetails} />}
-          {view === 'inquiries' && (
-            <>
-              <InquiriesTable inquiries={inquiries} onAddInquiryClick={handleAddInquiryClick} handleEditSubmit={handleEditSubmit} />
-              {showForm && (
-                <InquiryForm
-                  onSubmit={handleSubmit}
-                  subject={subject}
-                  setSubject={setSubject}
-                  inquiryType={inquiryType}
-                  setInquiryType={setInquiryType}
-                  description={description}
-                  setDescription={setDescription}
-                  createdBy={userDetails.name}
-                  onClose={() => setShowForm(false)}
-                />
-              )}
-            </>
-          )}
-        </main>
-      </div>
-    );
+      const response = await axios.put(`http://localhost:8080/api/inquiry/update/${data.id}`, data);
+      console.log('Updated Inquiry Data:', response.data);
+      setShowForm(false);
+    } catch (error) {
+      console.error('Error updating inquiry:', error);
+    }
+  };
+  const handleDelete = async (inquiryId) => {
+    try {
+      await axios.delete(`http://localhost:8080/api/inquiry/delete/${inquiryId}`);
+      setInquiries((prevInquiries) =>
+        prevInquiries.filter((inquiry) => inquiry.id !== inquiryId)
+      );
+    } catch (error) {
+      console.error('Error deleting inquiry:', error);
+    }
   };
 
-  export default Dashboard;
+
+
+  return (
+    <div className="dashboard-container">
+      <aside className="sidebar">
+        <div
+          className={`sidebar-item ${view === 'user' ? 'active' : ''}`}
+          onClick={() => handleClick('user')}
+        >
+          <FontAwesomeIcon icon={faUser} className="sidebar-icon" />
+          <span>Profile</span>
+        </div>
+        <div
+          className={`sidebar-item ${view === 'inquiries' ? 'active' : ''}`}
+          onClick={() => handleClick('inquiries')}
+        >
+          <FontAwesomeIcon icon={faEnvelope} className="sidebar-icon" />
+          <span>My Inquiries</span>
+        </div>
+      </aside>
+      <main className="main-content">
+        {view === '' && <h2>Welcome {userDetails.name || 'User'}</h2>}
+        {view === 'user' && <UserDetails userDetails={userDetails} />}
+        {view === 'inquiries' && (
+          <>
+            <InquiriesTable inquiries={inquiries} onAddInquiryClick={handleAddInquiryClick} handleEditSubmit={handleEditSubmit} handleDelete={handleDelete} />
+            {showForm && (
+              <InquiryForm
+                onSubmit={handleSubmit}
+                subject={subject}
+                setSubject={setSubject}
+                inquiryType={inquiryType}
+                setInquiryType={setInquiryType}
+                description={description}
+                setDescription={setDescription}
+                comment={comment}
+                setComment={setComment}
+                createdBy={userDetails.name}
+                onClose={() => setShowForm(false)}
+              />
+            )}
+          </>
+        )}
+      </main>
+    </div>
+  );
+};
+
+export default Dashboard;

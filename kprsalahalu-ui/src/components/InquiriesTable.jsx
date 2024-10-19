@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import EditInquiryForm from './EditInquiryForm';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFilePen } from '@fortawesome/free-solid-svg-icons';
+import { faFilePen, faTrash } from '@fortawesome/free-solid-svg-icons';
 
-const InquiriesTable = ({ inquiries, onAddInquiryClick, handleEditSubmit }) => {
+
+const InquiriesTable = ({ inquiries, onAddInquiryClick, handleEditSubmit, handleDelete }) => {
+
   const [editingInquiry, setEditingInquiry] = useState(null);
   const [showEditForm, setShowEditForm] = useState(false);
   const [comment, setComment] = useState('');
@@ -14,19 +16,6 @@ const InquiriesTable = ({ inquiries, onAddInquiryClick, handleEditSubmit }) => {
     setComment('');
     setShowEditForm(true);
   };
-
-
-
-
-  // const handleEditSubmit = (data) => {
-  //   console.log('Updated Inquiry Data:', data);
-  //   console.log('Comment submitted:', comment);
-  //   setShowEditForm(false);
-  //   setEditingInquiry(null);
-  // };
-
-
-
 
   return (
     <div className="table-container">
@@ -53,7 +42,7 @@ const InquiriesTable = ({ inquiries, onAddInquiryClick, handleEditSubmit }) => {
             <th>Created At</th>
             <th>Actions</th>
             <th>inquiry type</th>
-            <th>Comments</th>
+            <th>Comment</th>
           </tr>
         </thead>
         <tbody>
@@ -72,9 +61,27 @@ const InquiriesTable = ({ inquiries, onAddInquiryClick, handleEditSubmit }) => {
                 >
                   <FontAwesomeIcon icon={faFilePen} />
                 </span>
+                <span
+                  onClick={() => handleDelete(inquiry.id)}
+                  style={{ cursor: 'pointer', color: '#e74c3c' }}
+                  title="Delete Inquiry"
+                >
+                  <FontAwesomeIcon icon={faTrash} />
+                </span>
               </td>
               <td>{inquiry.inquiryType}</td>
-              <td>{inquiry.comment}</td>
+              <td>
+                {/* Map through the comments and display them */}
+                {inquiry.comments && inquiry.comments.length > 0 ? (
+                  <ul>
+                    {inquiry.comments.map((comment, index) => (
+                      <li key={index}>{comment.comment}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <span>No comments</span>
+                )}
+              </td>
 
             </tr>
           )) : (
