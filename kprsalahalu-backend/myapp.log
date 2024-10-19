@@ -690,3 +690,8 @@
 2024-10-19T12:31:35.140+05:30 DEBUG 5316 --- [application_data] [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
 2024-10-19T12:31:35.166+05:30 DEBUG 5316 --- [application_data] [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [java.lang.StackOverflowError]
 2024-10-19T12:31:35.179+05:30 DEBUG 5316 --- [application_data] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-10-19T12:49:58.595+05:30 DEBUG 5316 --- [application_data] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/api/inquiry/fetchByUser/2", parameters={}
+2024-10-19T12:49:58.599+05:30 DEBUG 5316 --- [application_data] [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.InquiryController#fetchInquiriesByUserId(int)
+2024-10-19T12:49:58.635+05:30 DEBUG 5316 --- [application_data] [http-nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2024-10-19T12:49:58.656+05:30 DEBUG 5316 --- [application_data] [http-nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [java.lang.StackOverflowError]
+2024-10-19T12:49:58.679+05:30 DEBUG 5316 --- [application_data] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
