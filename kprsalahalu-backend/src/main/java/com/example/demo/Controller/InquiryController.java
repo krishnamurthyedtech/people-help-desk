@@ -1,7 +1,11 @@
 package com.example.demo.Controller;
 
 import java.util.List;
+import java.util.Optional;
 
+import com.example.demo.Entity.Comment;
+import com.example.demo.Repository.CommentRepository;
+import com.example.demo.Repository.InquiryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +29,9 @@ public class InquiryController {
 
 	@Autowired
 	public InquiryService inquiryService;
+	@Autowired
+	public CommentRepository commentRepository;
+	public InquiryRepository inquiryRepository;
 	
 	@PostMapping("/save/{userId}")
 	public ResponseEntity<ResponseStructure<Inquiry>> saveInquiry(@RequestBody Inquiry inquiry,@PathVariable("userId")int userId)

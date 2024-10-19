@@ -6,7 +6,6 @@ import axios from 'axios';
 import UserDetails from './UserDetails';
 import InquiriesTable from './InquiriesTable';
 import InquiryForm from './InquiryForm';
-
 const Dashboard = () => {
   const [view, setView] = useState('');
   const [inquiries, setInquiries] = useState([]);
@@ -15,15 +14,12 @@ const Dashboard = () => {
   const [inquiryType, setInquiryType] = useState('');
   const [description, setDescription] = useState('');
   const [comment, setComment] = useState([]);
-  // const [newComment, setNewComment] = useState('');
   const userDetails = JSON.parse(sessionStorage.getItem("userDetails")) || {};
-
   useEffect(() => {
     if (view === 'inquiries' && userDetails.id) {
       fetchInquiries(userDetails.id);
     }
   }, [view, userDetails.id]);
-
   const fetchInquiries = async (userId) => {
     try {
       const response = await axios.get(`http://localhost:8080/api/inquiry/fetchByUser/${userId}`);
@@ -32,16 +28,7 @@ const Dashboard = () => {
       console.error('Error fetching inquiries:', error);
     }
   };
-  // const handleAddComment = () => {
-  //   if (newComment.trim() !== '') {
-  //     setComments([...comments, newComment]);  // Add comment to comments array
-  //     setNewComment('');  // Clear the input field
-  //   }
-  // };
-
-
   const handleClick = (viewType) => setView(viewType);
-
   const handleAddInquiryClick = () => {
     setShowForm(!showForm);
     if (!showForm) {
@@ -49,10 +36,8 @@ const Dashboard = () => {
       setDescription('');
     }
   };
-
   const handleSubmit = async () => {
     console.log("Submit function triggered");
-
 
     if (!userDetails.id) {
       alert('User ID is not available.');
@@ -80,14 +65,22 @@ const Dashboard = () => {
       console.error('Error saving inquiry:', error);
     }
   };
-
-
   const handleEditSubmit = async (data) => {
-    console.log('--------------------------', data);
+    console.log('Data', data);
+    console.log('comment', comment[data.id]);
     try {
-
-      const response = await axios.put(`http://localhost:8080/api/inquiry/update/${data.id}`, data);
+      const comments = [
+        ...data.comments,
+        {
+          comment: comment[data.id]
+        }
+      ]
+      const formData = { ...data, comments }
+      console.log('Form Data', formData);
+      const response = await axios.put(`http://localhost:8080/api/inquiry/update/${data.id}`, formData);
       console.log('Updated Inquiry Data:', response.data);
+       fetchInquiries(formData.user.id);
+       setComment('');
       setShowForm(false);
     } catch (error) {
       console.error('Error updating inquiry:', error);
@@ -103,9 +96,6 @@ const Dashboard = () => {
       console.error('Error deleting inquiry:', error);
     }
   };
-
-
-
   return (
     <div className="dashboard-container">
       <aside className="sidebar">
@@ -129,7 +119,8 @@ const Dashboard = () => {
         {view === 'user' && <UserDetails userDetails={userDetails} />}
         {view === 'inquiries' && (
           <>
-            <InquiriesTable inquiries={inquiries} onAddInquiryClick={handleAddInquiryClick} handleEditSubmit={handleEditSubmit} handleDelete={handleDelete} />
+            <InquiriesTable inquiries={inquiries} onAddInquiryClick={handleAddInquiryClick} comment={comment}
+              setComment={setComment} handleEditSubmit={handleEditSubmit} handleDelete={handleDelete} />
             {showForm && (
               <InquiryForm
                 onSubmit={handleSubmit}

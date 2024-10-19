@@ -43,10 +43,21 @@ public class InquiryService {
 	}
 	public ResponseStructure<Inquiry> updateInquiry(Inquiry inquiry, int id)
 	{
+		List<Comment> comments = inquiry.getComments();
+		inquiry.setComments(new ArrayList<>());
 		Inquiry inquiry2=inquiryDao.updateInquiry(inquiry, id);
-		
-		return new ResponseStructure<Inquiry>(HttpStatus.OK.value(),"Inquiry Updated Sucessfully",inquiry2,LocalDateTime.now());
+		for (Comment comment : comments) {
+			comment.setInquiry(inquiry2);
+			comment.setCreationTime(LocalDateTime.now());
+			comment.setUser(userDao.fetchUser(inquiry2.getUser().getId()));
+			Comment savedComment = commentService.addComment( comment);
+		}
+			return new ResponseStructure<Inquiry>(HttpStatus.OK.value(),"Inquiry Updated Sucessfully",inquiry2,LocalDateTime.now());
 	}
+
+
+
+
 	public ResponseStructure<Inquiry>fetchInquiry(int id)
 	{
 		Inquiry inquiry=inquiryDao.fetchInquiry(id);
