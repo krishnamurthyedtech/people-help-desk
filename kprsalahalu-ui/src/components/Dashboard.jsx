@@ -6,20 +6,26 @@ import axios from 'axios';
 import UserDetails from './UserDetails';
 import InquiriesTable from './InquiriesTable';
 import InquiryForm from './InquiryForm';
+import { useNavigate } from 'react-router-dom';
 const Dashboard = () => {
   const [view, setView] = useState('');
+  const [inquiryId, setInquiryId] = useState(0);
   const [inquiries, setInquiries] = useState([]);
   const [showForm, setShowForm] = useState(false);
+  const [openComments, setOpenComments] = useState(false);
   const [subject, setSubject] = useState('');
   const [inquiryType, setInquiryType] = useState('');
   const [description, setDescription] = useState('');
   const [comment, setComment] = useState([]);
   const userDetails = JSON.parse(sessionStorage.getItem("userDetails")) || {};
+  const navigate = useNavigate();
+
   useEffect(() => {
     if (view === 'inquiries' && userDetails.id) {
       fetchInquiries(userDetails.id);
     }
   }, [view, userDetails.id]);
+
   const fetchInquiries = async (userId) => {
     try {
       const response = await axios.get(`http://localhost:8080/api/inquiry/fetchByUser/${userId}`);
@@ -32,6 +38,15 @@ const Dashboard = () => {
   const handleAddInquiryClick = () => {
     setShowForm(!showForm);
     if (!showForm) {
+      setSubject('');
+      setDescription('');
+    }
+  };
+
+  const handleOpenComments = (inquiryId) => {
+    setInquiryId(inquiryId);
+    setOpenComments(!openComments);
+    if (!openComments) {
       setSubject('');
       setDescription('');
     }
@@ -65,6 +80,8 @@ const Dashboard = () => {
       console.error('Error saving inquiry:', error);
     }
   };
+
+
   const handleEditSubmit = async (data) => {
     console.log('Data', data);
     console.log('comment', comment[data.id]);
@@ -79,8 +96,8 @@ const Dashboard = () => {
       console.log('Form Data', formData);
       const response = await axios.put(`http://localhost:8080/api/inquiry/update/${data.id}`, formData);
       console.log('Updated Inquiry Data:', response.data);
-       fetchInquiries(formData.user.id);
-       setComment('');
+      fetchInquiries(formData.user.id);
+      setComment('');
       setShowForm(false);
     } catch (error) {
       console.error('Error updating inquiry:', error);
@@ -120,7 +137,7 @@ const Dashboard = () => {
         {view === 'inquiries' && (
           <>
             <InquiriesTable inquiries={inquiries} onAddInquiryClick={handleAddInquiryClick} comment={comment}
-              setComment={setComment} handleEditSubmit={handleEditSubmit} handleDelete={handleDelete} />
+              setComment={setComment} handleEditSubmit={handleEditSubmit} handleDelete={handleDelete} onOpenComments={handleOpenComments} />
             {showForm && (
               <InquiryForm
                 onSubmit={handleSubmit}
@@ -135,6 +152,9 @@ const Dashboard = () => {
                 createdBy={userDetails.name}
                 onClose={() => setShowForm(false)}
               />
+            )}
+            {openComments && (
+              navigate(`/dashboard/comments/${inquiryId}`)
             )}
           </>
         )}
