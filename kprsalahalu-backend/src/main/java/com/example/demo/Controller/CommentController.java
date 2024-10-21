@@ -1,5 +1,6 @@
 package com.example.demo.Controller;
 
+import com.example.demo.DTO.CommentDetailsDTO;
 import com.example.demo.Entity.Comment;
 import com.example.demo.Service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +28,9 @@ public class CommentController {
 
     // Fetch comments for a specific inquiry
     @GetMapping("/fetch/{inquiryId}")
-    public ResponseEntity<List<Comment>> getCommentsByInquiryId(@PathVariable int inquiryId) {
-        List<Comment> comments = commentService.getCommentsByInquiryId(inquiryId);
-        return new ResponseEntity<>(comments, HttpStatus.OK);
+    public ResponseEntity<List<CommentDetailsDTO>> getCommentDetailsByInquiryId(@PathVariable int inquiryId) {
+        List<CommentDetailsDTO> commentDetails = commentService.getCommentDetailsByInquiryId(inquiryId);
+        return new ResponseEntity<>(commentDetails, HttpStatus.OK);
     }
 }
 

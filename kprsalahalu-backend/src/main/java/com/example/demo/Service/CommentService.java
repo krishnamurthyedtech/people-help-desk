@@ -1,5 +1,6 @@
 package com.example.demo.Service;
 
+import com.example.demo.DTO.CommentDetailsDTO;
 import com.example.demo.Dao.InquiryDao;
 import com.example.demo.Entity.Comment;
 import com.example.demo.Entity.Inquiry;
@@ -40,7 +41,7 @@ public class CommentService {
         return commentRepository.save(comment);
     }
 
-    public List<Comment> getCommentsByInquiryId(int inquiryId) {
-        return commentRepository.findByInquiryId(inquiryId);
+    public List<CommentDetailsDTO> getCommentDetailsByInquiryId(int inquiryId) {
+        return commentRepository.findCommentDetailsByInquiryId(inquiryId);
     }
 }

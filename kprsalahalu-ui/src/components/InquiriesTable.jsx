@@ -3,9 +3,10 @@ import EditInquiryForm from './EditInquiryForm';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilePen, faTrash } from '@fortawesome/free-solid-svg-icons';
 
-const InquiriesTable = ({ inquiries, onAddInquiryClick, comment, setComment, handleEditSubmit, handleDelete }) => {
+const InquiriesTable = ({ inquiries, onAddInquiryClick, comment, setComment, handleEditSubmit, handleDelete, onOpenComments }) => {
   const [editingInquiry, setEditingInquiry] = useState(null);
   const [showEditForm, setShowEditForm] = useState(false);
+
   const handleEditClick = (inquiry) => {
     console.log("Inquiry,", inquiry);
     console.log("comment,", comment);
@@ -13,6 +14,7 @@ const InquiriesTable = ({ inquiries, onAddInquiryClick, comment, setComment, han
     setComment('');
     setShowEditForm(true);
   };
+
   return (
     <div className="table-container">
       <button className="add-inquiry-button" onClick={onAddInquiryClick}>
@@ -32,6 +34,7 @@ const InquiriesTable = ({ inquiries, onAddInquiryClick, comment, setComment, han
         <thead>
           <tr>
             <th>Subject</th>
+
             <th>Created By</th>
             <th>Description</th>
             <th>Created At</th>
@@ -46,6 +49,7 @@ const InquiriesTable = ({ inquiries, onAddInquiryClick, comment, setComment, han
               <td>{inquiry.subject}</td>
               <td>{inquiry.name}</td>
               <td>{inquiry.description}</td>
+              <td>{inquiry.inquiryType}</td>
               <td>{new Date(inquiry.creationTime).toLocaleDateString()}</td>
               <td>
                 <span
@@ -63,22 +67,15 @@ const InquiriesTable = ({ inquiries, onAddInquiryClick, comment, setComment, han
                   <FontAwesomeIcon icon={faTrash} />
                 </span>
               </td>
-              <td>{inquiry.inquiryType}</td>
               <td>
-                {/* Map through the comments and display them */}
-                {inquiry.comments && inquiry.comments?.length > 0 ? (
-                  <ul>
-                    {inquiry.comments.map((comment, index) => (
-                      <li key={index}>{comment.comment}</li>
-                    ))}
-                  </ul>
-                ) : (
-                  <span>No comments</span>
-                )}
-                 <div>
+                <button onClick={() => onOpenComments(inquiry.id)}>
+                  Show Comments
+                </button>
+                <div>
                   <input
                     type="text"
                     placeholder="Add new comment"
+                    
                     value={comment[inquiry.id] || ""}
                     onChange={(e) =>
                       setComment((prev) => ({
@@ -90,7 +87,7 @@ const InquiriesTable = ({ inquiries, onAddInquiryClick, comment, setComment, han
                   <button onClick={() => handleEditSubmit(inquiry)}>
                     Add More
                   </button>
-                </div> 
+                </div>
               </td>
             </tr>
           )) : (

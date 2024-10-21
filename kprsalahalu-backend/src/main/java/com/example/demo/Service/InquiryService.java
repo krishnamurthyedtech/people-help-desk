@@ -55,9 +55,6 @@ public class InquiryService {
 			return new ResponseStructure<Inquiry>(HttpStatus.OK.value(),"Inquiry Updated Sucessfully",inquiry2,LocalDateTime.now());
 	}
 
-
-
-
 	public ResponseStructure<Inquiry>fetchInquiry(int id)
 	{
 		Inquiry inquiry=inquiryDao.fetchInquiry(id);
