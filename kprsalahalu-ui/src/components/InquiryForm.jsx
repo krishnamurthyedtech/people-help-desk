@@ -2,7 +2,7 @@ import React from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
-const InquiryForm = ({ onSubmit, subject, setSubject, inquiryType, setInquiryType, description, setDescription, comment, setComment, createdBy, onClose }) => {
+const InquiryForm = ({ onSubmit, subject, setSubject, inquiryType, setInquiryType, description, setDescription,comment,setComment, createdBy, onClose }) => {
   
   return (
     <div className="form-overlay">
@@ -15,17 +15,16 @@ const InquiryForm = ({ onSubmit, subject, setSubject, inquiryType, setInquiryTyp
           <div className="form-field">
             <label>
               Subject:
-            </label>
+              </label>
             <input
               type="text"
               name="subject"
-              value={subject}
-              onChange={(e) => setSubject(e.target.value)}
-              required
+               value={subject}
+              onChange={(e)=>setSubject(e.target.value)}
             />
           </div>
           <div className="form-field">
-            <label>
+          <label>
               Inquiry type:
             </label>
             <select
@@ -53,7 +52,7 @@ const InquiryForm = ({ onSubmit, subject, setSubject, inquiryType, setInquiryTyp
               required
             />
           </div>
-          <div className="form field">
+         {/* <div className="form field">
             <label>
               Comment:
             </label>
@@ -63,8 +62,8 @@ const InquiryForm = ({ onSubmit, subject, setSubject, inquiryType, setInquiryTyp
               value={comment}
               onChange={(e) => setComment(e.target.value)}
               required
-              />
-         </div>
+              /> 
+         </div> */}
           <div className="form-field">
             <label>
               Created By:

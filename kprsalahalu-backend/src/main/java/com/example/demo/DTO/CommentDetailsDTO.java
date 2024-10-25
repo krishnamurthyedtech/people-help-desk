@@ -1,6 +1,12 @@
 package com.example.demo.DTO;
-import java.time.LocalDateTime;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class CommentDetailsDTO {
 
     private String comment;
@@ -8,43 +14,5 @@ public class CommentDetailsDTO {
     private String userName;
     private int id;
 
-    public CommentDetailsDTO(String comment, LocalDateTime creationTime, String userName,int id) {
-        this.comment = comment;
-        this.creationTime = creationTime;
-        this.userName = userName;
-        this.id = id;
-    }
 
-    // Getters and setters
-    public String getComment() {
-        return comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
-
-    public LocalDateTime getCreationTime() {
-        return creationTime;
-    }
-
-    public void setCreationTime(LocalDateTime creationTime) {
-        this.creationTime = creationTime;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 }

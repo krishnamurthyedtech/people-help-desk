@@ -26,22 +26,34 @@ public class CommentService {
     @Autowired
     private InquiryRepository inquiryRepository;
 
-    public Comment addComment( Comment comment) {
-        // Fetch user and inquiry from their respective repositories
-        int userId = comment.getUser().getId();
-        int inquiryId = comment.getInquiry().getId();
-        User user = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("User not found"));
-        Inquiry inquiry = inquiryRepository.findById(inquiryId).orElseThrow(() -> new RuntimeException("Inquiry not found"));
 
-        // Set the user and inquiry in the comment
-        comment.setUser(user);
-        comment.setInquiry(inquiry);
+    public Comment addComment(Long inquiryId, Long userId, String commentText) {
 
-        // Save the comment
-        return commentRepository.save(comment);
+        User user = userRepository.findById(Math.toIntExact(userId))
+                .orElseThrow(() -> new RuntimeException("User not found with ID: " + userId));
+
+
+        Inquiry inquiry = inquiryRepository.findById(Math.toIntExact(inquiryId))
+                .orElseThrow(() -> new RuntimeException("Inquiry not found with ID: " + inquiryId));
+
+
+        Comment newComment = new Comment();
+        newComment.setComment(commentText);
+        newComment.setUser(user);
+        newComment.setInquiry(inquiry);
+        newComment.setCreationTime(LocalDateTime.now());
+
+
+        return commentRepository.save(newComment);
     }
 
     public List<CommentDetailsDTO> getCommentDetailsByInquiryId(int inquiryId) {
         return commentRepository.findCommentDetailsByInquiryId(inquiryId);
     }
+
+    public Comment addComment(Comment comment){
+
+        return comment;
+    }
 }
+

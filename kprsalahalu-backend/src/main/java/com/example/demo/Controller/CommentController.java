@@ -18,15 +18,21 @@ public class CommentController {
     @Autowired
     private CommentService commentService;
 
-    @PostMapping("/add")
-    // Add a new comment for a specific inquiry
-    public ResponseEntity<Comment> addComment(@RequestBody Comment comment ) {
 
-        Comment savedComment = commentService.addComment( comment);
+@PostMapping("/add/{inquiryId}")
+public ResponseEntity<Comment> addComment(@PathVariable Long inquiryId, @RequestBody Map<String, Object> requestBody) {
+    try {
+        String commentText = (String) requestBody.get("comment");
+        Long userId = Long.valueOf((Integer) requestBody.get("userId"));
+
+
+        Comment savedComment = commentService.addComment(inquiryId, userId, commentText);
         return new ResponseEntity<>(savedComment, HttpStatus.CREATED);
+    } catch (Exception e) {
+        e.printStackTrace();
+        return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
     }
-
-    // Fetch comments for a specific inquiry
+}
     @GetMapping("/fetch/{inquiryId}")
     public ResponseEntity<List<CommentDetailsDTO>> getCommentDetailsByInquiryId(@PathVariable int inquiryId) {
         List<CommentDetailsDTO> commentDetails = commentService.getCommentDetailsByInquiryId(inquiryId);

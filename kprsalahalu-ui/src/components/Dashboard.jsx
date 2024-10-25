@@ -17,6 +17,7 @@ const Dashboard = () => {
   const [inquiryType, setInquiryType] = useState('');
   const [description, setDescription] = useState('');
   const [comment, setComment] = useState([]);
+  
   const userDetails = JSON.parse(sessionStorage.getItem("userDetails")) || {};
   const navigate = useNavigate();
 
@@ -35,6 +36,7 @@ const Dashboard = () => {
     }
   };
   const handleClick = (viewType) => setView(viewType);
+  
   const handleAddInquiryClick = () => {
     setShowForm(!showForm);
     if (!showForm) {
@@ -59,12 +61,12 @@ const Dashboard = () => {
       return;
     }
     try {
-      const comments = [
+      const comments= [
         {
           comment: comment
         }
       ]
-      const formData = { subject, inquiryType, description, comments, name: userDetails.name };
+      const formData = { subject, inquiryType, description,comments,name: userDetails.name };
       console.log('Form Data', formData);
       const response = await axios.post(`http://localhost:8080/api/inquiry/save/${userDetails.id}`, formData);
       if (response.data && response.data.data) {
@@ -136,8 +138,8 @@ const Dashboard = () => {
         {view === 'user' && <UserDetails userDetails={userDetails} />}
         {view === 'inquiries' && (
           <>
-            <InquiriesTable inquiries={inquiries} onAddInquiryClick={handleAddInquiryClick} comment={comment}
-              setComment={setComment} handleEditSubmit={handleEditSubmit} handleDelete={handleDelete} onOpenComments={handleOpenComments} />
+            <InquiriesTable inquiries={inquiries} onAddInquiryClick={handleAddInquiryClick} comment={comment} setComment={setComment}
+               handleEditSubmit={handleEditSubmit} handleDelete={handleDelete} onOpenComments={handleOpenComments} />
             {showForm && (
               <InquiryForm
                 onSubmit={handleSubmit}
