@@ -11,7 +11,7 @@ const InquiriesTable = ({ inquiries, onAddInquiryClick, comment, setComment, han
     console.log("Inquiry,", inquiry);
     console.log("comment,", comment);
     setEditingInquiry(inquiry);
-    setComment('');
+    //setComment('');
     setShowEditForm(true);
   };
 
@@ -34,12 +34,11 @@ const InquiriesTable = ({ inquiries, onAddInquiryClick, comment, setComment, han
         <thead>
           <tr>
             <th>Subject</th>
-
             <th>Created By</th>
             <th>Description</th>
+            <th>inquiry type</th>
             <th>Created At</th>
             <th>Actions</th>
-            <th>inquiry type</th>
             <th>Comment</th>
           </tr>
         </thead>
@@ -69,25 +68,8 @@ const InquiriesTable = ({ inquiries, onAddInquiryClick, comment, setComment, han
               </td>
               <td>
                 <button onClick={() => onOpenComments(inquiry.id)}>
-                  Show Comments
+                  View
                 </button>
-                <div>
-                  <input
-                    type="text"
-                    placeholder="Add new comment"
-                    
-                    value={comment[inquiry.id] || ""}
-                    onChange={(e) =>
-                      setComment((prev) => ({
-                        ...prev,
-                        [inquiry.id]: e.target.value,
-                      }))
-                    }
-                  />
-                  <button onClick={() => handleEditSubmit(inquiry)}>
-                    Add More
-                  </button>
-                </div>
               </td>
             </tr>
           )) : (

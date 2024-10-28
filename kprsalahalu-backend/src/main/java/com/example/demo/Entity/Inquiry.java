@@ -35,9 +35,6 @@ public class Inquiry
 	@OneToMany(mappedBy = "inquiry", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Comment> comments = new ArrayList<>();
 
-	//private String comment;
-	//@ElementCollections
-	//private List<String> comments = new ArrayList<>();
 
 	//private String comment;
 	private LocalDateTime creationTime;

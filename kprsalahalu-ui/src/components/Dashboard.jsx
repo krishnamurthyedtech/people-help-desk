@@ -16,7 +16,7 @@ const Dashboard = () => {
   const [subject, setSubject] = useState('');
   const [inquiryType, setInquiryType] = useState('');
   const [description, setDescription] = useState('');
-  const [comment, setComment] = useState([]);
+  const [comment, setComment] = useState('');
   const userDetails = JSON.parse(sessionStorage.getItem("userDetails")) || {};
   const navigate = useNavigate();
 
@@ -35,6 +35,7 @@ const Dashboard = () => {
     }
   };
   const handleClick = (viewType) => setView(viewType);
+
   const handleAddInquiryClick = () => {
     setShowForm(!showForm);
     if (!showForm) {
@@ -136,8 +137,8 @@ const Dashboard = () => {
         {view === 'user' && <UserDetails userDetails={userDetails} />}
         {view === 'inquiries' && (
           <>
-            <InquiriesTable inquiries={inquiries} onAddInquiryClick={handleAddInquiryClick} comment={comment}
-              setComment={setComment} handleEditSubmit={handleEditSubmit} handleDelete={handleDelete} onOpenComments={handleOpenComments} />
+            <InquiriesTable inquiries={inquiries} onAddInquiryClick={handleAddInquiryClick} comment={comment} setComment={setComment}
+              handleEditSubmit={handleEditSubmit} handleDelete={handleDelete} onOpenComments={handleOpenComments} />
             {showForm && (
               <InquiryForm
                 onSubmit={handleSubmit}
