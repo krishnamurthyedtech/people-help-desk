@@ -40,7 +40,7 @@ const EditInquiryForm = ({ onSubmit, inquiry, onClose }) => {
           <label>
             Inquiry Type:
             <select
-              {...register("inquiryType", { required: true })}
+              {...register("InquiryType", { required: true })}
             >
               <option value="">Select Inquiry Type</option>
               <option value="education">Education</option>
