@@ -7,6 +7,7 @@ import Content from './components/Content';
 import Dashboard from './components/Dashboard';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import CommentsPage from './components/CommentPage';
+import AdminDashboard from './components/AdminDashboard';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -41,6 +42,7 @@ function App() {
     <Router>
       <Header isAuthenticated={isAuthenticated} onLogin={handleLogin} onLogout={handleLogout} />
       <Routes>
+      <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/" element={<Content />} />
         <Route path="/dashboard" element={isAuthenticated ? <Dashboard /> : <Navigate to="/" />} />
         <Route path="/dashboard/comments/:inquiryId" element={<CommentsPage />} />

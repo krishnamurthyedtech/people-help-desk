@@ -1,54 +1,156 @@
-2024-10-28T09:15:23.136+05:30  INFO 15860 --- [application_data] [restartedMain] c.example.demo.ApplicationApplication    : Starting ApplicationApplication using Java 22.0.2 with PID 15860 (D:\KMSS_Workspace\kprsalahalu-app\kprsalahalu-backend\target\classes started by DELL in D:\KMSS_Workspace\kprsalahalu-app\kprsalahalu-backend)
-2024-10-28T09:15:23.186+05:30  INFO 15860 --- [application_data] [restartedMain] c.example.demo.ApplicationApplication    : No active profile set, falling back to 1 default profile: "default"
-2024-10-28T09:15:23.307+05:30  INFO 15860 --- [application_data] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-10-28T09:15:23.307+05:30  INFO 15860 --- [application_data] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-10-28T09:15:24.948+05:30  INFO 15860 --- [application_data] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-10-28T09:15:25.068+05:30  INFO 15860 --- [application_data] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 100 ms. Found 3 JPA repository interfaces.
-2024-10-28T09:15:26.297+05:30  INFO 15860 --- [application_data] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-10-28T09:15:26.328+05:30  INFO 15860 --- [application_data] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-10-28T09:15:26.328+05:30  INFO 15860 --- [application_data] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
-2024-10-28T09:15:26.432+05:30  INFO 15860 --- [application_data] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-10-28T09:15:26.432+05:30  INFO 15860 --- [application_data] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3125 ms
-2024-10-28T09:15:26.761+05:30  INFO 15860 --- [application_data] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-10-28T09:15:26.884+05:30  INFO 15860 --- [application_data] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
-2024-10-28T09:15:26.953+05:30  INFO 15860 --- [application_data] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-10-28T09:15:27.591+05:30  INFO 15860 --- [application_data] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-10-28T09:15:27.660+05:30  INFO 15860 --- [application_data] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-10-28T09:15:27.989+05:30  INFO 15860 --- [application_data] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1f3879a2
-2024-10-28T09:15:27.989+05:30  INFO 15860 --- [application_data] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-10-28T09:15:28.035+05:30  WARN 15860 --- [application_data] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-10-28T09:15:28.035+05:30  WARN 15860 --- [application_data] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2024-10-28T09:15:29.542+05:30  INFO 15860 --- [application_data] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-10-28T09:15:29.746+05:30  INFO 15860 --- [application_data] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-10-28T09:15:30.283+05:30  INFO 15860 --- [application_data] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-10-28T09:15:31.639+05:30  WARN 15860 --- [application_data] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-10-28T09:15:31.880+05:30 DEBUG 15860 --- [application_data] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 21 mappings in 'requestMappingHandlerMapping'
-2024-10-28T09:15:32.013+05:30 DEBUG 15860 --- [application_data] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
-2024-10-28T09:15:32.176+05:30 DEBUG 15860 --- [application_data] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-10-28T09:15:32.247+05:30 DEBUG 15860 --- [application_data] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-10-28T09:15:32.604+05:30  INFO 15860 --- [application_data] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2024-10-28T09:15:32.665+05:30  INFO 15860 --- [application_data] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2024-10-28T09:15:32.695+05:30  INFO 15860 --- [application_data] [restartedMain] c.example.demo.ApplicationApplication    : Started ApplicationApplication in 10.746 seconds (process running for 11.931)
-2024-10-28T09:16:40.309+05:30  INFO 15860 --- [application_data] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-10-28T09:16:40.309+05:30  INFO 15860 --- [application_data] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-10-28T09:16:40.309+05:30 DEBUG 15860 --- [application_data] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
-2024-10-28T09:16:40.309+05:30 DEBUG 15860 --- [application_data] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
-2024-10-28T09:16:40.309+05:30 DEBUG 15860 --- [application_data] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
-2024-10-28T09:16:40.316+05:30 DEBUG 15860 --- [application_data] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@63ed8599
-2024-10-28T09:16:40.318+05:30 DEBUG 15860 --- [application_data] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@449a7c51
-2024-10-28T09:16:40.319+05:30 DEBUG 15860 --- [application_data] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2024-10-28T09:16:40.320+05:30  INFO 15860 --- [application_data] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
-2024-10-28T09:16:40.343+05:30 DEBUG 15860 --- [application_data] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : OPTIONS "/user/login", parameters={}
-2024-10-28T09:16:40.372+05:30 DEBUG 15860 --- [application_data] [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.UserController#loginUser(LoginRequest)
-2024-10-28T09:16:40.425+05:30 DEBUG 15860 --- [application_data] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2024-10-28T09:16:40.451+05:30 DEBUG 15860 --- [application_data] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/user/login", parameters={}
-2024-10-28T09:16:40.453+05:30 DEBUG 15860 --- [application_data] [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.UserController#loginUser(LoginRequest)
-2024-10-28T09:16:40.737+05:30 DEBUG 15860 --- [application_data] [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [LoginRequest(email=bunnysiva6281@gmail.com, password=bunnysiva@6281)]
-2024-10-28T09:16:41.109+05:30 DEBUG 15860 --- [application_data] [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
-2024-10-28T09:16:41.126+05:30 DEBUG 15860 --- [application_data] [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ResponseStructure(statusCode=200, message=User logged in successfully, data=User(id=1, name=siva, em (truncated)...]
-2024-10-28T09:16:41.167+05:30 DEBUG 15860 --- [application_data] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2024-10-28T09:16:45.342+05:30 DEBUG 15860 --- [application_data] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/api/inquiry/fetchByUser/1", parameters={}
-2024-10-28T09:16:45.342+05:30 DEBUG 15860 --- [application_data] [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.InquiryController#fetchInquiriesByUserId(int)
-2024-10-28T09:16:45.464+05:30 DEBUG 15860 --- [application_data] [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
-2024-10-28T09:16:45.552+05:30 DEBUG 15860 --- [application_data] [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [java.lang.StackOverflowError]
-2024-10-28T09:16:45.660+05:30 DEBUG 15860 --- [application_data] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-10-29T09:15:34.490+05:30  INFO 8772 --- [application_data] [restartedMain] c.example.demo.ApplicationApplication    : Starting ApplicationApplication using Java 22.0.2 with PID 8772 (D:\KMSS_Workspace\kprsalahalu-app\kprsalahalu-backend\target\classes started by DELL in D:\KMSS_Workspace\kprsalahalu-app\kprsalahalu-backend)
+2024-10-29T09:15:34.524+05:30  INFO 8772 --- [application_data] [restartedMain] c.example.demo.ApplicationApplication    : No active profile set, falling back to 1 default profile: "default"
+2024-10-29T09:15:34.665+05:30  INFO 8772 --- [application_data] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-29T09:15:34.665+05:30  INFO 8772 --- [application_data] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-29T09:15:36.277+05:30  INFO 8772 --- [application_data] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-29T09:15:36.422+05:30  INFO 8772 --- [application_data] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 124 ms. Found 3 JPA repository interfaces.
+2024-10-29T09:15:37.564+05:30  INFO 8772 --- [application_data] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-10-29T09:15:37.596+05:30  INFO 8772 --- [application_data] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-29T09:15:37.596+05:30  INFO 8772 --- [application_data] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-10-29T09:15:37.688+05:30  INFO 8772 --- [application_data] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-29T09:15:37.691+05:30  INFO 8772 --- [application_data] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3019 ms
+2024-10-29T09:15:37.977+05:30  INFO 8772 --- [application_data] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-29T09:15:38.092+05:30  INFO 8772 --- [application_data] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-10-29T09:15:38.162+05:30  INFO 8772 --- [application_data] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-29T09:15:38.719+05:30  INFO 8772 --- [application_data] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-29T09:15:38.775+05:30  INFO 8772 --- [application_data] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-29T09:15:39.051+05:30  INFO 8772 --- [application_data] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4f0e29fd
+2024-10-29T09:15:39.053+05:30  INFO 8772 --- [application_data] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-29T09:15:39.096+05:30  WARN 8772 --- [application_data] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-29T09:15:39.096+05:30  WARN 8772 --- [application_data] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-10-29T09:15:40.695+05:30  INFO 8772 --- [application_data] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-29T09:15:40.890+05:30  INFO 8772 --- [application_data] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-29T09:15:41.378+05:30  INFO 8772 --- [application_data] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-10-29T09:15:42.704+05:30  WARN 8772 --- [application_data] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-29T09:15:42.984+05:30 DEBUG 8772 --- [application_data] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 21 mappings in 'requestMappingHandlerMapping'
+2024-10-29T09:15:43.139+05:30 DEBUG 8772 --- [application_data] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-10-29T09:15:43.230+05:30 DEBUG 8772 --- [application_data] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-10-29T09:15:43.299+05:30 DEBUG 8772 --- [application_data] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-10-29T09:15:43.606+05:30  INFO 8772 --- [application_data] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-10-29T09:15:43.680+05:30  INFO 8772 --- [application_data] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-10-29T09:15:43.703+05:30  INFO 8772 --- [application_data] [restartedMain] c.example.demo.ApplicationApplication    : Started ApplicationApplication in 10.574 seconds (process running for 11.626)
+2024-10-29T09:17:21.310+05:30  INFO 8772 --- [application_data] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-29T09:17:21.311+05:30  INFO 8772 --- [application_data] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-10-29T09:17:21.312+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-10-29T09:17:21.312+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-10-29T09:17:21.312+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-10-29T09:17:21.319+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@583e457e
+2024-10-29T09:17:21.321+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@6a1a7daa
+2024-10-29T09:17:21.321+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-10-29T09:17:21.321+05:30  INFO 8772 --- [application_data] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2024-10-29T09:17:21.351+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : OPTIONS "/user/login", parameters={}
+2024-10-29T09:17:21.388+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.UserController#loginUser(LoginRequest)
+2024-10-29T09:17:21.437+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-10-29T09:17:21.456+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/user/login", parameters={}
+2024-10-29T09:17:21.457+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.UserController#loginUser(LoginRequest)
+2024-10-29T09:17:21.701+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [LoginRequest(email=bunnysiva6281@gmail.com, password=bunnysiva@6281)]
+2024-10-29T09:17:22.053+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2024-10-29T09:17:22.069+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ResponseStructure(statusCode=200, message=User logged in successfully, data=User(id=1, name=siva, em (truncated)...]
+2024-10-29T09:17:22.096+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-10-29T09:17:26.562+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/api/inquiry/fetchByUser/1", parameters={}
+2024-10-29T09:17:26.570+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.InquiryController#fetchInquiriesByUserId(int)
+2024-10-29T09:17:26.674+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2024-10-29T09:17:26.702+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [java.lang.StackOverflowError]
+2024-10-29T09:17:26.756+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-10-29T09:17:29.327+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/api/comments/fetch/2", parameters={}
+2024-10-29T09:17:29.327+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.CommentController#getCommentDetailsByInquiryId(int)
+2024-10-29T09:17:29.356+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2024-10-29T09:17:29.364+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[CommentDetailsDTO(comment=postponed, creationTime=2024-10-25T21:59:13.506064, userName=siva, id=1), (truncated)...]
+2024-10-29T09:17:29.370+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-10-29T09:17:29.377+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/api/comments/fetch/2", parameters={}
+2024-10-29T09:17:29.380+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.CommentController#getCommentDetailsByInquiryId(int)
+2024-10-29T09:17:29.389+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2024-10-29T09:17:29.390+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[CommentDetailsDTO(comment=postponed, creationTime=2024-10-25T21:59:13.506064, userName=siva, id=1), (truncated)...]
+2024-10-29T09:17:29.390+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-10-29T09:17:34.252+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/api/inquiry/fetchByUser/1", parameters={}
+2024-10-29T09:17:34.255+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.InquiryController#fetchInquiriesByUserId(int)
+2024-10-29T09:17:34.286+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2024-10-29T09:17:34.313+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [java.lang.StackOverflowError]
+2024-10-29T09:17:34.347+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-10-29T09:17:36.413+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/api/comments/fetch/1", parameters={}
+2024-10-29T09:17:36.415+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.CommentController#getCommentDetailsByInquiryId(int)
+2024-10-29T09:17:36.418+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2024-10-29T09:17:36.418+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[CommentDetailsDTO(comment=Basic classes, creationTime=2024-10-28T15:41:03.839281, userName=siva, id (truncated)...]
+2024-10-29T09:17:36.418+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-10-29T09:17:36.430+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/api/comments/fetch/1", parameters={}
+2024-10-29T09:17:36.430+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.CommentController#getCommentDetailsByInquiryId(int)
+2024-10-29T09:17:36.436+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2024-10-29T09:17:36.436+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[CommentDetailsDTO(comment=Basic classes, creationTime=2024-10-28T15:41:03.839281, userName=siva, id (truncated)...]
+2024-10-29T09:17:36.441+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-10-29T09:17:41.792+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/api/inquiry/fetchByUser/1", parameters={}
+2024-10-29T09:17:41.796+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.InquiryController#fetchInquiriesByUserId(int)
+2024-10-29T09:17:41.824+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2024-10-29T09:17:41.854+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [java.lang.StackOverflowError]
+2024-10-29T09:17:41.895+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-10-29T09:17:44.238+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/api/comments/fetch/3", parameters={}
+2024-10-29T09:17:44.240+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.CommentController#getCommentDetailsByInquiryId(int)
+2024-10-29T09:17:44.249+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2024-10-29T09:17:44.249+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[CommentDetailsDTO(comment=pending, creationTime=2024-10-28T15:53:39.116411, userName=siva, id=1)]]
+2024-10-29T09:17:44.252+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-10-29T09:17:44.257+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/api/comments/fetch/3", parameters={}
+2024-10-29T09:17:44.258+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.CommentController#getCommentDetailsByInquiryId(int)
+2024-10-29T09:17:44.268+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2024-10-29T09:17:44.268+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[CommentDetailsDTO(comment=pending, creationTime=2024-10-28T15:53:39.116411, userName=siva, id=1)]]
+2024-10-29T09:17:44.268+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-10-29T09:17:48.130+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/api/inquiry/fetchByUser/1", parameters={}
+2024-10-29T09:17:48.132+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.InquiryController#fetchInquiriesByUserId(int)
+2024-10-29T09:17:48.153+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2024-10-29T09:17:48.170+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [java.lang.StackOverflowError]
+2024-10-29T09:17:48.189+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-10-29T09:17:50.402+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/api/comments/fetch/5", parameters={}
+2024-10-29T09:17:50.406+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.CommentController#getCommentDetailsByInquiryId(int)
+2024-10-29T09:17:50.416+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2024-10-29T09:17:50.420+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2024-10-29T09:17:50.424+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-10-29T09:17:50.435+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/api/comments/fetch/5", parameters={}
+2024-10-29T09:17:50.437+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.CommentController#getCommentDetailsByInquiryId(int)
+2024-10-29T09:17:50.443+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2024-10-29T09:17:50.443+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2024-10-29T09:17:50.443+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-10-29T09:18:42.175+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : POST "/user/login", parameters={}
+2024-10-29T09:18:42.183+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.UserController#loginUser(LoginRequest)
+2024-10-29T09:18:42.189+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [LoginRequest(email=bunnysiva6281@gmail.com, password=bunnysiva@6281)]
+2024-10-29T09:18:42.210+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2024-10-29T09:18:42.210+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ResponseStructure(statusCode=200, message=User logged in successfully, data=User(id=1, name=siva, em (truncated)...]
+2024-10-29T09:18:42.216+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-10-29T09:18:47.905+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/api/inquiry/fetchByUser/1", parameters={}
+2024-10-29T09:18:47.907+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.InquiryController#fetchInquiriesByUserId(int)
+2024-10-29T09:18:47.931+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2024-10-29T09:18:47.956+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [java.lang.StackOverflowError]
+2024-10-29T09:18:47.989+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-10-29T09:29:51.867+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/api/inquiry/fetchByUser/1", parameters={}
+2024-10-29T09:29:51.870+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.InquiryController#fetchInquiriesByUserId(int)
+2024-10-29T09:29:51.902+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2024-10-29T09:29:51.920+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [java.lang.StackOverflowError]
+2024-10-29T09:29:51.960+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-10-29T10:09:28.193+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : OPTIONS "/user/login", parameters={}
+2024-10-29T10:09:28.202+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.UserController#loginUser(LoginRequest)
+2024-10-29T10:09:28.210+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-10-29T10:09:28.217+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : POST "/user/login", parameters={}
+2024-10-29T10:09:28.217+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.UserController#loginUser(LoginRequest)
+2024-10-29T10:09:28.236+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [LoginRequest(email=bunnysiva6281@gmail.com, password=bunnysiva@6281)]
+2024-10-29T10:09:28.269+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2024-10-29T10:09:28.269+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ResponseStructure(statusCode=200, message=User logged in successfully, data=User(id=1, name=siva, em (truncated)...]
+2024-10-29T10:09:28.269+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-10-29T10:09:33.835+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/api/inquiry/fetchByUser/1", parameters={}
+2024-10-29T10:09:33.839+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.InquiryController#fetchInquiriesByUserId(int)
+2024-10-29T10:09:33.858+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2024-10-29T10:09:33.880+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [java.lang.StackOverflowError]
+2024-10-29T10:09:33.890+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-10-29T10:12:50.332+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : POST "/user/login", parameters={}
+2024-10-29T10:12:50.335+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.UserController#loginUser(LoginRequest)
+2024-10-29T10:12:50.339+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [LoginRequest(email=bunnysiva6281@gmail.com, password=bunnysiva@6281)]
+2024-10-29T10:12:50.361+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2024-10-29T10:12:50.365+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ResponseStructure(statusCode=200, message=User logged in successfully, data=User(id=1, name=siva, em (truncated)...]
+2024-10-29T10:12:50.368+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-10-29T10:14:02.181+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/user/login", parameters={}
+2024-10-29T10:14:02.181+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.UserController#loginUser(LoginRequest)
+2024-10-29T10:14:02.186+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [LoginRequest(email=bunnysiva6281@gmail.com, password=bunnysiva@6281)]
+2024-10-29T10:14:02.198+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2024-10-29T10:14:02.198+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ResponseStructure(statusCode=200, message=User logged in successfully, data=User(id=1, name=siva, em (truncated)...]
+2024-10-29T10:14:02.204+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-10-29T10:15:06.580+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/api/inquiry/fetchByUser/1", parameters={}
+2024-10-29T10:15:06.583+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.InquiryController#fetchInquiriesByUserId(int)
+2024-10-29T10:15:06.607+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2024-10-29T10:15:06.635+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [java.lang.StackOverflowError]
+2024-10-29T10:15:06.661+05:30 DEBUG 8772 --- [application_data] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
