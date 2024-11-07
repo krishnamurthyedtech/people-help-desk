@@ -21,6 +21,9 @@ public class UserService {
 	
 	public ResponseStructure<User>registerUser(User user)
 	{
+		if (user.getRole() == null) {
+			user.setRole("user");
+		}
 		User user1=userDao.registerUser(user);
 		return new ResponseStructure<>(HttpStatus.CREATED.value(),"User registered successfully", user1, LocalDateTime.now());
 	}

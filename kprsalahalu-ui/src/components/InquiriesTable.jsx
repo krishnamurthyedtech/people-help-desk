@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import EditInquiryForm from './EditInquiryForm';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilePen, faTrash } from '@fortawesome/free-solid-svg-icons';
-const InquiriesTable = ({ inquiries, onAddInquiryClick, comment, setComment, handleEditSubmit, handleDelete, onOpenComments }) => {
+const InquiriesTable = ({ inquiries, onAddInquiryClick, comment, setComment, handleEditSubmit, handleDelete, onOpenComments,userRole,isAdmin }) => {
   const [editingInquiry, setEditingInquiry] = useState(null);
   const [showEditForm, setShowEditForm] = useState(false);
   const [filterType, setFilterType] = useState("All");
@@ -17,9 +17,12 @@ const InquiriesTable = ({ inquiries, onAddInquiryClick, comment, setComment, han
     : inquiries.filter(inquiry => inquiry.inquiryType?.trim().toLowerCase() === filterType.toLowerCase());
   return (
     <div className="table-container">
+      {userRole !== 'admin' && (
       <button className="add-inquiry-button" onClick={onAddInquiryClick}>
         Add Inquiry
       </button>
+      )}
+      <h2>{isAdmin ? 'User Inquiries' : 'My Inquiries'}</h2>
       {showEditForm && editingInquiry && (
         <EditInquiryForm
           onSubmit={handleEditSubmit}
@@ -29,7 +32,7 @@ const InquiriesTable = ({ inquiries, onAddInquiryClick, comment, setComment, han
           onClose={() => setShowEditForm(false)}
         />
       )}
-      <h2>My Inquiries</h2>
+      
       <label htmlFor="filter">Filter Inquiry Type: </label>
       <select id="filter" value={filterType} onChange={(e) => setFilterType(e.target.value)}>
         <option value="All">All</option>

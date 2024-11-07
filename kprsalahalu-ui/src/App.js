@@ -7,10 +7,12 @@ import Content from './components/Content';
 import Dashboard from './components/Dashboard';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import CommentsPage from './components/CommentPage';
-import AdminDashboard from './components/AdminDashboard';
+
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [showLoginForm, setShowLoginForm] = useState(false);
+  const [showSignupForm, setShowSignupForm] = useState(false);
 
   useEffect(() => {
     document.title = 'KPR Salahalu';
@@ -32,6 +34,7 @@ function App() {
 
   const handleLogin = () => {
     setIsAuthenticated(true);
+    setShowLoginForm(false);
   };
 
   const handleLogout = () => {
@@ -40,12 +43,20 @@ function App() {
 
   return (
     <Router>
-      <Header isAuthenticated={isAuthenticated} onLogin={handleLogin} onLogout={handleLogout} />
+      <Header
+        isAuthenticated={isAuthenticated}
+        onLogin={handleLogin}
+        onLogout={handleLogout}
+        showLoginForm={showLoginForm}
+        setShowLoginForm={setShowLoginForm}
+        showSignupForm={showSignupForm}
+        setShowSignupForm={setShowSignupForm}
+      />
       <Routes>
-      <Route path="/admin-dashboard" element={<AdminDashboard />} />
-        <Route path="/" element={<Content />} />
+        <Route path="/" element={!(showLoginForm || showSignupForm) ? <Content /> : null} />
         <Route path="/dashboard" element={isAuthenticated ? <Dashboard /> : <Navigate to="/" />} />
         <Route path="/dashboard/comments/:inquiryId" element={<CommentsPage />} />
+        
       </Routes>
       <Footer />
     </Router>

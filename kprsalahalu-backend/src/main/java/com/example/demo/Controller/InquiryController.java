@@ -1,22 +1,21 @@
 package com.example.demo.Controller;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
+import com.example.demo.DTO.CommentDetailsDTO;
+import com.example.demo.DTO.InquiryDetailsDTO;
+import com.example.demo.Dao.UserDao;
 import com.example.demo.Entity.Comment;
+import com.example.demo.Entity.User;
 import com.example.demo.Repository.CommentRepository;
 import com.example.demo.Repository.InquiryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.demo.Entity.Inquiry;
 import com.example.demo.Entity.ResponseStructure;
@@ -32,6 +31,8 @@ public class InquiryController {
 	@Autowired
 	public CommentRepository commentRepository;
 	public InquiryRepository inquiryRepository;
+	@Autowired
+	private UserDao userDao;
 	
 	@PostMapping("/save/{userId}")
 	public ResponseEntity<ResponseStructure<Inquiry>> saveInquiry(@RequestBody Inquiry inquiry,@PathVariable("userId")int userId)
@@ -57,12 +58,35 @@ public class InquiryController {
 		ResponseStructure<List<Inquiry>> structure=inquiryService.fetchAllInquiries();
 		return new ResponseEntity<>(structure,HttpStatus.OK);
 	}
-
 	@GetMapping("/fetchByUser/{userId}")
-    public ResponseEntity<ResponseStructure<List<Inquiry>>> fetchInquiriesByUserId(@PathVariable("userId") int userId) {
-        ResponseStructure<List<Inquiry>> structure = inquiryService.fetchInquiriesByUserId(userId);
-        return new ResponseEntity<>(structure, HttpStatus.OK);
-    }
+	public ResponseEntity<ResponseStructure<List<InquiryDetailsDTO>>> fetchInquiriesByUserId(@PathVariable("userId") int userId) {
+		List<Inquiry> inquiries = inquiryService.fetchInquiriesByUserId(userId);
+		List<InquiryDetailsDTO> inquiryDTOs = inquiries.stream().map(inquiry -> {
+			InquiryDetailsDTO dto = new InquiryDetailsDTO();
+			dto.setId(inquiry.getId());
+			dto.setName(inquiry.getName());
+			dto.setSubject(inquiry.getSubject());
+			dto.setInquiryType(inquiry.getInquiryType());
+			dto.setDescription(inquiry.getDescription());
+			dto.setPhoneNo(inquiry.getPhoneNo());
+			dto.setCreationTime(inquiry.getCreationTime());
+			dto.setComments(inquiry.getComments().stream().map(comment -> {
+				CommentDetailsDTO commentDTO = new CommentDetailsDTO();
+				commentDTO.setId(comment.getId());
+				//commentDTO.setText(comment.getText());
+				commentDTO.setCreationTime(comment.getCreationTime());
+				return commentDTO;
+			}).collect(Collectors.toList()));
+			return dto;
+		}).collect(Collectors.toList());
+
+		ResponseStructure<List<InquiryDetailsDTO>> structure = new ResponseStructure<>();
+		structure.setData(inquiryDTOs);
+		structure.setMessage("Inquiries fetched successfully");
+		structure.setStatusCode(HttpStatus.OK.value());
+
+		return new ResponseEntity<>(structure, HttpStatus.OK);
+	}
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<ResponseStructure<Inquiry>> deleteInquiry(@PathVariable("id") int id)
 	{

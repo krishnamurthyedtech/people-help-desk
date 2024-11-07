@@ -2,12 +2,17 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserCircle } from '@fortawesome/free-solid-svg-icons'; 
+import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
-const Header = ({ isAuthenticated, onLogin, onLogout }) => {
-  const [showLoginForm, setShowLoginForm] = useState(false);
-  const [showSignupForm, setShowSignupForm] = useState(false);
-
+const Header = ({
+  isAuthenticated,
+  onLogin,
+  onLogout,
+  showLoginForm,
+  setShowLoginForm,
+  showSignupForm,
+  setShowSignupForm,
+}) => {
   const [loginEmail, setLoginEmail] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
 
@@ -18,12 +23,6 @@ const Header = ({ isAuthenticated, onLogin, onLogout }) => {
 
   const navigate = useNavigate();
 
-  const openLoginForm = () => setShowLoginForm(true);
-  const closeLoginForm = () => setShowLoginForm(false);
-
-  const openSignupForm = () => setShowSignupForm(true);
-  const closeSignupForm = () => setShowSignupForm(false);
-
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -33,20 +32,17 @@ const Header = ({ isAuthenticated, onLogin, onLogout }) => {
       });
       console.log(response.data);
       const userData = response.data.data;
+      
+      sessionStorage.setItem("userDetails", JSON.stringify(userData));
 
-      sessionStorage.setItem("userDetails", JSON.stringify(userData)); 
-  
-      alert('Login successful');
-      onLogin(); 
-      closeLoginForm();
-      navigate('/dashboard'); 
+     
+      onLogin();
+      navigate('/dashboard');
     } catch (error) {
       const errorMessage = error.response?.data?.message || 'Login failed. Please check your credentials.';
-      alert(errorMessage);
+      alert(errorMessage);  
     }
   };
-  
-  
 
   const handleSignupSubmit = async (e) => {
     e.preventDefault();
@@ -59,60 +55,15 @@ const Header = ({ isAuthenticated, onLogin, onLogout }) => {
       });
       const message = response.data.message || 'Signup successful';
       alert(message);
-      closeSignupForm();
     } catch (error) {
       const errorMessage = error.response?.data?.message || 'Signup failed. Please try again.';
       alert(errorMessage);
     }
   };
-  
 
   return (
     <>
-      <header>
-        <div className="contact-info">
-          <span>📱 +91-8123870076 📧 contactus@poincareconsultants.com</span>
-          <div className="login-signup">
-            {isAuthenticated ? (
-              <>
-                <button onClick={onLogout}>Logout</button>
-                <Link to="/dashboard">
-                  <FontAwesomeIcon 
-                    icon={faUserCircle} 
-                    size="2x" 
-                    style={{ color: 'white' }} 
-                  />
-                </Link>
-              </>
-            ) : (
-              <>
-                <button onClick={openLoginForm}>Login</button>
-                <button onClick={openSignupForm}>Sign Up</button>
-              </>
-            )}
-            <span className="usa">USA</span>
-          </div>
-        </div>
-      </header>
-
-      <div className="wrapper">
-        <div className="logo-title">
-          <h1>KPR Salahalu</h1>
-        </div>
-        <nav>
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="#">Law</Link></li>
-            <li><Link to="#">Finance</Link></li>
-            <li><Link to="#">Education</Link></li>
-            <li><Link to="#">Land</Link></li>
-            <li><Link to="#">Health</Link></li>
-          </ul>
-        </nav>
-      </div>
-      <hr className="divider-color" />
-
-      {showLoginForm && (
+      {showLoginForm ? (
         <div id="loginForm" className="form-container">
           <h2>Login</h2>
           <form onSubmit={handleLoginSubmit}>
@@ -133,12 +84,10 @@ const Header = ({ isAuthenticated, onLogin, onLogout }) => {
               required
             />
             <button type="submit">Login</button>
-            <button type="button" onClick={closeLoginForm}>Close</button>
+            <button type="button" onClick={() => setShowLoginForm(false)}>Close</button>
           </form>
         </div>
-      )}
-
-      {showSignupForm && (
+      ) : showSignupForm ? (
         <div id="signupForm" className="form-container">
           <h2>Sign Up</h2>
           <form onSubmit={handleSignupSubmit}>
@@ -175,9 +124,49 @@ const Header = ({ isAuthenticated, onLogin, onLogout }) => {
               required
             />
             <button type="submit">Sign Up</button>
-            <button type="button" onClick={closeSignupForm}>Close</button>
+            <button type="button" onClick={() => setShowSignupForm(false)}>Close</button>
           </form>
         </div>
+      ) : (
+        <>
+          <header>
+            <div className="contact-info">
+              <span>📱 +91-8123870076 📧 contactus@poincareconsultants.com</span>
+              <div className="login-signup">
+                {isAuthenticated ? (
+                  <>
+                    <button onClick={onLogout}>Logout</button>
+                    <Link to="/dashboard">
+                      <FontAwesomeIcon icon={faUserCircle} size="2x" style={{ color: 'white' }} />
+                    </Link>
+                  </>
+                ) : (
+                  <>
+                    <button onClick={() => { setShowLoginForm(true); setShowSignupForm(false); }}>Login</button>
+                    <button onClick={() => { setShowSignupForm(true); setShowLoginForm(false); }}>Sign Up</button>
+                  </>
+                )}
+                <span className="usa">USA</span>
+              </div>
+            </div>
+          </header>
+          <div className="wrapper">
+            <div className="logo-title">
+              <h1>KPR Salahalu</h1>
+            </div>
+            <nav>
+              <ul>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="#">Law</Link></li>
+                <li><Link to="#">Finance</Link></li>
+                <li><Link to="#">Education</Link></li>
+                <li><Link to="#">Land</Link></li>
+                <li><Link to="#">Health</Link></li>
+              </ul>
+            </nav>
+          </div>
+          <hr className="divider-color" />
+        </>
       )}
     </>
   );

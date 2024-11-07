@@ -47,7 +47,6 @@ const CommentsPage = () => {
   const onClose = () => {
     navigate(`/dashboard`)
   };
-
   return (
     <div className="table-container">
       <button className="close-button" onClick={onClose}><FontAwesomeIcon icon={faXmark} /></button>

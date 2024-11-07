@@ -6,6 +6,8 @@ import java.util.List;
 
 import com.example.demo.Dao.UserDao;
 import com.example.demo.Entity.Comment;
+import jakarta.transaction.Transactional;
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -67,17 +69,18 @@ public class InquiryService {
 
 		return new ResponseStructure<List<Inquiry>>(HttpStatus.OK.value(),"Inquiries fetched Sucessfully",list,LocalDateTime.now());
 	}
+	//
+	@Transactional
+	public List<Inquiry> fetchInquiriesByUserId(int userId) {
+		List<Inquiry> inquiries = inquiryRepository.findByUserId(userId);
+		inquiries.forEach(inquiry -> {
 
-	 public ResponseStructure<List<Inquiry>> fetchInquiriesByUserId(int userId) {
-	        List<Inquiry> inquiries = inquiryRepository.findByUserId(userId);
-	        ResponseStructure<List<Inquiry>> responseStructure = new ResponseStructure<>();
-	        responseStructure.setData(inquiries);
-	        responseStructure.setMessage("Inquiries fetched successfully");
-	        responseStructure.setStatusCode(HttpStatus.OK.value());
-	        return responseStructure;
-	    }
+			Hibernate.initialize(inquiry.getComments());
+		});
+		return inquiries;
+	}
 	
-    public ResponseStructure<Inquiry> deleteInquiry(int id)
+	public ResponseStructure<Inquiry> deleteInquiry(int id)
     {
     	Inquiry inquiry=inquiryDao.deleteInquiry(id);
     	return new ResponseStructure<Inquiry>(HttpStatus.OK.value(), "Inqury deleted Succesfully", inquiry,LocalDateTime.now());
