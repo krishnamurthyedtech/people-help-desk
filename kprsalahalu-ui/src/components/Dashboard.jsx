@@ -19,12 +19,15 @@ const Dashboard = () => {
   const [comment, setComment] = useState('');
   const userDetails = JSON.parse(sessionStorage.getItem("userDetails")) || {};
   const navigate = useNavigate();
-
   useEffect(() => {
     if (view === 'inquiries' && userDetails.id) {
-      fetchInquiries(userDetails.id);
+      if (userDetails.role === 'admin') {
+        fetchAllInquiries(); 
+      } else {
+        fetchInquiries(userDetails.id); 
+      }
     }
-  }, [view, userDetails.id]);
+  }, [view, userDetails.id, userDetails.role]);
 
   const fetchInquiries = async (userId) => {
     try {
@@ -32,6 +35,14 @@ const Dashboard = () => {
       setInquiries(response.data.data);
     } catch (error) {
       console.error('Error fetching inquiries:', error);
+    }
+  };
+  const fetchAllInquiries = async () => {
+    try {
+      const response = await axios.get(`http://localhost:8080/api/inquiry/fetch`);
+      setInquiries(response.data.data);
+    } catch (error) {
+      console.error('Error fetching all inquiries:', error);
     }
   };
   const handleClick = (viewType) => setView(viewType);
@@ -129,16 +140,32 @@ const Dashboard = () => {
           onClick={() => handleClick('inquiries')}
         >
           <FontAwesomeIcon icon={faEnvelope} className="sidebar-icon" />
-          <span>My Inquiries</span>
+          <span>{userDetails.role === 'admin' ? 'Show All Inquiries' : 'My Inquiries'}</span>
         </div>
       </aside>
       <main className="main-content">
-        {view === '' && <h2>Welcome {userDetails.name || 'User'}</h2>}
+        {view === '' && (
+          <>
+            <h5>Login Successfully......</h5>
+            <h2>
+              Welcome {userDetails.role === 'admin' ? `Admin ${userDetails.name || 'User'}` : userDetails.name || 'User'}
+            </h2>
+          </>
+        )}
         {view === 'user' && <UserDetails userDetails={userDetails} />}
         {view === 'inquiries' && (
           <>
-            <InquiriesTable inquiries={inquiries} onAddInquiryClick={handleAddInquiryClick} comment={comment} setComment={setComment}
-              handleEditSubmit={handleEditSubmit} handleDelete={handleDelete} onOpenComments={handleOpenComments} />
+            <InquiriesTable
+              inquiries={inquiries}
+              onAddInquiryClick={userDetails.role !== 'admin' ? handleAddInquiryClick : null}
+              isAdmin={userDetails.role === 'admin'}
+              comment={comment}
+              setComment={setComment}
+              handleEditSubmit={handleEditSubmit}
+              handleDelete={handleDelete}
+              onOpenComments={handleOpenComments}
+              userRole={userDetails.role}
+            />
             {showForm && (
               <InquiryForm
                 onSubmit={handleSubmit}
@@ -154,14 +181,12 @@ const Dashboard = () => {
                 onClose={() => setShowForm(false)}
               />
             )}
-            {openComments && (
-              navigate(`/dashboard/comments/${inquiryId}`)
-            )}
+            {openComments && navigate(`/dashboard/comments/${inquiryId}`)}
           </>
         )}
       </main>
     </div>
-  );
+  );  
 };
 
 export default Dashboard;

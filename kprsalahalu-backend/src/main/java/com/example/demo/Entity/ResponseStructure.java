@@ -20,4 +20,6 @@ public class ResponseStructure<T> {
 	private T data;
 	private LocalDateTime time;
 
+	//public ResponseStructure(int value, String adminRegisteredSuccessfully, Admin savedAdmin) {
+	//}
 }

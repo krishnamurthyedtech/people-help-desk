@@ -8,6 +8,7 @@ import java.util.List;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
@@ -35,7 +36,7 @@ public class Inquiry
 	private String description;
 	private String phoneNo;
 
-	@OneToMany(mappedBy = "inquiry", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "inquiry", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
 	@JsonManagedReference
 
 	private List<Comment> comments = new ArrayList<>();
@@ -43,7 +44,9 @@ public class Inquiry
 
 	//private String comment;
 	private LocalDateTime creationTime;
-	@ManyToOne
+
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JsonIgnore
 	private User user;
 
 
