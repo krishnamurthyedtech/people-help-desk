@@ -15,6 +15,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @NoArgsConstructor
@@ -38,7 +39,7 @@ public class Inquiry
 
 	@OneToMany(mappedBy = "inquiry", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
 	@JsonManagedReference
-
+	@ToString.Exclude
 	private List<Comment> comments = new ArrayList<>();
 
 
@@ -47,6 +48,7 @@ public class Inquiry
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JsonIgnore
+	@ToString.Exclude
 	private User user;
 
 

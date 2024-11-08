@@ -6,7 +6,7 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 
 const CommentsPage = () => {
-  const { inquiryId } = useParams();
+  const { inquiryId, userId } = useParams();
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
   const [showForm, setShowForm] = useState(false);
@@ -30,7 +30,6 @@ const CommentsPage = () => {
       alert("Comment cannot be empty!");
       return;
     }
-    const userId = 1;
     try {
       const response = await axios.post(`http://localhost:8080/api/comments/add/${inquiryId}`, {
         comment: newComment,

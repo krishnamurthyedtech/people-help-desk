@@ -32,11 +32,12 @@ public class CommentService {
         User user = userRepository.findById(Math.toIntExact(userId))
                 .orElseThrow(() -> new RuntimeException("User not found with ID: " + userId));
 
+        System.out.println("User"+user);
 
         Inquiry inquiry = inquiryRepository.findById(Math.toIntExact(inquiryId))
                 .orElseThrow(() -> new RuntimeException("Inquiry not found with ID: " + inquiryId));
 
-
+        System.out.println("inquiry"+inquiry);
         Comment newComment = new Comment();
         newComment.setComment(commentText);
         newComment.setUser(user);
