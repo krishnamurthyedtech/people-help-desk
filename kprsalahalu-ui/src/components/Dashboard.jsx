@@ -17,20 +17,22 @@ const Dashboard = () => {
   const [inquiryType, setInquiryType] = useState('');
   const [description, setDescription] = useState('');
   const [comment, setComment] = useState('');
+  const [userId, setUserId] = useState('');
   const userDetails = JSON.parse(sessionStorage.getItem("userDetails")) || {};
   const navigate = useNavigate();
   useEffect(() => {
     if (view === 'inquiries' && userDetails.id) {
       if (userDetails.role === 'admin') {
-        fetchAllInquiries(); 
+        fetchAllInquiries();
       } else {
-        fetchInquiries(userDetails.id); 
+        fetchInquiries(userDetails.id);
       }
     }
   }, [view, userDetails.id, userDetails.role]);
 
   const fetchInquiries = async (userId) => {
     try {
+      setUserId(userId);
       const response = await axios.get(`http://localhost:8080/api/inquiry/fetchByUser/${userId}`);
       setInquiries(response.data.data);
     } catch (error) {
@@ -181,12 +183,12 @@ const Dashboard = () => {
                 onClose={() => setShowForm(false)}
               />
             )}
-            {openComments && navigate(`/dashboard/comments/${inquiryId}`)}
+            {openComments && navigate(`/dashboard/comments/${inquiryId}/${userId}`)}
           </>
         )}
       </main>
     </div>
-  );  
+  );
 };
 
 export default Dashboard;

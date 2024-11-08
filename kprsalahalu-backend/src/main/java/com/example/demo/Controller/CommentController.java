@@ -23,7 +23,7 @@ public class CommentController {
 public ResponseEntity<Comment> addComment(@PathVariable Long inquiryId, @RequestBody Map<String, Object> requestBody) {
     try {
         String commentText = (String) requestBody.get("comment");
-        Long userId = Long.valueOf((Integer) requestBody.get("userId"));
+        Long userId = Long.valueOf(requestBody.get("userId").toString());
 
 
         Comment savedComment = commentService.addComment(inquiryId, userId, commentText);

@@ -5,6 +5,7 @@
     import lombok.AllArgsConstructor;
     import lombok.Data;
     import lombok.NoArgsConstructor;
+    import lombok.ToString;
 
     import java.time.LocalDateTime;
     @Data
@@ -21,11 +22,13 @@
 
         @ManyToOne(fetch = FetchType.LAZY, optional = false)
         @JoinColumn(name = "user_id", nullable = false)
+        @ToString.Exclude
         private User user;  // User who made the comment
 
         @ManyToOne(fetch = FetchType.LAZY, optional = false)
         @JoinColumn(name = "inquiry_id", nullable = false)
         @JsonBackReference
+        @ToString.Exclude
         private Inquiry inquiry;  // Inquiry the comment is related to
 
         private LocalDateTime creationTime = LocalDateTime.now();

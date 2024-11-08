@@ -55,8 +55,8 @@ function App() {
       <Routes>
         <Route path="/" element={!(showLoginForm || showSignupForm) ? <Content /> : null} />
         <Route path="/dashboard" element={isAuthenticated ? <Dashboard /> : <Navigate to="/" />} />
-        <Route path="/dashboard/comments/:inquiryId" element={<CommentsPage />} />
-        
+        <Route path="/dashboard/comments/:inquiryId/:userId" element={<CommentsPage />} />
+
       </Routes>
       <Footer />
     </Router>
