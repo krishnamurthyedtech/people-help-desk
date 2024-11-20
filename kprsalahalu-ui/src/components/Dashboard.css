@@ -95,30 +95,30 @@ body {
   overflow-x: hidden;
 }
 
+
 .user-details-card {
   width: 100%;
   max-width: 900px;
   background-color: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 12px 24px rgba(221, 92, 92, 0.15);
   padding: 20px;
   margin: 20px auto;
   border: 1px solid #e0e0e0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  overflow-x: hidden;
 }
 
 .user-details-card h2 {
-  font-size: 1.4em;
+  font-size: 2em;
   margin-bottom: 15px;
   color: #333;
   font-weight: 600;
+  text-align: center;
 }
 
 .user-details-card table {
   width: 100%;
   border-collapse: separate;
-  border-spacing: 0;
 }
 
 .user-details-card th,
@@ -126,7 +126,7 @@ body {
   border: 1px solid #ddd;
   padding: 12px;
   text-align: left;
-  font-size: 0.9em;
+  font-size: 1.0em;
 }
 
 .user-details-card th {
@@ -153,14 +153,14 @@ body {
 .table-container {
   width: 100%;
   position: relative;
-  border-collapse: collapse;
   background-color: #f9f9f9;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
 }
 
-.table-container button.add-inquiry-button {
+.add-inquiry-button {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -169,14 +169,25 @@ body {
   color: #fff;
   background-color: #3498db;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s;
-  z-index: 1;
 }
 
-.table-container button.add-inquiry-button:hover {
+.add-inquiry-button:hover {
   background-color: #2980b9;
+}
+
+h2 {
+  margin: 20px 0;
+  font-size: 1.6em;
+  color: #333;
+}
+
+.table-container label,
+.table-container select {
+  font-size: 1em;
+  margin: 10px;
 }
 
 .table-container table {
@@ -204,7 +215,6 @@ body {
 .table-container tr:hover {
   background-color: #ecf0f1;
 }
-
 @media (max-width: 767px) {
   .user-details-card {
     padding: 15px;
@@ -280,8 +290,6 @@ body {
   box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
-
 .close-button {
   position: absolute;
   top: 10px;
@@ -318,6 +326,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
+
 }
 
 
@@ -327,6 +336,8 @@ body {
   color: #555;
   font-weight: 500;
   padding-top: 10px;
+  width: 120px; 
+  text-align: right; 
 }
 
 
@@ -342,6 +353,10 @@ body {
   background-color: #fafafa;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: calc(70% - 170px); 
+  height: 50px; 
+  box-sizing: border-box;
+  margin-left: 3px;
 }
 
 .form-overlay-container textarea {

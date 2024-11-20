@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.example.demo.Dao.UserDao;
 import com.example.demo.Entity.Comment;
+import com.example.demo.Entity.User;
 import jakarta.transaction.Transactional;
 import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,18 +44,53 @@ public class InquiryService {
 		}
 		return new ResponseStructure<Inquiry>(HttpStatus.OK.value(),"Inquiry saved Sucessfully",inquiry2,LocalDateTime.now());
 	}
-	public ResponseStructure<Inquiry> updateInquiry(Inquiry inquiry, int id)
-	{
-		List<Comment> comments = inquiry.getComments();
-		inquiry.setComments(new ArrayList<>());
-		Inquiry inquiry2=inquiryDao.updateInquiry(inquiry, id);
-		for (Comment comment : comments) {
-			comment.setInquiry(inquiry2);
-			comment.setCreationTime(LocalDateTime.now());
-			comment.setUser(userDao.fetchUser(inquiry2.getUser().getId()));
-			Comment savedComment = commentService.addComment( comment);
+//	public ResponseStructure<Inquiry> updateInquiry(Inquiry inquiry, int id)
+//	{
+//		List<Comment> comments = inquiry.getComments();
+//		inquiry.setComments(new ArrayList<>());
+//		Inquiry inquiry2=inquiryDao.updateInquiry(inquiry, id);
+//		for (Comment comment : comments) {
+//			comment.setInquiry(inquiry2);
+//			comment.setCreationTime(LocalDateTime.now());
+//			comment.setUser(userDao.fetchUser(inquiry2.getUser().getId()));
+//			Comment savedComment = commentService.addComment( comment);
+//		}
+//			return new ResponseStructure<Inquiry>(HttpStatus.OK.value(),"Inquiry Updated Sucessfully",inquiry2,LocalDateTime.now());
+//	}
+	public ResponseStructure<Inquiry> updateInquiry(Inquiry updatedInquiry, int inquiryId) {
+		Inquiry existingInquiry = inquiryRepository.findById((int) inquiryId)
+				.orElseThrow(() -> new IllegalStateException("Inquiry not found with ID: " + inquiryId));
+
+		if (updatedInquiry.getName() == null) {
+			updatedInquiry.setName(existingInquiry.getName());
 		}
-			return new ResponseStructure<Inquiry>(HttpStatus.OK.value(),"Inquiry Updated Sucessfully",inquiry2,LocalDateTime.now());
+
+		existingInquiry.setName(updatedInquiry.getName());
+		existingInquiry.setDescription(updatedInquiry.getDescription());
+		existingInquiry.setLastUpdatedTime(LocalDateTime.now());
+
+		List<Comment> updatedComments = existingInquiry.getComments();
+//		existingInquiry.getComments().clear();
+
+		for (Comment comment : updatedComments) {
+			if (comment.getComment() == null || comment.getComment().trim().isEmpty()) {
+				throw new IllegalArgumentException("Comment text cannot be null or empty");
+			}
+
+			comment.setInquiry(existingInquiry);
+			comment.setCreationTime(LocalDateTime.now());
+			comment.setUser(userDao.fetchUser(existingInquiry.getUser().getId()));
+			existingInquiry.getComments().add(commentService.addComment(comment));
+		}
+
+		Inquiry savedInquiry = inquiryRepository.save(existingInquiry);
+
+		return new ResponseStructure<>(
+				HttpStatus.OK.value(),
+				"Inquiry updated successfully",
+				savedInquiry,
+				LocalDateTime.now()
+		);
 	}
 
 	public ResponseStructure<Inquiry>fetchInquiry(int id)

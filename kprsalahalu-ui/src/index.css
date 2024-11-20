@@ -163,6 +163,7 @@ footer {
   padding: 20px 0;
   text-align: center;
   margin-top: auto;
+  flex-shrink: 0;
 }
 
 footer .footer-bottom {

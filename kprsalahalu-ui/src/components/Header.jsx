@@ -32,15 +32,15 @@ const Header = ({
       });
       console.log(response.data);
       const userData = response.data.data;
-      
+
       sessionStorage.setItem("userDetails", JSON.stringify(userData));
 
-     
+
       onLogin();
       navigate('/dashboard');
     } catch (error) {
       const errorMessage = error.response?.data?.message || 'Login failed. Please check your credentials.';
-      alert(errorMessage);  
+      alert(errorMessage);
     }
   };
 
@@ -55,12 +55,16 @@ const Header = ({
       });
       const message = response.data.message || 'Signup successful';
       alert(message);
+      setSignupName('');
+      setSignupEmail('');
+      setSignupPassword('');
+      setSignupPhoneNo('');
+      setShowSignupForm(false);
     } catch (error) {
       const errorMessage = error.response?.data?.message || 'Signup failed. Please try again.';
       alert(errorMessage);
     }
   };
-
   return (
     <>
       {showLoginForm ? (
@@ -142,8 +146,31 @@ const Header = ({
                   </>
                 ) : (
                   <>
-                    <button onClick={() => { setShowLoginForm(true); setShowSignupForm(false); }}>Login</button>
-                    <button onClick={() => { setShowSignupForm(true); setShowLoginForm(false); }}>Sign Up</button>
+                    {/* <button onClick={() => { setShowLoginForm(true); setShowSignupForm(false); }}>Login</button>
+                    <button onClick={() => { setShowSignupForm(true); setShowLoginForm(false); }}>Sign Up</button> */}
+                    <button
+                      onClick={() => {
+                        setShowLoginForm(true);
+                        setShowSignupForm(false);
+                        setSignupName('');
+                        setSignupEmail('');
+                        setSignupPassword('');
+                        setSignupPhoneNo('');
+                      }}
+                    >
+                      Login
+                    </button>
+                    <button
+                      onClick={() => {
+                        setShowSignupForm(true);
+                        setShowLoginForm(false);
+                        setLoginEmail('');
+                        setLoginPassword('');
+                      }}
+                    >
+                      Sign Up
+                    </button>
+
                   </>
                 )}
                 <span className="usa">USA</span>
