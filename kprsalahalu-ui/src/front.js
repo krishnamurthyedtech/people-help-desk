@@ -1,4 +1,4 @@
-// JavaScript to handle sticky header resize effect
+
 window.addEventListener('scroll', function() {
     var header = document.querySelector('.wrapper');
     if (window.scrollY > 50) {
@@ -8,7 +8,7 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// Functions to show and hide forms
+
 function showLoginForm() {
     document.getElementById('loginForm').style.display = 'block';
 }

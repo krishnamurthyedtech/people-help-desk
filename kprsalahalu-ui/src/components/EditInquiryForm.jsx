@@ -13,6 +13,7 @@ const EditInquiryForm = ({ onSubmit, inquiry, onClose }) => {
       setValue("subject", inquiry.subject);
       setValue("description", inquiry.description);
       setValue("inquiryType", inquiry.inquiryType);
+      setValue("name", inquiry.name);
       setValue("comment", inquiry.comment || ""); 
     }
   }, [inquiry, setValue]);
@@ -28,19 +29,21 @@ const EditInquiryForm = ({ onSubmit, inquiry, onClose }) => {
         </button>
         <form onSubmit={handleSubmit(handleFormSubmit)} className="inquiry-form">
           <h2>Edit Inquiry</h2>
-          
+          <div className="form-field">
           <label>
             Subject:
+            </label>
             <input
               type="text"
               {...register("subject", { required: true })} 
             />
-          </label>
-
+            </div>
+            <div className="form-field">
           <label>
             Inquiry Type:
+          </label>
             <select
-              {...register("InquiryType", { required: true })}
+              {...register("inquiryType", { required: true })}
             >
               <option value="">Select Inquiry Type</option>
               <option value="education">Education</option>
@@ -48,14 +51,18 @@ const EditInquiryForm = ({ onSubmit, inquiry, onClose }) => {
               <option value="finance">Finance</option>
               <option value="land">Land</option>
               <option value="healthcare">Healthcare</option>
+              
             </select>
-          </label>
+            </div>
+            <div className="form-field">
           <label>
             Description:
+            </label>
             <textarea
               {...register("description", { required: true })} 
             />
-          </label>
+            </div>
+          
           <button className="submit-button" type="submit">Update</button>
         </form>
       </div>

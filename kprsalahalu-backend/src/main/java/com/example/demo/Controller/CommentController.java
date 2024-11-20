@@ -20,10 +20,14 @@ public class CommentController {
 
 
 @PostMapping("/add/{inquiryId}")
-public ResponseEntity<Comment> addComment(@PathVariable Long inquiryId, @RequestBody Map<String, Object> requestBody) {
+public ResponseEntity<Comment> addComment(@PathVariable Long inquiryId,@RequestBody Map<String, Object> requestBody) {
     try {
         String commentText = (String) requestBody.get("comment");
         Long userId = Long.valueOf(requestBody.get("userId").toString());
+        if (commentText == null || commentText.trim().isEmpty()) {
+            return ResponseEntity.badRequest()
+                    .body(null);
+        }
 
 
         Comment savedComment = commentService.addComment(inquiryId, userId, commentText);

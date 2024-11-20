@@ -12,6 +12,8 @@ import com.example.demo.Entity.Comment;
 import com.example.demo.Entity.User;
 import com.example.demo.Repository.CommentRepository;
 import com.example.demo.Repository.InquiryRepository;
+import jakarta.validation.Valid;
+import org.apache.velocity.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

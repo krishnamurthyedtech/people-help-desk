@@ -28,6 +28,10 @@ public class CommentService {
 
 
     public Comment addComment(Long inquiryId, Long userId, String commentText) {
+        // Validate comment text
+        if (commentText == null || commentText.trim().isEmpty()) {
+            throw new IllegalArgumentException("Comment text cannot be null or empty");
+        }
 
         User user = userRepository.findById(Math.toIntExact(userId))
                 .orElseThrow(() -> new RuntimeException("User not found with ID: " + userId));
