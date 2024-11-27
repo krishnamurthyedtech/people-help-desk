@@ -1,7 +1,9 @@
+
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
 const Header = ({
@@ -87,8 +89,8 @@ const Header = ({
               onChange={(e) => setLoginPassword(e.target.value)}
               required
             />
-            <button type="submit">Login</button>
-            <button type="button" onClick={() => setShowLoginForm(false)}>Close</button>
+            <button type="submit">Login</button> 
+            <button className="close-button" onClick={()=>setShowLoginForm(false)}><FontAwesomeIcon icon={faXmark} /></button>
           </form>
         </div>
       ) : showSignupForm ? (
@@ -127,8 +129,8 @@ const Header = ({
               onChange={(e) => setSignupPhoneNo(e.target.value)}
               required
             />
-            <button type="submit">Sign Up</button>
-            <button type="button" onClick={() => setShowSignupForm(false)}>Close</button>
+            <button type="submit">Sign Up</button> 
+            <button className="close-button" onClick={()=> setShowSignupForm(false)}><FontAwesomeIcon icon={faXmark} /></button>
           </form>
         </div>
       ) : (
@@ -146,8 +148,7 @@ const Header = ({
                   </>
                 ) : (
                   <>
-                    {/* <button onClick={() => { setShowLoginForm(true); setShowSignupForm(false); }}>Login</button>
-                    <button onClick={() => { setShowSignupForm(true); setShowLoginForm(false); }}>Sign Up</button> */}
+                    
                     <button
                       onClick={() => {
                         setShowLoginForm(true);
@@ -173,7 +174,7 @@ const Header = ({
 
                   </>
                 )}
-                <span className="usa">USA</span>
+                
               </div>
             </div>
           </header>
@@ -192,7 +193,7 @@ const Header = ({
               </ul>
             </nav>
           </div>
-          <hr className="divider-color" />
+          <hr className="divider-color" /> 
         </>
       )}
     </>

@@ -130,5 +130,4 @@ const InquiriesTable = ({
     </div>
   );
 };
-
 export default InquiriesTable;

@@ -95,28 +95,6 @@ const Dashboard = () => {
     }
   };
 
-
-  // const handleEditSubmit = async (data) => {
-  //   console.log('Data', data);
-  //   console.log('comment', comment[data.id]);
-  //   try {
-  //     const comments = [
-  //       ...data.comments,
-  //       {
-  //         comment: comment[data.id]
-  //       }
-  //     ]
-  //     const formData = { ...data, comments }
-  //     console.log('Form Data', formData);
-  //     const response = await axios.put(`http://localhost:8080/api/inquiry/update/${data.id}`, formData);
-  //     console.log('Updated Inquiry Data:', response.data);
-  //     fetchInquiries(formData.user.id);
-  //     setComment('');
-  //     setShowForm(false);
-  //   } catch (error) {
-  //     console.error('Error updating inquiry:', error);
-  //   }
-  // };
   const handleEditSubmit = async (data) => {
     try {
       const updatedInquiry = {
