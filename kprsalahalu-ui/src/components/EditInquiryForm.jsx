@@ -1,4 +1,5 @@
 import React from 'react';
+import  { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
@@ -7,19 +8,22 @@ const EditInquiryForm = ({ onSubmit, inquiry, onClose }) => {
   const { register, handleSubmit, setValue } = useForm({
     defaultValues: inquiry,
   });
+  const [successMessage, setSuccessMessage] = useState("");
 
   React.useEffect(() => {
     if (inquiry) {
       setValue("subject", inquiry.subject);
       setValue("description", inquiry.description);
-      setValue("inquiryType", inquiry.inquiryType);
+      setValue("inquiryType", inquiry.inquiryType);  
       setValue("name", inquiry.name);
-      setValue("comment", inquiry.comment || ""); 
+      setValue("comment", inquiry.comment || "");
     }
   }, [inquiry, setValue]);
 
   const handleFormSubmit = (data) => {
+    console.log("Form Data:", data);
     onSubmit({ ...data, id: inquiry.id });
+    setSuccessMessage("Inquiry updated successfully");
   };
   return (
     <div className="form-overlay">
@@ -43,6 +47,7 @@ const EditInquiryForm = ({ onSubmit, inquiry, onClose }) => {
             Inquiry Type:
           </label>
             <select
+              defaultValue={inquiry?.inquiryType || ""}
               {...register("inquiryType", { required: true })}
             >
               <option value="">Select Inquiry Type</option>
@@ -51,7 +56,6 @@ const EditInquiryForm = ({ onSubmit, inquiry, onClose }) => {
               <option value="finance">Finance</option>
               <option value="land">Land</option>
               <option value="healthcare">Healthcare</option>
-              
             </select>
             </div>
             <div className="form-field">
@@ -62,8 +66,8 @@ const EditInquiryForm = ({ onSubmit, inquiry, onClose }) => {
               {...register("description", { required: true })} 
             />
             </div>
-          
           <button className="submit-button" type="submit">Update</button>
+          {successMessage && <p className="success-message">{successMessage}</p>}
         </form>
       </div>
     </div>

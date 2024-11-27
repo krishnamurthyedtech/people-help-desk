@@ -44,54 +44,30 @@ public class InquiryService {
 		}
 		return new ResponseStructure<Inquiry>(HttpStatus.OK.value(),"Inquiry saved Sucessfully",inquiry2,LocalDateTime.now());
 	}
-//	public ResponseStructure<Inquiry> updateInquiry(Inquiry inquiry, int id)
-//	{
-//		List<Comment> comments = inquiry.getComments();
-//		inquiry.setComments(new ArrayList<>());
-//		Inquiry inquiry2=inquiryDao.updateInquiry(inquiry, id);
-//		for (Comment comment : comments) {
-//			comment.setInquiry(inquiry2);
-//			comment.setCreationTime(LocalDateTime.now());
-//			comment.setUser(userDao.fetchUser(inquiry2.getUser().getId()));
-//			Comment savedComment = commentService.addComment( comment);
-//		}
-//			return new ResponseStructure<Inquiry>(HttpStatus.OK.value(),"Inquiry Updated Sucessfully",inquiry2,LocalDateTime.now());
-//	}
 	public ResponseStructure<Inquiry> updateInquiry(Inquiry updatedInquiry, int inquiryId) {
-		Inquiry existingInquiry = inquiryRepository.findById((int) inquiryId)
+		Inquiry existingInquiry = inquiryRepository.findById(inquiryId)
 				.orElseThrow(() -> new IllegalStateException("Inquiry not found with ID: " + inquiryId));
+		System.out.println("Updating Inquiry with ID: " + inquiryId);
+		System.out.println("Updated Name: " + updatedInquiry.getName());
+		System.out.println("Updated Description: " + updatedInquiry.getDescription());
+		System.out.println("Updated Inquiry Type: " + updatedInquiry.getInquiryType());
 
-		if (updatedInquiry.getName() == null) {
-			updatedInquiry.setName(existingInquiry.getName());
+		if (updatedInquiry.getSubject() != null) {
+			existingInquiry.setSubject(updatedInquiry.getSubject());
+		}
+		if (updatedInquiry.getDescription() != null) {
+			existingInquiry.setDescription(updatedInquiry.getDescription());
+		}
+		if (updatedInquiry.getInquiryType() != null) {
+			existingInquiry.setInquiryType(updatedInquiry.getInquiryType());
 		}
 
-		existingInquiry.setName(updatedInquiry.getName());
-		existingInquiry.setDescription(updatedInquiry.getDescription());
 		existingInquiry.setLastUpdatedTime(LocalDateTime.now());
-
-		List<Comment> updatedComments = existingInquiry.getComments();
-//		existingInquiry.getComments().clear();
-
-		for (Comment comment : updatedComments) {
-			if (comment.getComment() == null || comment.getComment().trim().isEmpty()) {
-				throw new IllegalArgumentException("Comment text cannot be null or empty");
-			}
-
-			comment.setInquiry(existingInquiry);
-			comment.setCreationTime(LocalDateTime.now());
-			comment.setUser(userDao.fetchUser(existingInquiry.getUser().getId()));
-			existingInquiry.getComments().add(commentService.addComment(comment));
-		}
-
 		Inquiry savedInquiry = inquiryRepository.save(existingInquiry);
 
-		return new ResponseStructure<>(
-				HttpStatus.OK.value(),
-				"Inquiry updated successfully",
-				savedInquiry,
-				LocalDateTime.now()
-		);
+		return new ResponseStructure<>(HttpStatus.OK.value(), "Inquiry updated successfully", savedInquiry, LocalDateTime.now());
 	}
+
 
 	public ResponseStructure<Inquiry>fetchInquiry(int id)
 	{
@@ -105,7 +81,7 @@ public class InquiryService {
 
 		return new ResponseStructure<List<Inquiry>>(HttpStatus.OK.value(),"Inquiries fetched Sucessfully",list,LocalDateTime.now());
 	}
-	//
+
 	@Transactional
 	public List<Inquiry> fetchInquiriesByUserId(int userId) {
 		List<Inquiry> inquiries = inquiryRepository.findByUserId(userId);
