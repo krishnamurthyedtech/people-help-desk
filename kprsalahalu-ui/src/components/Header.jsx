@@ -137,7 +137,9 @@ const Header = ({
         <>
           <header>
             <div className="contact-info">
-              <span>📱 +91-8123870076 📧 contactus@poincareconsultants.com</span>
+              {/* <span>📱 +91-8123870076   📧 contactus@poincareconsultants.com </span> */}
+              <span>📱 +91-8123870076</span> 
+              <span>📧 contactus@poincareconsultants.com</span>
               <div className="login-signup">
                 {isAuthenticated ? (
                   <>
@@ -171,10 +173,8 @@ const Header = ({
                     >
                       Sign Up
                     </button>
-
                   </>
-                )}
-                
+                )}      
               </div>
             </div>
           </header>
