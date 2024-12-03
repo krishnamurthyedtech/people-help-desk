@@ -8,12 +8,12 @@ import Dashboard from './components/Dashboard';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import CommentsPage from './components/CommentPage';
 
-
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [showLoginForm, setShowLoginForm] = useState(false);
   const [showSignupForm, setShowSignupForm] = useState(false);
-
+  const [selectedCategory, setSelectedCategory] = useState('All');
+    
   useEffect(() => {
     document.title = 'KPR Salahalu';
     const link = document.createElement('link');
@@ -40,7 +40,6 @@ function App() {
   const handleLogout = () => {
     setIsAuthenticated(false);
   };
-
   return (
     <Router>
       <Header
@@ -51,14 +50,21 @@ function App() {
         setShowLoginForm={setShowLoginForm}
         showSignupForm={showSignupForm}
         setShowSignupForm={setShowSignupForm}
+        setSelectedCategory={setSelectedCategory}
       />
       <Routes>
-        <Route path="/" element={!(showLoginForm || showSignupForm) ? <Content /> : null} />
+        <Route
+          path="/"
+          element={
+            !(showLoginForm || showSignupForm) ? (
+              <Content selectedCategory={selectedCategory} />
+            ) : null
+          }
+        />
         <Route path="/dashboard" element={isAuthenticated ? <Dashboard /> : <Navigate to="/" />} />
         <Route path="/dashboard/comments/:inquiryId/:userId" element={<CommentsPage />} />
-
       </Routes>
-      <Footer />
+      {!(showLoginForm || showSignupForm) && <Footer />}     
     </Router>
   );
 }
