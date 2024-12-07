@@ -14,7 +14,7 @@ const EditInquiryForm = ({ onSubmit, inquiry, onClose }) => {
     if (inquiry) {
       setValue("subject", inquiry.subject);
       setValue("description", inquiry.description);
-      setValue("inquiryType", inquiry.inquiryType);  
+      setValue("inquiryType", inquiry.inquiryType); 
       setValue("name", inquiry.name);
       setValue("comment", inquiry.comment || "");
     }
@@ -36,7 +36,7 @@ const EditInquiryForm = ({ onSubmit, inquiry, onClose }) => {
           <div className="form-field">
           <label>
             Subject:
-            </label>
+          </label>
             <input
               type="text"
               {...register("subject", { required: true })} 
@@ -46,9 +46,7 @@ const EditInquiryForm = ({ onSubmit, inquiry, onClose }) => {
           <label>
             Inquiry Type:
           </label>
-            <select
-              defaultValue={inquiry?.inquiryType || ""}
-              {...register("inquiryType", { required: true })}
+            <select             
             >
               <option value="">Select Inquiry Type</option>
               <option value="education">Education</option>

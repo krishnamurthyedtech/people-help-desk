@@ -128,6 +128,7 @@ body {
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-top: 20px;
+  margin-left: 5px;
 }
 
 .add-inquiry-button {
@@ -157,7 +158,7 @@ h2 {
 .table-container label,
 .table-container select {
   font-size: 1em;
-  margin: 10px;
+  /* margin: 10px; */
 }
 
 .table-container table {
@@ -208,7 +209,7 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 1000; 
 }
 
 .form-overlay-container {
@@ -222,6 +223,7 @@ h2 {
   width: 100%;
   box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
 }
 .close-button {
   position: absolute;
@@ -259,6 +261,7 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  
 
 }
 
@@ -319,6 +322,7 @@ h2 {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 100px;
   align-self: center;
+  margin-left: 50px;
 }
 
 .form-overlay-container .submit-button:hover {
@@ -342,6 +346,9 @@ h2 {
   margin-bottom: 15px;
   text-align: center;
   font-size: 1.1em;  
+}
+.user-details-card .MuiTableCell-root{
+  width: 20%;
 }
  @media (min-width: 768px) {
   .dashboard-container {
@@ -398,7 +405,6 @@ h2 {
   }
 } 
 
-/* Container adjustments for smaller screens */
 @media (max-width: 768px) {
   .table-container {
     margin-top: 30px;
@@ -464,7 +470,6 @@ h2 {
     margin: 3px;
   }
 }
-/* Mobile responsiveness for InquiryForm */
 @media (max-width: 768px) {
   .form-overlay-container {
     padding: 17px;
@@ -515,8 +520,6 @@ h2 {
     height: 25px;
   }
 }
-
-/* Additional responsiveness for smaller screens (max-width: 480px) */
 @media (max-width: 480px) {
   .form-overlay-container {
     padding: 17px; 
@@ -542,13 +545,9 @@ h2 {
     gap: 10px; 
   }
 }
-
 @media screen {
   .css-q8oorb-MuiTypography-root {
     
-    font-size: 1.125rem !important;
-    
-    
+    font-size: 1.125rem !important;  
 }
 }
-
