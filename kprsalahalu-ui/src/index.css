@@ -42,6 +42,8 @@ header {
 .login-signup {
   display: flex;
   align-items: center;
+  margin-right: -11px;
+  
 }
 
 .login-signup button {
@@ -116,6 +118,7 @@ nav ul {
   gap: 15px;
   margin: 0;
   padding-right: 120px;
+  margin-right: -17px;
 }
 
 nav a {
@@ -147,7 +150,6 @@ main {
   z-index: 1040;
 }
 
-/* Styling for the circular button */
 .modal-btn {
   background-color: blue;  
   color: white;
@@ -274,8 +276,6 @@ hr.divider-color::before {
   outline: none;
   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
 }
-
-/* Base styling for the SignupForm */
 .signup-form-container {
   position: fixed;
   top: 50%;
@@ -343,22 +343,22 @@ hr.divider-color::before {
   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
 }
 
-/* Close button styling */
+
 .signup-form-container .close-button {
-  background: none;
+  
   border: none;
   color: #888;
   font-size: 24px;
   cursor: pointer;
   align-self: flex-end;
-  margin-top: -10px;
+  margin-top: 0px;
 }
 
 .signup-form-container .close-button:hover {
   color: #555;
 }
 
-/* Mobile View (up to 768px width) */
+
 @media (max-width: 768px) {
   .wrapper
   {
@@ -431,9 +431,7 @@ hr.divider-color::before {
     align-items: left;
     text-align: right;
     margin:0px;
-    padding:11px;
-    
-    
+    padding:11px; 
   }
 
   .login-signup button {
@@ -463,11 +461,6 @@ hr.divider-color::before {
     font-size: 14px;
     
   }
-
-  /* .code-button {
-    left: 80%;
-    top: 50%;
-  } */
 }
 
 @media (max-width: 480px) {
@@ -520,14 +513,11 @@ hr.divider-color::before {
     font-size: 0.8em;    
   }
 } 
-
-/* Mobile View (up to 768px width) */
 @media (max-width: 768px) {
   .signup-form-container {
     max-width: 80%;
     padding: 20px;
   }
-
   .signup-form-container h2 {
     font-size: 20px;
   }
@@ -544,7 +534,6 @@ hr.divider-color::before {
   }
 }
 
-/* Small Mobile View (up to 480px width) */
 @media (max-width: 480px) {
   .signup-form-container {
     max-width: 74%;

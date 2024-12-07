@@ -8,7 +8,7 @@ import InquiriesTable from './InquiriesTable';
 import InquiryForm from './InquiryForm';
 import { useNavigate } from 'react-router-dom';
 const Dashboard = () => {
-  const [view, setView] = useState('');
+  const [view, setView] = useState('user');
   const [inquiryId, setInquiryId] = useState(0);
   const [inquiries, setInquiries] = useState([]);
   const [showForm, setShowForm] = useState(false);
@@ -147,14 +147,6 @@ const Dashboard = () => {
         </div>
       </aside>
       <main className="main-content">
-        {view === '' && (
-          <>
-            <h5>Login Successfully......</h5>
-            <h2>
-              Welcome {userDetails.role === 'admin' ? `Admin ${userDetails.name || 'User'}` : userDetails.name || 'User'}
-            </h2>
-          </>
-        )}
         {view === 'user' && <UserDetails userDetails={userDetails} />}
         {view === 'inquiries' && (
           <>

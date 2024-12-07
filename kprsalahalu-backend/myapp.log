@@ -1,31 +1,31 @@
-2024-12-03T09:19:59.878+05:30  INFO 2276 --- [application_data] [restartedMain] c.example.demo.ApplicationApplication    : Starting ApplicationApplication using Java 22.0.2 with PID 2276 (D:\KMSS_Workspace\kprsalahalu-app\kprsalahalu-backend\target\classes started by DELL in D:\KMSS_Workspace\kprsalahalu-app\kprsalahalu-backend)
-2024-12-03T09:19:59.904+05:30  INFO 2276 --- [application_data] [restartedMain] c.example.demo.ApplicationApplication    : No active profile set, falling back to 1 default profile: "default"
-2024-12-03T09:20:00.044+05:30  INFO 2276 --- [application_data] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-12-03T09:20:00.044+05:30  INFO 2276 --- [application_data] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-12-03T09:20:01.603+05:30  INFO 2276 --- [application_data] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-12-03T09:20:01.726+05:30  INFO 2276 --- [application_data] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 108 ms. Found 3 JPA repository interfaces.
-2024-12-03T09:20:02.992+05:30  INFO 2276 --- [application_data] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-12-03T09:20:03.027+05:30  INFO 2276 --- [application_data] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-03T09:20:03.029+05:30  INFO 2276 --- [application_data] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
-2024-12-03T09:20:03.120+05:30  INFO 2276 --- [application_data] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-03T09:20:03.120+05:30  INFO 2276 --- [application_data] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3076 ms
-2024-12-03T09:20:03.428+05:30  INFO 2276 --- [application_data] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-12-03T09:20:03.554+05:30  INFO 2276 --- [application_data] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
-2024-12-03T09:20:03.634+05:30  INFO 2276 --- [application_data] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-12-03T09:20:04.191+05:30  INFO 2276 --- [application_data] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-12-03T09:20:04.255+05:30  INFO 2276 --- [application_data] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-12-03T09:20:04.564+05:30  INFO 2276 --- [application_data] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6956c587
-2024-12-03T09:20:04.568+05:30  INFO 2276 --- [application_data] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-12-03T09:20:04.620+05:30  WARN 2276 --- [application_data] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-12-03T09:20:04.623+05:30  WARN 2276 --- [application_data] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2024-12-03T09:20:06.328+05:30  INFO 2276 --- [application_data] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-12-03T09:20:06.501+05:30  INFO 2276 --- [application_data] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-12-03T09:20:06.996+05:30  INFO 2276 --- [application_data] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-12-03T09:20:08.439+05:30  WARN 2276 --- [application_data] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-12-03T09:20:08.655+05:30 DEBUG 2276 --- [application_data] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 21 mappings in 'requestMappingHandlerMapping'
-2024-12-03T09:20:08.806+05:30 DEBUG 2276 --- [application_data] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
-2024-12-03T09:20:08.877+05:30 DEBUG 2276 --- [application_data] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-12-03T09:20:08.942+05:30 DEBUG 2276 --- [application_data] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-12-03T09:20:09.220+05:30  INFO 2276 --- [application_data] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2024-12-03T09:20:09.281+05:30  INFO 2276 --- [application_data] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2024-12-03T09:20:09.290+05:30  INFO 2276 --- [application_data] [restartedMain] c.example.demo.ApplicationApplication    : Started ApplicationApplication in 10.463 seconds (process running for 18.703)
+2024-12-07T09:48:33.717+05:30  INFO 14384 --- [application_data] [restartedMain] c.example.demo.ApplicationApplication    : Starting ApplicationApplication using Java 22.0.2 with PID 14384 (D:\KMSS_Workspace\kprsalahalu-app\kprsalahalu-backend\target\classes started by DELL in D:\KMSS_Workspace\kprsalahalu-app\kprsalahalu-backend)
+2024-12-07T09:48:33.748+05:30  INFO 14384 --- [application_data] [restartedMain] c.example.demo.ApplicationApplication    : No active profile set, falling back to 1 default profile: "default"
+2024-12-07T09:48:33.894+05:30  INFO 14384 --- [application_data] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-12-07T09:48:33.896+05:30  INFO 14384 --- [application_data] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-12-07T09:48:35.647+05:30  INFO 14384 --- [application_data] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-07T09:48:35.774+05:30  INFO 14384 --- [application_data] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 112 ms. Found 3 JPA repository interfaces.
+2024-12-07T09:48:37.055+05:30  INFO 14384 --- [application_data] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-12-07T09:48:37.086+05:30  INFO 14384 --- [application_data] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-07T09:48:37.086+05:30  INFO 14384 --- [application_data] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-12-07T09:48:37.189+05:30  INFO 14384 --- [application_data] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-07T09:48:37.189+05:30  INFO 14384 --- [application_data] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3293 ms
+2024-12-07T09:48:37.563+05:30  INFO 14384 --- [application_data] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-07T09:48:37.688+05:30  INFO 14384 --- [application_data] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-12-07T09:48:37.769+05:30  INFO 14384 --- [application_data] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-07T09:48:38.447+05:30  INFO 14384 --- [application_data] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-07T09:48:38.498+05:30  INFO 14384 --- [application_data] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-07T09:48:38.794+05:30  INFO 14384 --- [application_data] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6e2acda3
+2024-12-07T09:48:38.794+05:30  INFO 14384 --- [application_data] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-07T09:48:38.864+05:30  WARN 14384 --- [application_data] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-07T09:48:38.865+05:30  WARN 14384 --- [application_data] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-12-07T09:48:40.668+05:30  INFO 14384 --- [application_data] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-07T09:48:40.855+05:30  INFO 14384 --- [application_data] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-07T09:48:41.361+05:30  INFO 14384 --- [application_data] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-12-07T09:48:42.856+05:30  WARN 14384 --- [application_data] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-07T09:48:43.116+05:30 DEBUG 14384 --- [application_data] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 21 mappings in 'requestMappingHandlerMapping'
+2024-12-07T09:48:43.355+05:30 DEBUG 14384 --- [application_data] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-12-07T09:48:43.457+05:30 DEBUG 14384 --- [application_data] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-12-07T09:48:43.529+05:30 DEBUG 14384 --- [application_data] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-12-07T09:48:43.858+05:30  INFO 14384 --- [application_data] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-12-07T09:48:43.931+05:30  INFO 14384 --- [application_data] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-12-07T09:48:43.952+05:30  INFO 14384 --- [application_data] [restartedMain] c.example.demo.ApplicationApplication    : Started ApplicationApplication in 11.579 seconds (process running for 20.799)
