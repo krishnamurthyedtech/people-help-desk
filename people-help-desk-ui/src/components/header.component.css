@@ -1,0 +1,301 @@
+/* Header Container */
+.header-container {
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(13, 248, 13, 0.715);
+}
+
+/* Top Dark Bar */
+.header-top-bar {
+  background-color: #0dd127;
+  color: #ffffff;
+  padding: 12px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Left Section: Contact Info */
+.contact-section {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  font-size: 13px;
+}
+
+.contact-item {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.contact-item .icon {
+  font-size: 16px;
+}
+
+.contact-item .text {
+  color: #ffffff;
+  font-weight: 400;
+}
+
+/* Right Section: Navigation & Auth */
+.nav-auth-section {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 30px;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+/* Navigation Menu */
+.nav-menu ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 24px;
+  align-items: center;
+}
+
+.nav-menu li {
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 5px 0;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.nav-link:hover {
+  color: #4CAF50;
+  border-bottom-color: #4CAF50;
+}
+
+.nav-link:active,
+.nav-link:focus {
+  outline: none;
+}
+
+/* Auth Buttons Container */
+.auth-buttons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Login Button */
+.btn-login {
+  background-color: #444;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn-login:hover {
+  background-color: #555;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-login:active {
+  transform: translateY(1px);
+}
+
+/* Sign Up Button */
+.btn-signup {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn-signup:hover {
+  background-color: #45a049;
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+}
+
+.btn-signup:active {
+  transform: translateY(1px);
+}
+
+/* Dashboard Button */
+.btn-dashboard {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px 8px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.btn-dashboard:hover {
+  opacity: 0.8;
+  transform: scale(1.1);
+}
+
+/* Logout Button */
+.btn-logout {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn-logout:hover {
+  background-color: #da190b;
+  box-shadow: 0 2px 8px rgba(244, 67, 54, 0.3);
+}
+
+.btn-logout:active {
+  transform: translateY(1px);
+}
+
+/* User Name */
+.user-name {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Main Title Area */
+.header-main {
+  background-color: #ffffff;
+  padding: 30px 40px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.app-title {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 700;
+  color: #2d2d2d;
+  letter-spacing: -0.5px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .header-top {
+    padding: 12px 30px;
+    gap: 15px;
+  }
+
+  .nav-auth-section {
+    gap: 20px;
+  }
+
+  .nav-menu ul {
+    gap: 16px;
+  }
+
+  .contact-section {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-top {
+    flex-direction: column;
+    padding: 12px 20px;
+    gap: 12px;
+  }
+
+  .contact-section {
+    width: 100%;
+    flex-direction: column;
+    font-size: 12px;
+    gap: 8px;
+  }
+
+  .contact-item {
+    gap: 6px;
+  }
+
+  .nav-auth-section {
+    width: 100%;
+    gap: 10px;
+    flex-direction: column;
+  }
+
+  .nav-menu ul {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .auth-buttons {
+    width: 100%;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .app-title {
+    font-size: 28px;
+  }
+
+  .header-main {
+    padding: 20px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-top {
+    padding: 10px 15px;
+  }
+
+  .contact-section {
+    font-size: 11px;
+  }
+
+  .nav-menu ul {
+    gap: 8px;
+  }
+
+  .nav-link {
+    font-size: 12px;
+  }
+
+  .btn-login,
+  .btn-signup,
+  .btn-logout {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .app-title {
+    font-size: 24px;
+  }
+}

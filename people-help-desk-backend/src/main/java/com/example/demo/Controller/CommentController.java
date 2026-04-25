@@ -1,0 +1,46 @@
+package com.example.demo.Controller;
+
+import com.example.demo.DTO.CommentDetailsDTO;
+import com.example.demo.Entity.Comment;
+import com.example.demo.Service.CommentService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Map;
+
+@RestController
+@RequestMapping("/api/comments")
+public class CommentController {
+
+    @Autowired
+    private CommentService commentService;
+
+
+@PostMapping("/add/{inquiryId}")
+public ResponseEntity<Comment> addComment(@PathVariable Long inquiryId,@RequestBody Map<String, Object> requestBody) {
+    try {
+        String commentText = (String) requestBody.get("comment");
+        Long userId = Long.valueOf(requestBody.get("userId").toString());
+        if (commentText == null || commentText.trim().isEmpty()) {
+            return ResponseEntity.badRequest().body(null);
+        }
+
+        Comment savedComment = commentService.addComment(inquiryId, userId, commentText);
+        return new ResponseEntity<>(savedComment, HttpStatus.CREATED);
+    } catch (NumberFormatException | NullPointerException e) {
+        return ResponseEntity.badRequest().build();
+    } catch (RuntimeException e) {
+        // Optionally log the error here
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+    }
+}
+    @GetMapping("/fetch/{inquiryId}")
+    public ResponseEntity<List<CommentDetailsDTO>> getCommentDetailsByInquiryId(@PathVariable int inquiryId) {
+        List<CommentDetailsDTO> commentDetails = commentService.getCommentDetailsByInquiryId(inquiryId);
+        return new ResponseEntity<>(commentDetails, HttpStatus.OK);
+    }
+}
+

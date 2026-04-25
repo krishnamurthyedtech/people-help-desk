@@ -1,0 +1,55 @@
+<header class="header-container">
+  <!-- Top Dark Bar -->
+  <div class="header-top">
+    <!-- Left Section: Contact Info -->
+    <div class="contact-section">
+      <div class="contact-item">
+        <span class="icon">📱</span>
+        <span class="text">+91-8123870076</span>
+      </div>
+      <div class="contact-item">
+        <span class="icon">📧</span>
+        <span class="text">contactus@poincareconsultants.com</span>
+      </div>
+    </div>
+
+    <!-- Right Section: Navigation & Auth -->
+    <div class="nav-auth-section">
+      <!-- Navigation Menu -->
+      <nav class="nav-menu">
+        <ul>
+          <li *ngFor="let item of navItems">
+            <a 
+              href="#" 
+              (click)="onNavClick(item.category); $event.preventDefault()"
+              class="nav-link"
+            >
+              {{ item.label }}
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Auth Buttons -->
+      <div class="auth-buttons">
+        <ng-container *ngIf="!isAuthenticated; else loggedIn">
+          <button class="btn-login" (click)="onLogin()">Login</button>
+          <button class="btn-signup" (click)="onSignup()">Sign Up</button>
+        </ng-container>
+
+        <ng-template #loggedIn>
+          <span class="user-name">{{ currentUser }}</span>
+          <button class="btn-dashboard" (click)="goToDashboard()" title="Go to Dashboard">
+            <span class="icon">👤</span>
+          </button>
+          <button class="btn-logout" (click)="onLogout()">Logout</button>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Title Area -->
+  <div class="header-main">
+    <h1 class="app-title">People Help Desk</h1>
+  </div>
+</header>

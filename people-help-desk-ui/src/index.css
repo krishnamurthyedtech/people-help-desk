@@ -1,0 +1,2016 @@
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  height: 100%;
+}
+.content-wrapper {
+  flex: 1;
+}
+
+.wrapper,
+header,
+footer,
+.videos,
+.logo-title {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+header.header-top-bar {
+  background-color: #0F766E;
+  color: #FFFFFF;
+  padding: 12px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  border-bottom: 1px solid #333;
+}
+
+.contact-info {
+  display: flex;
+  gap: 30px;
+  font-size: 14px;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.contact-info span {
+  color: #ffffff;
+  font-weight: 400;
+}
+
+.nav-auth-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+}
+
+.header-nav {
+  margin: 0;
+  padding: 0;
+}
+
+.header-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.header-nav ul li {
+  margin: 0;
+  padding: 0;
+}
+
+.header-nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  font-weight: 400;
+}
+
+.header-nav ul li a:hover {
+  color: #4CAF50;
+  background-color: rgba(76, 175, 80, 0.1);
+}
+
+.login-signup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.login-signup .btn-login {
+  background-color: #E2E8F0;
+  color: #1a202c;
+  border: 1px solid #cbd5e0;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.login-signup .btn-login:hover {
+  background-color: #cbd5e0;
+  text-decoration: none;
+}
+
+.login-signup .btn-signup {
+  background-color: #EA580C;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.login-signup .btn-signup:hover {
+  background-color: #c2410c;
+  text-decoration: none;
+}
+
+.login-signup button:hover {
+  background-color: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.5);
+}
+
+.btn-help {
+  background-color: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.btn-help:hover,
+.login-signup button:hover {
+  background-color: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.5);
+}
+
+.usa {
+  margin-left: 10px;
+  font-weight: bold;
+}
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+  transition: padding 0.3s ease, font-size 0.3s ease;
+  position: relative;
+}
+
+.wrapper.shrink {
+  padding: 5px 20px;
+  font-size: 14px;
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 80px;
+  margin-right: 50px;
+  transition: height 0.3s ease;
+}
+
+.wrapper.shrink .logo {
+  height: 50px;
+}
+
+h1 {
+  font-size: 36px;
+  line-height: 61px;
+  display: inline-block;
+  vertical-align: middle;
+  font-family: "Georgia";
+  color: #5f5f5f;
+  margin: 0;
+  font-weight: bold;
+  transition: font-size 0.3s ease, line-height 0.3s ease;
+}
+
+.wrapper.shrink h1 {
+  font-size: 28px;
+  line-height: 45px;
+}
+nav ul {
+  list-style-type: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding-right: 120px;
+  margin-right: -17px;
+}
+
+nav a {
+  color: black;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+nav a:hover {
+  color: orange;
+}
+
+nav ul li:not(:last-child)::after {
+  content: "|";
+  margin-left: 5px;
+  margin-right: 5px;
+  color: gray;
+}
+main {
+  padding: 20px;
+  flex-grow: 1;
+  flex:1;
+}
+
+.code-button {
+  position: fixed;
+  left: 92%;
+  top: 50%;
+  z-index: 1040;
+}
+
+.modal-btn {
+  background-color: #0F766E;  
+  color: white;
+  border: none;
+  width: 80px;
+  height: 80px;           
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;  
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;   
+}
+
+.modal-btn:hover {
+  background-color: #0d5f56; 
+}
+
+.videos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.videos iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+}
+footer {
+  background-color: #0F766E; 
+  color: #ffffff;             
+  text-align: center;          
+  padding: 15px 0;            
+  font-size: 12px;             
+  position: relative;             
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #333;
+  z-index: 1000;
+}
+
+/* Footer positioned at bottom when form is visible */
+footer.footer-below-form {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1100;
+}
+
+/* Modal overlay backdrop */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1050;
+  cursor: pointer;
+}
+.footer-bottom .grid-row {
+  display: flex;
+  justify-content: center;     
+  align-items: center;
+           
+}
+.form-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  padding: 40px 35px;
+  border-radius: 16px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  max-width: 420px;
+  width: 90%;
+  box-sizing: border-box;
+  z-index: 1100;
+}
+.form-container h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #333;
+  text-align: center;
+}
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.form-header h2 {
+  margin: 0;
+  font-size: 22px;
+  color: #1a1a1a;
+  flex: 1;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.form-container .close-button {
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  background: #4CAF50;
+  padding: 4px 10px;
+  transition: all 0.3s ease;
+  margin-left: auto;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+}
+
+.form-container .close-button:hover {
+  color: #fff;
+  background-color: #45a049;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+  transform: translateY(-2px);
+}
+
+hr.divider-color {
+  border: none;
+  height: 5px;
+  position: relative;
+  background-color: transparent;
+  margin: 0px 0;
+}
+hr.divider-color::before {
+  content: "";
+  display: block;
+  height: 2px;
+  margin: 0 auto;
+}
+.form-container label {
+  margin: 0 0 8px 0;
+  font-size: 13px;
+  color: #666;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.form-container input,
+.form-container select {
+  margin-bottom: 18px;
+  padding: 12px 14px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  background-color: #fafafa;
+}
+
+.form-container input:focus,
+.form-container select:focus {
+  outline: none;
+  border-color: #4CAF50;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+.form-container form > button[type="submit"] {
+  padding: 12px 16px;
+  border: none;
+  margin: 8px auto 0 auto;
+  border-radius: 8px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.25);
+  letter-spacing: 0.3px;
+  width: 100%;
+}
+
+.form-container form > button[type="submit"]:hover {
+  background-color: #45a049;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.35);
+  transform: translateY(-1px);
+}
+
+.form-container form > button[type="submit"]:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(76, 175, 80, 0.25);
+}
+.signup-form-container {
+  position: static;
+  background-color: white;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 90%;
+  margin: 40px auto;
+  padding: 40px 35px;
+  box-sizing: border-box;
+  clear: both;
+}
+
+.signup-form-container h2 {
+  margin-top: 0;
+  font-size: 24px;
+  color: #4CAF50;
+  font-weight: 600;
+  text-align: center;
+}
+
+.signup-form-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-form-container label {
+  margin: 5px 0 6px;
+  font-size: 16px;
+  color: #555;
+}
+
+.signup-form-container input {
+  margin-bottom: 5px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.signup-form-container button {
+  padding: 12px;
+  border: none;
+  margin: 10px 0;
+  border-radius: 8px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.signup-form-container button:hover {
+  background-color: #5f635f;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.signup-form-container button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+.signup-form-container .close-button {
+  background-color: #4CAF50;
+  color: white;
+  border: 2px solid #ffffff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 18px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+  z-index: 10;
+  position: relative;
+}
+
+.signup-form-container .close-button:hover:not(:disabled) {
+  background-color: #45a049;
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(76, 175, 80, 0.4);
+  border-color: #ffffff;
+}
+
+.signup-form-container .close-button:disabled {
+  background-color: #cccccc;
+  color: #666;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  border-color: #e0e0e0;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    order: 3;
+  }
+
+  header.header-top-bar {
+    padding: 10px 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .contact-info {
+    order: 1;
+    flex-basis: 100%;
+    justify-content: center;
+    gap: 20px;
+    font-size: 13px;
+  }
+
+  .nav-auth-wrapper {
+    order: 2;
+    flex-basis: 100%;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .header-nav {
+    display: none;
+  }
+
+  .login-signup {
+    gap: 6px;
+  }
+
+  .login-signup button,
+  .btn-help {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+
+  .wrapper {
+    flex-wrap: wrap;
+    position: relative;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding: 27px;
+  }
+
+  .logo-title {
+    order: 1;
+    flex: 1;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 250px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    margin-top: 5px;
+  }
+
+  .nav-menu.open {
+    max-height: 500px;
+    overflow: visible;
+  }
+
+  .nav-menu ul {
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-menu ul li {
+    padding: 0;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+  }
+
+  .nav-menu ul li:last-child {
+    border-bottom: none;
+  }
+
+  .nav-menu ul li:not(:last-child)::after {
+    content: "";
+    display: none;
+  }
+
+  .nav-menu a {
+    font-size: 16px;
+    padding: 12px 20px;
+  }
+
+  header {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  footer {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 11px;
+    padding: 12px 0;
+  }
+
+  .videos {
+    padding-left: 10px;
+    padding-right: 20px;
+  }
+
+  .logo {
+    height: 50px;
+    margin-right: 10px;
+  }
+
+  h1 {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .wrapper.shrink h1 {
+    font-size: 20px;
+    line-height: 18px;
+  }
+
+  nav a {
+    font-size: 14px;
+  }
+
+  .modal-btn {
+    width: 60px;
+    height: 60px;
+    font-size: 12px;
+  }
+
+  .videos iframe {
+    height: 200px;
+  }
+
+  .form-container {
+    max-width: 74%;
+    padding: 40px;
+    top: 420px;
+  }
+
+  .form-container button {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .logo {
+    height: 40px;
+  }
+
+  nav a {
+    font-size: 12px;
+  }
+
+  .modal-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 10px;
+  }
+
+  footer {
+    font-size: 12px;
+  }
+}
+
+ @media (max-width: 768px) {
+  .code-button {
+    left: 50%;        
+    top: 50%;
+    transform: translateX(-50%); 
+  }
+}
+
+  .modal-btn {
+    padding: 20px 14px;   
+    font-size: 0.9em;      
+}
+
+@media (max-width: 480px) {
+  .code-button {
+    left: 50%;          
+    top: 80%;           
+    transform: translateX(-50%);
+  }
+
+  .modal-btn {
+    padding: 8px 12px;  
+    font-size: 0.8em;    
+  }
+} 
+@media (max-width: 768px) {
+  .signup-form-container {
+    max-width: 80%;
+    padding: 20px;
+  }
+  .signup-form-container h2 {
+    font-size: 20px;
+  }
+
+  .signup-form-container label,
+  .signup-form-container input,
+  .signup-form-container button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .signup-form-container button {
+    margin: 8px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .signup-form-container {
+    max-width: 74%;
+    padding: 40px;
+    top:420px;
+  }
+
+  .signup-form-container h2 {
+    font-size: 18px;
+  }
+
+  .signup-form-container label {
+    font-size: 14px;
+    margin: -7px 0 6px;
+  }
+
+  .signup-form-container input {
+    font-size: 14px;
+    padding: 8px;
+    margin-bottom: 4px;
+  }
+
+  .signup-form-container button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+/* Hamburger Menu Styles */
+.menu-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: black;
+  font-size: 24px;
+  padding: 5px 10px;
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease;
+}
+
+.menu-toggle:hover {
+  color: orange;
+}
+
+.nav-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 250px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+  z-index: 999;
+  margin-top: 5px;
+}
+
+.nav-menu.open {
+  max-height: 500px;
+  overflow: visible;
+}
+
+.nav-menu ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu ul li {
+  padding: 0;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+.nav-menu ul li:last-child {
+  border-bottom: none;
+}
+
+.nav-menu a {
+  color: black;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  display: block;
+  padding: 12px 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-menu a:hover {
+  color: white;
+  background-color: #ff9800;
+}
+
+.nav-menu ul li:not(:last-child)::after {
+  content: "";
+  display: none;
+}
+
+/* HelpForm Structured Styles */
+.form-field {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.form-field label.error {
+  color: #d32f2f;
+}
+
+.form-field label .required {
+  color: #d32f2f;
+  font-weight: 600;
+}
+
+.form-field label .optional {
+  color: #666;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e1e5e9;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  background-color: #fafbfc;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: #4CAF50;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+.form-field input.error,
+.form-field select.error,
+.form-field textarea.error {
+  border-color: #d32f2f;
+  background-color: #fef8f8;
+}
+
+.form-field input.error:focus,
+.form-field select.error:focus,
+.form-field textarea.error:focus {
+  border-color: #d32f2f;
+  box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.1);
+}
+
+.form-field input:disabled,
+.form-field select:disabled,
+.form-field textarea:disabled {
+  background-color: #f5f5f5;
+  color: #999;
+  cursor: not-allowed;
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 60px;
+  line-height: 1.5;
+}
+
+.error-message {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  color: #d32f2f;
+  line-height: 1.4;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #e1e5e9;
+}
+
+.btn-cancel,
+.btn-submit {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 120px;
+  text-align: center;
+}
+
+.btn-cancel {
+  background-color: #f5f5f5;
+  color: #666;
+  border: 1px solid #ddd;
+}
+
+.btn-cancel:hover:not(:disabled) {
+  background-color: #e8e8e8;
+  border-color: #ccc;
+}
+
+.btn-cancel:disabled {
+  background-color: #f5f5f5;
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.btn-submit {
+  background-color: #4CAF50;
+  color: white;
+  border: 1px solid #4CAF50;
+}
+
+.btn-submit:hover:not(:disabled) {
+  background-color: #45a049;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.btn-submit:disabled {
+  background-color: #cccccc;
+  border-color: #cccccc;
+  color: #666;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Form container adjustments for structured form */
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Help Form Specific Styles */
+.help-form-container {
+  position: relative !important;
+  background: #ffffff !important;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  max-width: 600px !important;
+  width: 85% !important;
+  margin: 80px auto 40px auto !important;
+  padding: 30px 25px !important;
+  box-sizing: border-box;
+  clear: both;
+  overflow: visible !important;
+  z-index: 1 !important;
+  min-height: auto !important;
+  max-height: none !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Help Form Header */
+.help-form-container .form-header {
+  background: #f8f9fa;
+  color: #2c3e50;
+  padding: 20px 25px;
+  border-radius: 16px 16px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e1e5e9;
+  margin: -40px -35px 30px -35px;
+}
+
+.help-form-container .form-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Help Form Close Button */
+.help-form-container .close-button {
+  background-color: #ffffff;
+  color: #4CAF50;
+  border: 2px solid #ffffff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 18px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+  z-index: 10;
+  position: relative;
+}
+
+.help-form-container .close-button:hover:not(:disabled) {
+  background-color: #f0f0f0;
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(76, 175, 80, 0.4);
+  border-color: #4CAF50;
+}
+
+.help-form-container .close-button:disabled {
+  background-color: #cccccc;
+  color: #666;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  border-color: #e0e0e0;
+}
+
+/* Help Form Body */
+.help-form-container form {
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+}
+
+/* Help Form Fields */
+.help-form-container .form-field {
+  margin-bottom: 25px;
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.help-form-container .form-field label {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 8px;
+  font-size: 15px;
+  display: block;
+  text-align: left;
+}
+
+.help-form-container .form-field input,
+.help-form-container .form-field select,
+.help-form-container .form-field textarea {
+  border: 2px solid #e1e5e9;
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 15px;
+  background: #ffffff;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+  margin: 0;
+}
+
+.help-form-container .form-field input:focus,
+.help-form-container .form-field select:focus,
+.help-form-container .form-field textarea:focus {
+  border-color: #4CAF50;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.2);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+/* Help Form Actions */
+.help-form-container .form-actions {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 2px solid #e1e5e9;
+  gap: 12px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.help-form-container .btn-cancel,
+.help-form-container .btn-submit {
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  min-width: 140px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.help-form-container .btn-submit {
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  border: 2px solid #4CAF50;
+  color: white;
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+.help-form-container .btn-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.5);
+}
+
+.help-form-container .btn-cancel {
+  background: #f8f9fa;
+  border: 2px solid #e1e5e9;
+  color: #6c757d;
+}
+
+.help-form-container .btn-cancel:hover:not(:disabled) {
+  background: #e9ecef;
+  border-color: #d1d5db;
+}
+
+/* Required and Optional indicators */
+.help-form-container .required {
+  color: #dc2626;
+  font-weight: 600;
+  margin-left: 4px;
+}
+
+.help-form-container .optional {
+  color: #666;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+/* Login Form Specific Styles */
+.login-form-container {
+  position: static;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 90%;
+  margin: 40px auto;
+  padding: 40px 35px;
+  box-sizing: border-box;
+  clear: both;
+}
+
+/* Login Form Close Button */
+.login-form-container .close-button {
+  background-color: #4CAF50;
+  color: white;
+  border: 2px solid #ffffff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 18px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+  z-index: 10;
+  position: relative;
+}
+
+.login-form-container .close-button:hover:not(:disabled) {
+  background-color: #45a049;
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(76, 175, 80, 0.4);
+  border-color: #ffffff;
+}
+
+.login-form-container .close-button:disabled {
+  background-color: #cccccc;
+  color: #666;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  border-color: #e0e0e0;
+}
+
+.login-form-container h2 {
+  color: #4CAF50;
+  font-weight: 600;
+}
+
+/* Login Form Fields - Enhanced Alignment */
+.login-form-container .form-field {
+  margin-bottom: 20px;
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form-container .form-field label {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  font-size: 15px;
+  display: block;
+  text-align: left;
+}
+
+.login-form-container .form-field input {
+  border: 2px solid #e1e5e9;
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 15px;
+  background: #ffffff;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+  margin: 0;
+}
+
+.login-form-container .form-field input:focus {
+  border-color: #4CAF50;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.2);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.login-form-container .form-field input.error {
+  border-color: #dc2626;
+  background: #fef2f2;
+}
+
+.login-form-container .error-message {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: 500;
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+/* Ensure header and footer remain visible when login form is open */
+.login-form-container ~ header,
+.login-form-container ~ footer {
+  z-index: 999;
+  position: relative;
+}
+
+/* Modal overlay for login form */
+.login-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  z-index: 998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Alternative layout - login form in content area */
+.login-form-wrapper {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-error-message {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  color: #dc2626;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.login-error-message svg {
+  flex-shrink: 0;
+  color: #dc2626;
+}
+
+.password-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input-container input {
+  flex: 1;
+  padding-right: 45px;
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.password-toggle-btn:hover:not(:disabled) {
+  background-color: #f3f4f6;
+  color: #333;
+}
+
+.password-toggle-btn:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.forgot-password-link {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.forgot-password-link a {
+  color: #4CAF50;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.forgot-password-link a:hover {
+  color: #45a049;
+  text-decoration: underline;
+}
+
+.signup-link {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #e1e5e9;
+  font-size: 14px;
+  color: #666;
+}
+
+.signup-link a {
+  color: #4CAF50;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 4px;
+  transition: color 0.2s ease;
+}
+
+.signup-link a:hover {
+  color: #45a049;
+  text-decoration: underline;
+}
+
+/* Responsive styles for login form */
+@media (max-width: 768px) {
+  .login-form-container {
+    width: 95%;
+    padding: 30px 25px;
+    max-height: 95vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-form-container {
+    width: 95%;
+    padding: 20px 20px;
+    max-height: 95vh;
+  }
+  
+  .login-form-container .form-header h2 {
+    font-size: 18px;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .btn-cancel,
+  .btn-submit {
+    width: 100%;
+  }
+}
+
+/* Help Form Specific Styles */
+.help-form-container {
+  position: relative;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  max-width: 800px;
+  width: 90%;
+  margin: 50px auto;
+  padding: 40px;
+  box-sizing: border-box;
+  clear: both;
+  overflow: visible;
+  z-index: 1001;
+  min-height: 600px;
+}
+
+/* Enhanced form header */
+.help-form-container .form-header {
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  color: white;
+  padding: 20px 25px;
+  border-radius: 16px 16px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e1e5e9;
+}
+
+.help-form-container .form-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Enhanced form body */
+.help-form-container form {
+  padding: 15px 20px;
+  background: #fafbfc;
+  border-radius: 0 0 16px 16px;
+}
+
+/* Enhanced form fields */
+.help-form-container .form-field {
+  margin-bottom: 20px;
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.help-form-container .form-field label {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  font-size: 15px;
+  display: block;
+  text-align: left;
+}
+
+.help-form-container .form-field input,
+.help-form-container .form-field select,
+.help-form-container .form-field textarea {
+  border: 2px solid #e1e5e9;
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 15px;
+  background: #ffffff;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+  margin: 0;
+}
+
+.help-form-container .form-field input:focus,
+.help-form-container .form-field select:focus,
+.help-form-container .form-field textarea:focus {
+  border-color: #4CAF50;
+  background: #ffffff;
+  box-shadow: 0 0 0 0 4px rgba(76, 175, 80, 0.2);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+/* Enhanced form actions */
+.help-form-container .form-actions {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 2px solid #e1e5e9;
+  gap: 8px;
+}
+
+.help-form-container .btn-cancel,
+.help-form-container .btn-submit {
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  min-width: 140px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.help-form-container .btn-submit {
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  border: 2px solid #4CAF50;
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+.help-form-container .btn-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.5);
+}
+
+.help-form-container .btn-cancel {
+  background: #f8f9fa;
+  border: 2px solid #e1e5e9;
+  color: #6c757d;
+}
+
+.help-form-container .btn-cancel:hover:not(:disabled) {
+  background: #e9ecef;
+  border-color: #d1d5db;
+}
+
+/* Enhanced error messages */
+.help-form-container .error-message {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: 500;
+  margin-top: 6px;
+}
+
+/* Help Form Header Navigation */
+.help-form-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  color: white;
+  padding: 15px 20px;
+  border-radius: 12px 12px 0 0;
+  border-bottom: 1px solid #e0e0e0;
+  position: relative;
+  z-index: 1000;
+}
+
+.help-nav-left,
+.help-nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.help-nav-center {
+  text-align: center;
+  flex: 1;
+}
+
+.help-nav-center h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+}
+
+.help-nav-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.help-nav-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+/* Help Form Footer Navigation */
+.help-form-footer-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9fa;
+  padding: 15px 20px;
+  border-radius: 0 0 12px 12px;
+  border-top: 1px solid #e1e5e9;
+  margin-top: 20px;
+}
+
+.help-footer-left,
+.help-footer-right {
+  display: flex;
+  align-items: center;
+}
+
+.help-footer-center {
+  text-align: center;
+  flex: 1;
+}
+
+.help-footer-center p {
+  margin: 0;
+  font-size: 12px;
+  color: #666;
+}
+
+.help-footer-btn {
+  background: #4CAF50;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.help-footer-btn:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+/* Help Form Close Button - Enhanced Visibility */
+.help-form-container .close-button {
+  background-color: #4CAF50;
+  color: white;
+  border: 2px solid #ffffff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 18px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+  z-index: 10;
+  position: relative;
+}
+
+.help-form-container .close-button:hover:not(:disabled) {
+  background-color: #45a049;
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(76, 175, 80, 0.4);
+  border-color: #ffffff;
+}
+
+.help-form-container .close-button:disabled {
+  background-color: #cccccc;
+  color: #666;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  border-color: #e0e0e0;
+}
+
+/* Responsive styles for help form */
+@media (max-width: 768px) {
+  .help-form-container {
+    width: 95%;
+    padding: 30px 25px;
+    max-height: 95vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .help-form-container {
+    width: 95%;
+    padding: 20px 20px;
+    max-height: 95vh;
+  }
+  
+  .help-form-container .form-header h2 {
+    font-size: 18px;
+  }
+  
+  .help-form-container .form-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .help-form-container .btn-cancel,
+  .help-form-container .btn-submit {
+    width: 100%;
+  }
+}
+
+/* Update existing form container to work with new structure */
+.form-container {
+  position: relative;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  max-width: 500px;
+  width: 90%;
+  overflow: visible;
+  box-sizing: border-box;
+  z-index: 1100;
+  padding: 40px;
+  margin: 0 auto;
+}
+
+/* Responsive styles for help form */
+@media (max-width: 768px) {
+  .form-container {
+    width: 95%;
+    max-height: 95vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    width: 95%;
+    max-height: 95vh;
+  }
+}
+
+/* HelpForm Container - Enhanced Structure */
+.help-form-container .form-header {
+  background: #f8f9fa !important;
+  color: #2c3e50 !important;
+  padding: 24px 28px;
+  border-radius: 16px 16px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e1e5e9;
+  margin: 0;
+  position: relative;
+}
+
+/* HelpForm Header H2 - Enhanced Styling */
+.help-form-container .form-header h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: #2c3e50 !important;
+  text-shadow: none !important;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+/* HelpForm Body - Clean Layout */
+.help-form-container form {
+  padding: 32px 28px;
+  background: #fafbfc;
+  border-radius: 0 0 16px 16px;
+  margin: 0;
+}
+
+/* HelpForm Fields - Proper Alignment */
+.help-form-container .form-field {
+  margin-bottom: 24px;
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* HelpForm Labels - Enhanced Styling */
+.help-form-container .form-field label {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  font-size: 14px;
+  text-align: left;
+  display: block;
+  letter-spacing: 0.3px;
+}
+
+/* HelpForm Inputs - Consistent Design */
+.help-form-container .form-field input,
+.help-form-container .form-field select,
+.help-form-container .form-field textarea {
+  width: 100%;
+  padding: 16px 18px;
+  border: 2px solid #e1e5e9;
+  border-radius: 12px;
+  font-size: 15px;
+  background: #ffffff;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  margin: 0;
+  font-family: inherit;
+}
+
+/* HelpForm Focus States */
+.help-form-container .form-field input:focus,
+.help-form-container .form-field select:focus,
+.help-form-container .form-field textarea:focus {
+  border-color: #4CAF50;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.2);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+/* HelpForm Actions - Proper Layout */
+.help-form-container .form-actions {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #e1e5e9;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  align-items: center;
+}
+
+/* HelpForm Buttons - Enhanced Design */
+.help-form-container .btn-cancel,
+.help-form-container .btn-submit {
+  padding: 16px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  min-width: 120px;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.help-form-container .btn-submit {
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.help-form-container .btn-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(76, 175, 80, 0.4);
+}
+
+.help-form-container .btn-cancel {
+  background: #f8f9fa;
+  color: #6c757d;
+  border: 2px solid #e1e5e9;
+}
+
+.help-form-container .btn-cancel:hover:not(:disabled) {
+  background: #e9ecef;
+  border-color: #d1d5db;
+}
+
+/* HelpForm Green Text Styling */
+.help-form-container .help-support-text {
+  color: #4CAF50 !important;
+  font-weight: 700 !important;
+  text-shadow: 0 2px 4px rgba(76, 175, 80, 0.5) !important;
+}
+
+/* Language Selection Styling */
+.help-form-container .language-select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e1e5e9;
+  border-radius: 10px;
+  font-size: 15px;
+  background: #ffffff;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.help-form-container .language-select:focus {
+  border-color: #4CAF50;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.2);
+  outline: none;
+}
+
+.help-form-container .language-select option {
+  padding: 10px;
+  background: #ffffff;
+  color: #2c3e50;
+}
