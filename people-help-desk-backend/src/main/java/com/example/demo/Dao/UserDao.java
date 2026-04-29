@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.Entity.User;
 import com.example.demo.Exceptions.EntityAlreadyExistsException;
-import com.example.demo.Repository.UserRepository;
+import com.example.demo.repositories.UserRepository;
 
 import jakarta.persistence.EntityNotFoundException;
 

@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const HelpForm = () => {
   const navigate = useNavigate();
+  const { t } = useLanguage();
+  
   const [formData, setFormData] = useState({
     phone: '',
     subject: '',
@@ -25,32 +28,42 @@ const HelpForm = () => {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    if (!formData.subject.trim() || !formData.inquiryType || !formData.description.trim()) {
-      alert('Please fill in all required fields');
+
+    if (!formData.phone.trim() || !formData.subject.trim() || !formData.inquiryType || !formData.description.trim()) {
+      alert(t('fillRequiredFields'));
       return;
     }
 
     setIsSubmitting(true);
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
       // Prepare payload
       const payload = {
-        phone: formData.phone.trim(),
+        phone: formData.phone.trim() ? Number(formData.phone.trim()) : null,
         subject: formData.subject.trim(),
         inquiryType: formData.inquiryType,
-        description: formData.description.trim(),
-        timestamp: new Date().toISOString()
+        description: formData.description.trim()
       };
 
-      console.log('Help request submitted:', payload);
+      // Make API call to backend
+      const response = await fetch('http://localhost:8080/api/inquiry/help-request', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit help request');
+      }
+
+      const result = await response.json();
+      console.log('Help request submitted successfully:', result);
 
       // Show success message
-      alert('Help request submitted successfully. We will contact you soon!');
-      
+      alert(t('helpSuccess'));
+
       // Reset form after submission
       setFormData({
         phone: '',
@@ -58,7 +71,7 @@ const HelpForm = () => {
         inquiryType: '',
         description: ''
       });
-      
+
     } catch (error) {
       console.error('Submit error:', error);
       alert('Error submitting help request. Please try again.');
@@ -77,7 +90,7 @@ const HelpForm = () => {
   return (
     <div className="help-form-container">
       <div className="form-header">
-        <h2><span className="help-support-text">Help / Support</span></h2>
+        <h2><span className="help-support-text">{t('helpTitle')}</span></h2>
         <button className="close-button" onClick={handleCancel} disabled={isSubmitting} aria-label="Close form">
           <FontAwesomeIcon icon={faXmark} />
         </button>
@@ -87,14 +100,14 @@ const HelpForm = () => {
         {/* Phone Field */}
         <div className="form-field">
           <label htmlFor="helpPhone">
-            Phone Number <span className="optional">(Optional)</span>
+            {t('phoneNumber')} <span className="optional">({t('optional')})</span>
           </label>
           <input
             id="helpPhone"
             type="tel"
             value={formData.phone}
             onChange={(e) => handleInputChange('phone', e.target.value)}
-            placeholder="Enter your phone number"
+            placeholder={t('phonePlaceholder')}
             disabled={isSubmitting}
           />
         </div>
@@ -102,14 +115,14 @@ const HelpForm = () => {
         {/* Subject Field */}
         <div className="form-field">
           <label htmlFor="helpSubject">
-            Subject <span className="required">*</span>
+            {t('subject')} <span className="required">*</span>
           </label>
           <input
             id="helpSubject"
             type="text"
             value={formData.subject}
             onChange={(e) => handleInputChange('subject', e.target.value)}
-            placeholder="Enter your subject"
+            placeholder={t('subjectPlaceholder')}
             disabled={isSubmitting}
             required
           />
@@ -118,7 +131,7 @@ const HelpForm = () => {
         {/* Inquiry Type Field */}
         <div className="form-field">
           <label htmlFor="helpInquiryType">
-            Inquiry Type <span className="required">*</span>
+            {t('inquiryType')} <span className="required">*</span>
           </label>
           <select
             id="helpInquiryType"
@@ -127,7 +140,7 @@ const HelpForm = () => {
             disabled={isSubmitting}
             required
           >
-            <option value="">Select inquiry type</option>
+            <option value="">{t('inquiryTypePlaceholder')}</option>
             <option value="health">Health</option>
             <option value="finance">Finance</option>
             <option value="education">Education</option>
@@ -139,14 +152,14 @@ const HelpForm = () => {
         {/* Description Field */}
         <div className="form-field">
           <label htmlFor="helpDescription">
-            Description <span className="required">*</span>
+            {t('description')} <span className="required">*</span>
           </label>
           <textarea
             id="helpDescription"
             rows="4"
             value={formData.description}
             onChange={(e) => handleInputChange('description', e.target.value)}
-            placeholder="Describe your inquiry in detail..."
+            placeholder={t('descriptionPlaceholder')}
             disabled={isSubmitting}
             required
           />
@@ -160,14 +173,14 @@ const HelpForm = () => {
             onClick={handleCancel}
             disabled={isSubmitting}
           >
-            Cancel
+            {t('cancel')}
           </button>
           <button
             type="submit"
             className="btn-submit"
             disabled={isSubmitting}
           >
-            {isSubmitting ? 'Submitting...' : 'Submit'}
+            {isSubmitting ? 'Submitting...' : t('submit')}
           </button>
         </div>
       </form>

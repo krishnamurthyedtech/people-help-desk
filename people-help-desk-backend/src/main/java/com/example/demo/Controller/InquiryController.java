@@ -4,8 +4,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.example.demo.DTO.CommentDetailsDTO;
+import com.example.demo.DTO.HelpRequestDTO;
 import com.example.demo.DTO.InquiryDetailsDTO;
-import com.example.demo.Repository.InquiryRepository;
+import com.example.demo.repositories.InquiryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -82,6 +83,13 @@ public class InquiryController {
 	public ResponseEntity<ResponseStructure<Inquiry>> deleteInquiry(@PathVariable("id") int id)
 	{
 		ResponseStructure<Inquiry> structure=inquiryService.deleteInquiry(id);
+		return new ResponseEntity<>(structure,HttpStatus.OK);
+	}
+
+	@PostMapping("/help-request")
+	public ResponseEntity<ResponseStructure<Inquiry>> submitHelpRequest(@RequestBody HelpRequestDTO helpRequestDTO)
+	{
+		ResponseStructure<Inquiry> structure=inquiryService.saveHelpRequest(helpRequestDTO);
 		return new ResponseEntity<>(structure,HttpStatus.OK);
 	}
 }

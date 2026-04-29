@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Header = ({
   isAuthenticated,
@@ -12,6 +13,7 @@ const Header = ({
 }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef(null);
+  const { selectedLanguage, changeLanguage } = useLanguage();
 
   const handleNavClick = (category) => {
     setSelectedCategory(category);
@@ -78,6 +80,18 @@ const Header = ({
                 <Link to="/signup" className="btn-signup">
                   Sign Up
                 </Link>
+                <select
+                  className="language-select"
+                  value={selectedLanguage}
+                  onChange={(e) => changeLanguage(e.target.value)}
+                >
+                  <option value="english">English</option>
+                  <option value="telugu">తెలుగు</option>
+                  <option value="tamil">தமிழ்</option>
+                  <option value="kannada">ಕನ್ನಡ</option>
+                  <option value="malayalam">മലയാളം</option>
+                  <option value="hindi">हिंदी</option>
+                </select>
               </>
             )}
           </div>
