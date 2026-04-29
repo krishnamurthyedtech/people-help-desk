@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.Entity.Inquiry;
 import com.example.demo.Entity.User;
-import com.example.demo.Repository.InquiryRepository;
+import com.example.demo.repositories.InquiryRepository;
 
 import jakarta.persistence.EntityNotFoundException;
 

@@ -1,4 +1,4 @@
-package com.example.demo.Repository;
+package com.example.demo.repositories;
 
 import com.example.demo.DTO.CommentDetailsDTO;
 import com.example.demo.Entity.Comment;

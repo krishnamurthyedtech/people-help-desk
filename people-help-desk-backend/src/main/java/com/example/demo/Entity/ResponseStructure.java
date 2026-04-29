@@ -1,18 +1,7 @@
 package com.example.demo.Entity;
 
-
-
 import java.time.LocalDateTime;
 
-
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class ResponseStructure<T> {
 	
 	private int statusCode;
@@ -20,6 +9,45 @@ public class ResponseStructure<T> {
 	private T data;
 	private LocalDateTime time;
 
-	//public ResponseStructure(int value, String adminRegisteredSuccessfully, Admin savedAdmin) {
-	//}
+	public ResponseStructure() {
+	}
+
+	public ResponseStructure(int statusCode, String message, T data, LocalDateTime time) {
+		this.statusCode = statusCode;
+		this.message = message;
+		this.data = data;
+		this.time = time;
+	}
+
+	public int getStatusCode() {
+		return statusCode;
+	}
+
+	public void setStatusCode(int statusCode) {
+		this.statusCode = statusCode;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public T getData() {
+		return data;
+	}
+
+	public void setData(T data) {
+		this.data = data;
+	}
+
+	public LocalDateTime getTime() {
+		return time;
+	}
+
+	public void setTime(LocalDateTime time) {
+		this.time = time;
+	}
 }

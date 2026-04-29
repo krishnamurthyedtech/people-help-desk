@@ -10,6 +10,7 @@ import SignupForm from './components/SignupForm';
 import HelpForm from './components/HelpForm';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import CommentsPage from './components/CommentPage';
+import { LanguageProvider } from './contexts/LanguageContext';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -41,29 +42,31 @@ function App() {
     setIsAuthenticated(false);
   };
   return (
-    <Router>
-      <Header
-        isAuthenticated={isAuthenticated}
-        onLogin={handleLogin}
-        onLogout={handleLogout}
-        setSelectedCategory={setSelectedCategory}
-      />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Content selectedCategory={selectedCategory} />
-          }
+    <LanguageProvider>
+      <Router>
+        <Header
+          isAuthenticated={isAuthenticated}
+          onLogin={handleLogin}
+          onLogout={handleLogout}
+          setSelectedCategory={setSelectedCategory}
         />
-        <Route path="/login" element={<LoginForm />} />
-        <Route path="/signup" element={<SignupForm />} />
-        <Route path="/help" element={<HelpForm />} />
-        <Route path="/dashboard" element={isAuthenticated ? <Dashboard /> : <Navigate to="/" />} />
-        <Route path="/dashboard/comments/:inquiryId/:userId" element={<CommentsPage />} />
-      </Routes>
-      <Footer showForm={false} />
-      
-          </Router>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Content selectedCategory={selectedCategory} />
+            }
+          />
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/signup" element={<SignupForm />} />
+          <Route path="/help" element={<HelpForm />} />
+          <Route path="/dashboard" element={isAuthenticated ? <Dashboard /> : <Navigate to="/" />} />
+          <Route path="/dashboard/comments/:inquiryId/:userId" element={<CommentsPage />} />
+        </Routes>
+        <Footer showForm={false} />
+        
+            </Router>
+    </LanguageProvider>
   );
 }
 

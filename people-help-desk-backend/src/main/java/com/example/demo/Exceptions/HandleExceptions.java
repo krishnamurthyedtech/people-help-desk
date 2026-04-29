@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 import com.example.demo.Entity.ResponseStructure;
 
@@ -30,6 +31,13 @@ public class HandleExceptions {
 		ResponseStructure<String> structure = new ResponseStructure<>(HttpStatus.NOT_FOUND.value(), "Entity Not Found",
 				e.getMessage(), LocalDateTime.now());
 
+		return new ResponseEntity<>(structure, HttpStatus.NOT_FOUND);
+	}
+
+	@ExceptionHandler(NoResourceFoundException.class)
+	public ResponseEntity<ResponseStructure<String>> handleNoResourceFoundException(NoResourceFoundException e) {
+		ResponseStructure<String> structure = new ResponseStructure<>(HttpStatus.NOT_FOUND.value(),
+				"Resource not found", e.getMessage(), LocalDateTime.now());
 		return new ResponseEntity<>(structure, HttpStatus.NOT_FOUND);
 	}
 

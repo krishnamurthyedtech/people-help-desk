@@ -3,6 +3,7 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const LoginForm = ({ onLogin }) => {
   // Form state
@@ -19,6 +20,7 @@ const LoginForm = ({ onLogin }) => {
   const [loginError, setLoginError] = useState('');
 
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   // Form validation
   const validateForm = useCallback(() => {
@@ -26,21 +28,21 @@ const LoginForm = ({ onLogin }) => {
 
     // Email validation
     if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
+      newErrors.email = t('email') + ' ' + t('required');
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email address';
+      newErrors.email = t('validEmail');
     }
 
     // Password validation
     if (!formData.password) {
-      newErrors.password = 'Password is required';
+      newErrors.password = t('password') + ' ' + t('required');
     } else if (formData.password.length < 6) {
-      newErrors.password = 'Password must be at least 6 characters';
+      newErrors.password = t('passwordMinLength');
     }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
-  }, [formData]);
+  }, [formData, t]);
 
   // Handle input changes
   const handleInputChange = useCallback((field, value) => {
@@ -90,7 +92,7 @@ const LoginForm = ({ onLogin }) => {
     setIsSubmitting(true);
 
     try {
-      const response = await axios.post('http://localhost:8080/user/login', {
+      const response = await axios.post('/user/login', {
         email: formData.email.trim(),
         password: formData.password,
       });
@@ -113,7 +115,7 @@ const LoginForm = ({ onLogin }) => {
       console.error('Login error:', error);
       
       // Handle different types of errors
-      let errorMessage = 'Login failed. Please check your credentials.';
+      let errorMessage = t('loginFailed');
       
       if (error.response) {
         // Server responded with error status
@@ -135,7 +137,7 @@ const LoginForm = ({ onLogin }) => {
     } finally {
       setIsSubmitting(false);
     }
-  }, [formData, validateForm, onLogin, navigate]);
+  }, [formData, validateForm, onLogin, navigate, t]);
 
   
   // Handle cancel
@@ -164,7 +166,7 @@ const LoginForm = ({ onLogin }) => {
   return (
     <div className="login-form-container">
       <div className="form-header">
-        <h2>Login</h2>
+        <h2>{t('loginTitle')}</h2>
         <button className="close-button" onClick={handleCancel} disabled={isSubmitting} aria-label="Close form">
           <FontAwesomeIcon icon={faXmark} />
         </button>
@@ -182,7 +184,7 @@ const LoginForm = ({ onLogin }) => {
         {/* Email Field */}
         <div className="form-field">
           <label htmlFor="loginEmail" className={hasFieldError('email') ? 'error' : ''}>
-            Email Address <span className="required">*</span>
+            {t('email')} <span className="required">*</span>
           </label>
           <input
             id="loginEmail"
@@ -207,7 +209,7 @@ const LoginForm = ({ onLogin }) => {
         {/* Password Field */}
         <div className="form-field">
           <label htmlFor="loginPassword" className={hasFieldError('password') ? 'error' : ''}>
-            Password <span className="required">*</span>
+            {t('password')} <span className="required">*</span>
           </label>
           <div className="password-input-container">
             <input
@@ -259,14 +261,14 @@ const LoginForm = ({ onLogin }) => {
             onClick={handleCancel}
             disabled={isSubmitting}
           >
-            Cancel
+            {t('cancel')}
           </button>
           <button
             type="submit"
             className="btn-submit"
             disabled={isSubmitting}
           >
-            {isSubmitting ? 'Logging in...' : 'Login'}
+            {isSubmitting ? t('loggingIn') : t('loginButton')}
           </button>
         </div>
       </form>

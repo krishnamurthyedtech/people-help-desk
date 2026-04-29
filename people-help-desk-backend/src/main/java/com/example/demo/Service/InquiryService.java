@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.demo.Dao.UserDao;
+import com.example.demo.DTO.HelpRequestDTO;
 import com.example.demo.Entity.Comment;
 import jakarta.transaction.Transactional;
 import org.hibernate.Hibernate;
@@ -15,7 +16,7 @@ import org.springframework.stereotype.Service;
 import com.example.demo.Dao.InquiryDao;
 import com.example.demo.Entity.Inquiry;
 import com.example.demo.Entity.ResponseStructure;
-import com.example.demo.Repository.InquiryRepository;
+import com.example.demo.repositories.InquiryRepository;
 
 @Service
 public class InquiryService {
@@ -41,7 +42,7 @@ public class InquiryService {
 			comment.setUser(userDao.fetchUser(userId));
 			commentService.addComment(comment);
 		}
-		return new ResponseStructure<Inquiry>(HttpStatus.OK.value(),"Inquiry saved Sucessfully",inquiry2,LocalDateTime.now());
+		return new ResponseStructure<>(HttpStatus.OK.value(),"Inquiry saved Sucessfully",inquiry2,LocalDateTime.now());
 	}
 	public ResponseStructure<Inquiry> updateInquiry(Inquiry updatedInquiry, int inquiryId) {
 		Inquiry existingInquiry = inquiryRepository.findById(inquiryId)
@@ -60,21 +61,21 @@ public class InquiryService {
 		existingInquiry.setLastUpdatedTime(LocalDateTime.now());
 		Inquiry savedInquiry = inquiryRepository.save(existingInquiry);
 
-		return new ResponseStructure<Inquiry>(HttpStatus.OK.value(), "Inquiry updated successfully", savedInquiry, LocalDateTime.now());
+		return new ResponseStructure<>(HttpStatus.OK.value(), "Inquiry updated successfully", savedInquiry, LocalDateTime.now());
 	}
 
 
 	public ResponseStructure<Inquiry> fetchInquiry(int id)
 	{
 		Inquiry inquiry=inquiryDao.fetchInquiry(id);
-		return new ResponseStructure<Inquiry>(HttpStatus.OK.value(),"Inquiry fetched Sucessfully",inquiry,LocalDateTime.now());
+		return new ResponseStructure<>(HttpStatus.OK.value(),"Inquiry fetched Sucessfully",inquiry,LocalDateTime.now());
 	}
 	public ResponseStructure<List<Inquiry>> fetchAllInquiries()
 	{
 		List<Inquiry> list=inquiryDao.fetchAllInquiries();
 		list.sort((i1, i2) -> i1.getCreationTime().compareTo(i2.getCreationTime()));
 
-		return new ResponseStructure<List<Inquiry>>(HttpStatus.OK.value(),"Inquiries fetched Sucessfully",list,LocalDateTime.now());
+		return new ResponseStructure<>(HttpStatus.OK.value(),"Inquiries fetched Sucessfully",list,LocalDateTime.now());
 	}
 
 	@Transactional
@@ -90,7 +91,22 @@ public class InquiryService {
 	public ResponseStructure<Inquiry> deleteInquiry(int id)
     {
     	Inquiry inquiry=inquiryDao.deleteInquiry(id);
-    	return new ResponseStructure<Inquiry>(HttpStatus.OK.value(), "Inqury deleted Succesfully", inquiry,LocalDateTime.now());
+    	return new ResponseStructure<>(HttpStatus.OK.value(), "Inqury deleted Succesfully", inquiry,LocalDateTime.now());
 
     }
+
+	public ResponseStructure<Inquiry> saveHelpRequest(HelpRequestDTO helpRequestDTO)
+	{
+		Inquiry inquiry = new Inquiry();
+		inquiry.setSubject(helpRequestDTO.getSubject());
+		inquiry.setInquiryType(helpRequestDTO.getInquiryType());
+		inquiry.setDescription(helpRequestDTO.getDescription());
+		inquiry.setPhoneNo(helpRequestDTO.getPhone());
+		inquiry.setName(String.valueOf(helpRequestDTO.getPhone()));
+		inquiry.setCreationTime(LocalDateTime.now());
+		inquiry.setComments(new ArrayList<>());
+
+		Inquiry savedInquiry = inquiryRepository.save(inquiry);
+		return new ResponseStructure<>(HttpStatus.OK.value(), "Help request submitted successfully", savedInquiry, LocalDateTime.now());
+	}
 }

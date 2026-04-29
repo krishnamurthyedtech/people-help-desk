@@ -140,6 +140,39 @@ header.header-top-bar {
   border-color: rgba(255,255,255,0.5);
 }
 
+/* Language Select Dropdown Styling */
+.language-select {
+  background-color: rgba(255,255,255,0.15);
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.4);
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin-left: 8px;
+  outline: none;
+  min-width: 80px;
+}
+
+.language-select:hover {
+  background-color: rgba(255,255,255,0.25);
+  border-color: rgba(255,255,255,0.7);
+}
+
+.language-select:focus {
+  background-color: rgba(255,255,255,0.25);
+  border-color: rgba(255,255,255,0.8);
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.2);
+}
+
+.language-select option {
+  background-color: #ffffff;
+  color: #2c3e50;
+  padding: 10px;
+}
+
 .btn-help {
   background-color: transparent;
   color: #ffffff;
