@@ -11,7 +11,9 @@ export const useLanguage = () => {
 };
 
 export const LanguageProvider = ({ children }) => {
-  const [selectedLanguage, setSelectedLanguage] = useState('english');
+  const [selectedLanguage, setSelectedLanguage] = useState(() => {
+    return localStorage.getItem('selectedLanguage') || 'english';
+  });
 
   const translations = {
     english: {
@@ -58,7 +60,20 @@ export const LanguageProvider = ({ children }) => {
       
       // Language Dropdown
       language: 'Language',
-      selectLanguage: 'Select Language'
+      selectLanguage: 'Select Language',
+
+      // Navigation Menu & Buttons
+      home: 'Home',
+      law: 'Law',
+      finance: 'Finance',
+      education: 'Education',
+      land: 'Land',
+      health: 'Health',
+      help: 'Help',
+      login: 'Login',
+      signup: 'Sign Up',
+      logout: 'Logout',
+      appTitle: 'People Help Desk'
     },
     telugu: {
       // Common
@@ -104,7 +119,20 @@ export const LanguageProvider = ({ children }) => {
       
       // Language Dropdown
       language: 'భాష',
-      selectLanguage: 'భాషను ఎంచుకోండి'
+      selectLanguage: 'భాషను ఎంచుకోండి',
+
+      // Navigation Menu & Buttons
+      home: 'హోమ్',
+      law: 'న్యాయం',
+      finance: 'ఆర్థికం',
+      education: 'విద్య',
+      land: 'భూమి',
+      health: 'ఆరోగ్యం',
+      help: 'సహాయం',
+      login: 'లాగిన్',
+      signup: 'సైన్ అప్',
+      logout: 'లాగౌట్',
+      appTitle: 'పీపుల్ హెల్ప్ డెస్క్'
     },
     tamil: {
       // Common
@@ -150,7 +178,20 @@ export const LanguageProvider = ({ children }) => {
       
       // Language Dropdown
       language: 'மொழி',
-      selectLanguage: 'மொழியைத் தேர்வுசெய்யவும்'
+      selectLanguage: 'மொழியைத் தேர்வுசெய்யவும்',
+
+      // Navigation Menu & Buttons
+      home: 'முகப்பு',
+      law: 'சட்டம்',
+      finance: 'நிதி',
+      education: 'கல்வி',
+      land: 'நிலம்',
+      health: 'சுகாதாரம்',
+      help: 'உதவி',
+      login: 'உள்நுழை',
+      signup: 'பதிவு',
+      logout: 'வெளியேறு',
+      appTitle: 'பீப்பிள் ஹெல்ப் டெஸ்க்'
     },
     kannada: {
       // Common
@@ -196,7 +237,20 @@ export const LanguageProvider = ({ children }) => {
       
       // Language Dropdown
       language: 'ಭಾಷೆ',
-      selectLanguage: 'ಭಾಷೆಯನ್ನು ಆಯ್ರಿಸಿ'
+      selectLanguage: 'ಭಾಷೆಯನ್ನು ಆಯ್ರಿಸಿ',
+
+      // Navigation Menu & Buttons
+      home: 'ಮುಖಪುಟ',
+      law: 'ಕಾನೂನು',
+      finance: 'ಹಣಕಾಸು',
+      education: 'ಶಿಕ್ಷಣ',
+      land: 'ಭೂಮಿ',
+      health: 'ಆರೋಗ್ಯ',
+      help: 'ಸಹಾಯ',
+      login: 'ಲಾಗಿನ್',
+      signup: 'ಸೈನ್ ಅಪ್',
+      logout: 'ಲಾಗ್‌ಔಟ್',
+      appTitle: 'ಪೀಪಲ್ ಹೆಲ್ಪ್ ಡೆಸ್ಕ್'
     },
     malayalam: {
       // Common
@@ -242,7 +296,20 @@ export const LanguageProvider = ({ children }) => {
       
       // Language Dropdown
       language: 'ഭാഷ',
-      selectLanguage: 'ഭാഷ തിരഞ്ഞെടുക്കുക'
+      selectLanguage: 'ഭാഷ തിരഞ്ഞെടുക്കുക',
+
+      // Navigation Menu & Buttons
+      home: 'ഹോം',
+      law: 'നിയമം',
+      finance: 'ധനകാര്യം',
+      education: 'വിദ്യാഭ്യാസം',
+      land: 'ഭൂമി',
+      health: 'ആരോഗ്യം',
+      help: 'സഹായം',
+      login: 'ലോഗിൻ',
+      signup: 'സൈൻ അപ്പ്',
+      logout: 'ലോഗ്ഔട്ട്',
+      appTitle: 'പീപ്പിൾ ഹെൽപ്പ് ഡെസ്ക്'
     },
     hindi: {
       // Common
@@ -288,16 +355,30 @@ export const LanguageProvider = ({ children }) => {
       
       // Language Dropdown
       language: 'भाषा',
-      selectLanguage: 'भाषा चुनें'
+      selectLanguage: 'भाषा चुनें',
+
+      // Navigation Menu & Buttons
+      home: 'होम',
+      law: 'कानून',
+      finance: 'वित्त',
+      education: 'शिक्षा',
+      land: 'भूमि',
+      health: 'स्वास्थ्य',
+      help: 'सहायता',
+      login: 'लॉग इन',
+      signup: 'साइन अप',
+      logout: 'लॉग आउट',
+      appTitle: 'पीपल हेल्प डेस्क'
     }
   };
 
   const t = (key) => {
-    return translations[selectedLanguage][key] || translations.english[key] || key;
+    return translations[selectedLanguage]?.[key] || translations.english?.[key] || key;
   };
 
   const changeLanguage = (language) => {
     setSelectedLanguage(language);
+    localStorage.setItem('selectedLanguage', language);
   };
 
   return (

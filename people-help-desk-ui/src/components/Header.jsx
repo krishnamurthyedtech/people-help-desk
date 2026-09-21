@@ -13,7 +13,7 @@ const Header = ({
 }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef(null);
-  const { selectedLanguage, changeLanguage } = useLanguage();
+  const { selectedLanguage, changeLanguage, t } = useLanguage();
 
   const handleNavClick = (category) => {
     setSelectedCategory(category);
@@ -51,23 +51,23 @@ const Header = ({
           {/* Navigation Menu */}
           <nav className="header-nav">
             <ul>
-              <li><Link to="/" onClick={() => handleNavClick('HOME')}>Home</Link></li>
-              <li><Link to="/" onClick={() => handleNavClick('LAW')}>Law</Link></li>
-              <li><Link to="/" onClick={() => handleNavClick('FINANCE')}>Finance</Link></li>
-              <li><Link to="/" onClick={() => handleNavClick('EDUCATION')}>Education</Link></li>
-              <li><Link to="/" onClick={() => handleNavClick('LAND')}>Land</Link></li>
-              <li><Link to="/" onClick={() => handleNavClick('HEALTH')}>Health</Link></li>
+              <li><Link to="/" onClick={() => handleNavClick('HOME')}>{t('home')}</Link></li>
+              <li><Link to="/" onClick={() => handleNavClick('LAW')}>{t('law')}</Link></li>
+              <li><Link to="/" onClick={() => handleNavClick('FINANCE')}>{t('finance')}</Link></li>
+              <li><Link to="/" onClick={() => handleNavClick('EDUCATION')}>{t('education')}</Link></li>
+              <li><Link to="/" onClick={() => handleNavClick('LAND')}>{t('land')}</Link></li>
+              <li><Link to="/" onClick={() => handleNavClick('HEALTH')}>{t('health')}</Link></li>
             </ul>
           </nav>
 
           {/* Auth Buttons */}
           <div className="login-signup">
             <Link to="/help" className="btn-help">
-              Help
+              {t('help')}
             </Link>
             {isAuthenticated ? (
               <>
-                <button onClick={onLogout}>Logout</button>
+                <button onClick={onLogout}>{t('logout')}</button>
                 <Link to="/dashboard">
                   <FontAwesomeIcon icon={faUserCircle} size="2x" style={{ color: 'white' }} />
                 </Link>
@@ -75,32 +75,32 @@ const Header = ({
             ) : (
               <>
                 <Link to="/login" className="btn-login">
-                  Login
+                  {t('login')}
                 </Link>
                 <Link to="/signup" className="btn-signup">
-                  Sign Up
+                  {t('signup')}
                 </Link>
-                <select
-                  className="language-select"
-                  value={selectedLanguage}
-                  onChange={(e) => changeLanguage(e.target.value)}
-                >
-                  <option value="english">English</option>
-                  <option value="telugu">తెలుగు</option>
-                  <option value="tamil">தமிழ்</option>
-                  <option value="kannada">ಕನ್ನಡ</option>
-                  <option value="malayalam">മലയാളം</option>
-                  <option value="hindi">हिंदी</option>
-                </select>
               </>
             )}
+            <select
+              className="language-select"
+              value={selectedLanguage}
+              onChange={(e) => changeLanguage(e.target.value)}
+            >
+              <option value="english">English</option>
+              <option value="telugu">తెలుగు</option>
+              <option value="tamil">தமிழ்</option>
+              <option value="kannada">ಕನ್ನಡ</option>
+              <option value="malayalam">മലയാളം</option>
+              <option value="hindi">हिंदी</option>
+            </select>
           </div>
         </div>
       </header>
 
       <div className="wrapper">
         <div className="logo-title">
-          <h1>People Help Desk</h1>
+          <h1>{t('appTitle')}</h1>
         </div>
       </div>
       <hr className="divider-color" />
