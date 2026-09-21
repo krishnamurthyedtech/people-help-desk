@@ -50,19 +50,21 @@ function App() {
           onLogout={handleLogout}
           setSelectedCategory={setSelectedCategory}
         />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Content selectedCategory={selectedCategory} />
-            }
-          />
-          <Route path="/login" element={<LoginForm />} />
-          <Route path="/signup" element={<SignupForm />} />
-          <Route path="/help" element={<HelpForm />} />
-          <Route path="/dashboard" element={isAuthenticated ? <Dashboard /> : <Navigate to="/" />} />
-          <Route path="/dashboard/comments/:inquiryId/:userId" element={<CommentsPage />} />
-        </Routes>
+        <div className="main-content">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Content selectedCategory={selectedCategory} />
+              }
+            />
+            <Route path="/login" element={<LoginForm />} />
+            <Route path="/signup" element={<SignupForm />} />
+            <Route path="/help" element={<HelpForm />} />
+            <Route path="/dashboard" element={isAuthenticated ? <Dashboard /> : <Navigate to="/" />} />
+            <Route path="/dashboard/comments/:inquiryId/:userId" element={<CommentsPage />} />
+          </Routes>
+        </div>
         <Footer showForm={false} />
         
             </Router>
